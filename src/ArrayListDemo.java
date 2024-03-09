@@ -16,7 +16,7 @@ public class ArrayListDemo {
         
         Question q1 = new Question(correctAnswer, question);
         quiz.add(q1);
-        q1.setQuestionNumber(quiz.indexOf(q1)+1);
+        q1.setNumberID(quiz.indexOf(q1)+1);
         System.out.println("Added successfully");
     }
 
@@ -71,6 +71,7 @@ public class ArrayListDemo {
                         String newQuestion = scanner.nextLine();
                         i.setQuestion(newQuestion);
                         System.out.println("Question has been changed successfully.");
+                        return;
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                         System.out.println("Invalid input.");
@@ -85,13 +86,14 @@ public class ArrayListDemo {
                         String newAnswer = scanner.nextLine();
                         i.setCorrectAnswer(newAnswer);
                         System.out.println("Answer has been changed successfully.");
+                        return;
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                         System.out.println("Invalid input.");
                         return;
                     }
                     
-
+                    System.out.println("Returning to the main menu...");
                     return;
                 }
             }

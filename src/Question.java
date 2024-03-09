@@ -4,15 +4,21 @@ public class Question {
     private String correctAnswer;
     private String question;
     private String questionID;
+    static private int AdderID = 0;
 
     public Question(String correctAnswer, String question){
         this.correctAnswer = correctAnswer;
         this.question = question;
     }
 
+    public void setNumberID(int questionNumber){
+        Question.AdderID +=1;
+        this.questionNumber = questionNumber;
+        this.questionID = "00" + Question.AdderID;
+    }
+
     public void setQuestionNumber(int questionNumber){
         this.questionNumber = questionNumber;
-        this.questionID = "00" + questionNumber;
     }
 
     public void setCorrectAnswer(String correctAnswer){

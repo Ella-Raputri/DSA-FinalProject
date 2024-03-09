@@ -25,10 +25,10 @@ public class HashMapDemo {
         String correctAnswer = scanner.nextLine();
         
         Question q1 = new Question(correctAnswer, question);
-        q1.setQuestionNumber(quiz.size()+1);
+        q1.setNumberID(quiz.size()+1);
 
         quiz.put(q1, q1.getQuestionID());
-        System.out.println("Added successfully" + q1.getQuestionID());
+        System.out.println("Added successfully");
     }
 
 
@@ -50,7 +50,6 @@ public class HashMapDemo {
                     i.setQuestionNumber(j);
                     quiz.put(i, i.getQuestionID());
                     j++;
-                    System.out.println(i.getQuestion() + quiz.get(i));
                 }
                 return;
             }
@@ -59,92 +58,97 @@ public class HashMapDemo {
     }
 
 
-    // public void editQuestion(){
-    //     if(quiz.isEmpty()){
-    //         System.out.println("Your current quiz is empty.");
-    //     }
-    //     else{
-    //         printQuestions();
-    //         System.out.print("What question ID do you want to edit? ");
-    //         String answer = scanner.nextLine();
+    public void editQuestion(){
+        if(quiz.isEmpty()){
+            System.out.println("Your current quiz is empty.");
+        }
+        else{
+            printQuestions();
+            System.out.print("What question ID do you want to edit? ");
+            String answer = scanner.nextLine();
 
-    //         if(quiz.containsKey(answer)){
-    //             System.out.println("Current question: " + quiz.get(answer).getQuestion());
-    //             System.out.println("Current answer: " + quiz.get(answer).getCorrectAnswer());
+            if(quiz.containsValue(answer)){
+                Question key = getKeyByValue(quiz, answer);
+                System.out.println("Current question: " + key.getQuestion());
+                System.out.println("Current answer: " + key.getCorrectAnswer());
 
-    //             System.out.print("Do you want to change the question? (Y/N) ");
-    //             String questionChange = scanner.nextLine();
-    //             questionChange = questionChange.toLowerCase();
+                System.out.print("Do you want to change the question? (Y/N) ");
+                String questionChange = scanner.nextLine();
+                questionChange = questionChange.toLowerCase();
 
-    //             if(questionChange.equals("y")){
-    //                 System.out.print("New Question: ");
-    //                 String newQuestion = scanner.nextLine();
-    //                 quiz.get(answer).setQuestion(newQuestion);
-    //                 System.out.println("Question has been changed successfully.");
-    //             }
-    //             else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-    //                 System.out.println("Invalid input.");
-    //                 return;
-    //             }
+                if(questionChange.equals("y")){
+                    System.out.print("New Question: ");
+                    String newQuestion = scanner.nextLine();
+                    key.setQuestion(newQuestion);
+                    System.out.println("Question has been changed successfully.");
+                    return;
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
+                    return;
+                }
 
-    //             System.out.print("Do you want to change the answer? (Y/N) ");
-    //             String answerChange = scanner.nextLine();
-    //             answerChange = answerChange.toLowerCase();
-    //             if(answerChange.equals("y")){
-    //                 System.out.print("New Answer: ");
-    //                 String newAnswer = scanner.nextLine();
-    //                 quiz.get(answer).setCorrectAnswer(newAnswer);
-    //                 System.out.println("Answer has been changed successfully.");
-    //             }
-    //             else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-    //                 System.out.println("Invalid input.");
-    //                 return;
-    //             }
+                System.out.print("Do you want to change the answer? (Y/N) ");
+                String answerChange = scanner.nextLine();
+                answerChange = answerChange.toLowerCase();
+                if(answerChange.equals("y")){
+                    System.out.print("New Answer: ");
+                    String newAnswer = scanner.nextLine();
+                    getKeyByValue(quiz, answer).setCorrectAnswer(newAnswer);;
+                    System.out.println("Answer has been changed successfully.");
+                    return;
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
+                    return;
+                }
+                
+                System.out.println("Returning to the main menu...");
+                return;
+            }
 
-    //             return;
-    //         }
-
-    //         System.out.println("ID invalid. Please try again.");
-    //     }
-    // }
+            System.out.println("ID invalid. Please try again.");
+        }
+    }
 
 
-    // public void changeOrder(){
-    //     if(quiz.isEmpty()){
-    //         System.out.println("Your current quiz is empty.");
-    //     }
-    //     else{
-    //         printQuestions();
-    //         System.out.print("What question ID do you want to change the order? ");
-    //         String answer = scanner.nextLine();
+    public void changeOrder(){
+        if(quiz.isEmpty()){
+            System.out.println("Your current quiz is empty.");
+        }
+        else{
+            printQuestions();
+            System.out.print("What question ID do you want to change the order? ");
+            String answer = scanner.nextLine();
 
-    //         if(quiz.containsKey(answer)){
-    //             System.out.println("Current question number: " + quiz.get(answer).getQuestionNumber());
+            if(quiz.containsValue(answer)){
+                Question key = getKeyByValue(quiz, answer);
+                System.out.println("Current question number: " + key.getQuestionNumber());
 
-    //             System.out.print("Change to question number: ");
-    //             int newNumber = scanner.nextInt();
-    //             scanner.nextLine();
+                System.out.print("Change to question number: ");
+                int newNumber = scanner.nextInt();
+                scanner.nextLine();
 
-    //             if(newNumber <= quiz.size()){
-    //                 for(String i:quiz.keySet()){
-    //                     if(quiz.get(i).getQuestionNumber() == newNumber){
-    //                         quiz.get(i).setQuestionNumber(quiz.get(answer).getQuestionNumber());
-    //                         break;
-    //                     }
-    //                 }
-    //                 quiz.get(answer).setQuestionNumber(newNumber);
-    //                 System.out.println("Question number has been changed successfully.");
-    //             }
-    //             else{
-    //                 System.out.println("The number is out of list");
-    //                 return;
-    //             }
-    //             return;
-    //         }
-    //         System.out.println("ID invalid. Please try again.");
+                if(newNumber <= quiz.size()){
+                    for(Question i:quiz.keySet()){
+                        if(i.getQuestionNumber() == newNumber){
+                            i.setQuestionNumber(key.getQuestionNumber());
+                            break;
+                        }
+                    }
+                    key.setQuestionNumber(newNumber);
+                    System.out.println("Question number has been changed successfully.");
+                }
+                else{
+                    System.out.println("The number is out of list");
+                    return;
+                }
+                return;
+            }
+            System.out.println("ID invalid. Please try again.");
 
-    //     }
-    // }
+        }
+    }
 
 
     public void printQuestions(){
@@ -164,27 +168,28 @@ public class HashMapDemo {
     }
 
 
-    // public void questionSearch(){
-    //     if(quiz.isEmpty()){
-    //         System.out.println("Your current quiz is empty.");
-    //     }
-    //     else{
-    //         System.out.print("Search for question ID: ");
-    //         String answer = scanner.nextLine();
+    public void questionSearch(){
+        if(quiz.isEmpty()){
+            System.out.println("Your current quiz is empty.");
+        }
+        else{
+            System.out.print("Search for question ID: ");
+            String answer = scanner.nextLine();
 
-    //         if(quiz.containsKey(answer)){
-    //             System.out.println("Question " + quiz.get(answer).getQuestionNumber());
-    //             System.out.println("Question ID: "+ quiz.get(answer).getQuestionID());
-    //             System.out.println("Question: "+ quiz.get(answer).getQuestion());
-    //             System.out.println("Answer: "+ quiz.get(answer).getCorrectAnswer());
-    //             System.out.println();
-    //             return;
-    //         }
+            if(quiz.containsValue(answer)){
+                Question key = getKeyByValue(quiz, answer);
+                System.out.println("Question " + key.getQuestionNumber());
+                System.out.println("Question ID: "+ key.getQuestionID());
+                System.out.println("Question: "+ key.getQuestion());
+                System.out.println("Answer: "+ key.getCorrectAnswer());
+                System.out.println();
+                return;
+            }
 
-    //         System.out.println("ID invalid. Please try again.");
+            System.out.println("ID invalid. Please try again.");
 
-    //     }
-    // }
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -213,18 +218,18 @@ public class HashMapDemo {
                 case "D":
                     demo.deleteQuestion();
                     break;
-                // case "E":
-                //     demo.editQuestion();
-                //     break;
-                // case "C":
-                //     demo.changeOrder();
-                    // break;
+                case "E":
+                    demo.editQuestion();
+                    break;
+                case "C":
+                    demo.changeOrder();
+                    break;
                 case "P":
                     demo.printQuestions();
                     break;
-                // case "S":
-                //     demo.questionSearch();
-                //     break;
+                case "S":
+                    demo.questionSearch();
+                    break;
                 case "Q":
                     return;
                 default:
