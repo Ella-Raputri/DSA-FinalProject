@@ -81,7 +81,6 @@ public class HashMapDemo {
                     String newQuestion = scanner.nextLine();
                     key.setQuestion(newQuestion);
                     System.out.println("Question has been changed successfully.");
-                    return;
                 }
                 else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                     System.out.println("Invalid input.");
@@ -96,7 +95,6 @@ public class HashMapDemo {
                     String newAnswer = scanner.nextLine();
                     getKeyByValue(quiz, answer).setCorrectAnswer(newAnswer);;
                     System.out.println("Answer has been changed successfully.");
-                    return;
                 }
                 else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                     System.out.println("Invalid input.");
@@ -157,13 +155,20 @@ public class HashMapDemo {
         }
         else{
             System.out.println("\nYour current quiz: ");
-            for(Question i: quiz.keySet()){
-                System.out.println("Question " + i.getQuestionNumber());
-                System.out.println("Question ID: "+ i.getQuestionID());
-                System.out.println("Question: "+ i.getQuestion());
-                System.out.println("Answer: "+ i.getCorrectAnswer());
-                System.out.println();
+
+            for(int i=1; i<=quiz.size(); i++){
+                for(Question key: quiz.keySet()){
+                    if(key.getQuestionNumber() == i){
+                        System.out.println("Question " + key.getQuestionNumber());
+                        System.out.println("Question ID: "+ key.getQuestionID());
+                        System.out.println("Question: "+ key.getQuestion());
+                        System.out.println("Answer: "+ key.getCorrectAnswer());
+                        System.out.println();
+
+                    }
+                }
             }
+           
         }
     }
 

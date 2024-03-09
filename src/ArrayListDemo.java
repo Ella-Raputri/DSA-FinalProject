@@ -71,7 +71,6 @@ public class ArrayListDemo {
                         String newQuestion = scanner.nextLine();
                         i.setQuestion(newQuestion);
                         System.out.println("Question has been changed successfully.");
-                        return;
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                         System.out.println("Invalid input.");
@@ -86,7 +85,6 @@ public class ArrayListDemo {
                         String newAnswer = scanner.nextLine();
                         i.setCorrectAnswer(newAnswer);
                         System.out.println("Answer has been changed successfully.");
-                        return;
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                         System.out.println("Invalid input.");
