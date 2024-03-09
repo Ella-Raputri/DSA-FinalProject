@@ -127,7 +127,10 @@ public class HashMapDemo {
                 int newNumber = scanner.nextInt();
                 scanner.nextLine();
 
-                if(newNumber <= quiz.size()){
+                if(key.getQuestionNumber() == newNumber){
+                    System.out.println("Question number is not changed.");
+                }
+                else if(newNumber <= quiz.size() && newNumber > 0){
                     for(Question i:quiz.keySet()){
                         if(i.getQuestionNumber() == newNumber){
                             i.setQuestionNumber(key.getQuestionNumber());

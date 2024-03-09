@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ArrayListDemo {
+public class LinkedListDemo {
 
-    ArrayList<Question> quiz = new ArrayList<Question>();
+    LinkedList<Question> quiz = new LinkedList<Question>();
     static Scanner scanner = new Scanner(System.in);
 
     public void addQuestion(){
@@ -32,7 +32,7 @@ public class ArrayListDemo {
 
             for(Question i:quiz){
                 if(i.getQuestionID().equals(answer)){
-                    int j = quiz.indexOf(i);
+                    int j = quiz.indexOf(i); 
                     quiz.remove(i);
                     System.out.println("Deleted successfully.");
 
@@ -117,7 +117,7 @@ public class ArrayListDemo {
                     System.out.print("Change to question number: ");
                     int newNumber = scanner.nextInt();
                     scanner.nextLine();
-                    
+
                     if(i.getQuestionNumber() == newNumber){
                         System.out.println("Question number is not changed.");
                     }
@@ -185,7 +185,7 @@ public class ArrayListDemo {
 
     public static void main(String[] args) {
          
-        ArrayListDemo demo = new ArrayListDemo();
+        LinkedListDemo demo = new LinkedListDemo();
 
         while(true){
             System.out.println("\n************************************");
