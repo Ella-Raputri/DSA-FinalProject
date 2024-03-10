@@ -35,6 +35,7 @@ public class HashMapDemo {
     public void deleteQuestion(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -61,6 +62,7 @@ public class HashMapDemo {
     public void editQuestion(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -113,6 +115,7 @@ public class HashMapDemo {
     public void changeOrder(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -129,6 +132,7 @@ public class HashMapDemo {
 
                 if(key.getQuestionNumber() == newNumber){
                     System.out.println("Question number is not changed.");
+                    return;
                 }
                 else if(newNumber <= quiz.size() && newNumber > 0){
                     for(Question i:quiz.keySet()){
@@ -155,6 +159,7 @@ public class HashMapDemo {
     public void printQuestions(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             System.out.println("\nYour current quiz: ");
@@ -179,6 +184,7 @@ public class HashMapDemo {
     public void questionSearch(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             System.out.print("Search for question ID: ");

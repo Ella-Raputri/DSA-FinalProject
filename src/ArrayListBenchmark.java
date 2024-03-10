@@ -2,28 +2,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ArrayListDemo {
+public class ArrayListBenchmark {
 
     ArrayList<Question> quiz = new ArrayList<Question>();
     static Scanner scanner = new Scanner(System.in);
 
-    public void addQuestion(){
-        System.out.print("Enter question: ");
-        String question = scanner.nextLine();
-
-        System.out.print("Enter correct answer: ");
-        String correctAnswer = scanner.nextLine();
-        
+    public void addQuestion(String question, String correctAnswer){
         Question q1 = new Question(correctAnswer, question);
         quiz.add(q1);
         q1.setNumberID(quiz.indexOf(q1)+1);
-        System.out.println("Added successfully");
     }
 
 
     public void deleteQuestion(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -35,7 +27,6 @@ public class ArrayListDemo {
                 if(i.getQuestionID().equals(answer)){
                     int j = quiz.indexOf(i);
                     quiz.remove(i);
-                    System.out.println("Deleted successfully.");
 
                     while(j < quiz.size()){
                         quiz.get(j).setQuestionNumber(j+1);
@@ -44,15 +35,12 @@ public class ArrayListDemo {
                     return;
                 }
             }
-
-            System.out.println("ID invalid. Please try again.");
         }
     }
 
 
     public void editQuestion(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -72,10 +60,8 @@ public class ArrayListDemo {
                         System.out.print("New Question: ");
                         String newQuestion = scanner.nextLine();
                         i.setQuestion(newQuestion);
-                        System.out.println("Question has been changed successfully.");
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
                         return;
                     }
 
@@ -86,26 +72,21 @@ public class ArrayListDemo {
                         System.out.print("New Answer: ");
                         String newAnswer = scanner.nextLine();
                         i.setCorrectAnswer(newAnswer);
-                        System.out.println("Answer has been changed successfully.");
                     }
                     else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
                         return;
                     }
                     
-                    System.out.println("Returning to the main menu...");
                     return;
                 }
             }
 
-            System.out.println("ID invalid. Please try again.");
         }
     }
 
 
     public void changeOrder(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -122,17 +103,14 @@ public class ArrayListDemo {
                     scanner.nextLine();
                     
                     if(i.getQuestionNumber() == newNumber){
-                        System.out.println("Question number is not changed.");
                         return;
                     }
                     else if(newNumber <= quiz.size() && newNumber > 0){
                         i.setQuestionNumber(newNumber);
                         quiz.get(newNumber-1).setQuestionNumber(quiz.indexOf(i)+1);
                         Collections.swap(quiz, quiz.indexOf(i), (newNumber-1));
-                        System.out.println("Question number has been changed successfully.");
                     }
                     else{
-                        System.out.println("The number is out of list");
                         return;
                     }
 
@@ -140,14 +118,12 @@ public class ArrayListDemo {
                 }
             }
 
-            System.out.println("ID invalid. Please try again.");
         }
     }
 
 
     public void printQuestions(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -165,7 +141,6 @@ public class ArrayListDemo {
 
     public void questionSearch(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -183,60 +158,59 @@ public class ArrayListDemo {
                 }
             }
 
-            System.out.println("ID invalid. Please try again.");
 
         }
     }
 
 
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
          
-        ArrayListDemo demo = new ArrayListDemo();
+    //     ArrayListBenchmark demo = new ArrayListBenchmark();
 
-        while(true){
-            System.out.println("\n************************************");
-            System.out.println("\nQuestion Editing");
-            System.out.println("(A)dd");
-            System.out.println("(D)elete");
-            System.out.println("(E)dit Question");
-            System.out.println("(C)hange Question's Order");
-            System.out.println("(P)rint List of Questions");
-            System.out.println("(S)earch");
-            System.out.println("(Q)uit");
-            System.out.println("************************************");
-            System.out.print("Please enter a command: ");
-            String command = scanner.nextLine();
-            command = command.toUpperCase();
+    //     while(true){
+    //         System.out.println("\n************************************");
+    //         System.out.println("\nQuestion Editing");
+    //         System.out.println("(A)dd");
+    //         System.out.println("(D)elete");
+    //         System.out.println("(E)dit Question");
+    //         System.out.println("(C)hange Question's Order");
+    //         System.out.println("(P)rint List of Questions");
+    //         System.out.println("(S)earch");
+    //         System.out.println("(Q)uit");
+    //         System.out.println("************************************");
+    //         System.out.print("Please enter a command: ");
+    //         String command = scanner.nextLine();
+    //         command = command.toUpperCase();
 
-            switch (command) {
-                case "A":
-                    demo.addQuestion();
-                    break;
-                case "D":
-                    demo.deleteQuestion();
-                    break;
-                case "E":
-                    demo.editQuestion();
-                    break;
-                case "C":
-                    demo.changeOrder();
-                    break;
-                case "P":
-                    demo.printQuestions();
-                    break;
-                case "S":
-                    demo.questionSearch();
-                    break;
-                case "Q":
-                    return;
-                default:
-                    System.out.println("Invalid command. Please try again.");
-                    break;
-            }
-        }
+    //         switch (command) {
+    //             case "A":
+    //                 demo.addQuestion();
+    //                 break;
+    //             case "D":
+    //                 demo.deleteQuestion();
+    //                 break;
+    //             case "E":
+    //                 demo.editQuestion();
+    //                 break;
+    //             case "C":
+    //                 demo.changeOrder();
+    //                 break;
+    //             case "P":
+    //                 demo.printQuestions();
+    //                 break;
+    //             case "S":
+    //                 demo.questionSearch();
+    //                 break;
+    //             case "Q":
+    //                 return;
+    //             default:
+    //                 System.out.println("Invalid command. Please try again.");
+    //                 break;
+    //         }
+        // }
 
 
     
 
-    }
+    // }
 }

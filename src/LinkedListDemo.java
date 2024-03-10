@@ -24,6 +24,7 @@ public class LinkedListDemo {
     public void deleteQuestion(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -52,6 +53,7 @@ public class LinkedListDemo {
     public void editQuestion(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -104,6 +106,7 @@ public class LinkedListDemo {
     public void changeOrder(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             printQuestions();
@@ -120,6 +123,7 @@ public class LinkedListDemo {
 
                     if(i.getQuestionNumber() == newNumber){
                         System.out.println("Question number is not changed.");
+                        return;
                     }
                     else if(newNumber <= quiz.size() && newNumber > 0){
                         i.setQuestionNumber(newNumber);
@@ -144,6 +148,7 @@ public class LinkedListDemo {
     public void printQuestions(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             System.out.println("\nYour current quiz: ");
@@ -161,6 +166,7 @@ public class LinkedListDemo {
     public void questionSearch(){
         if(quiz.isEmpty()){
             System.out.println("Your current quiz is empty.");
+            return;
         }
         else{
             System.out.print("Search for question ID: ");
