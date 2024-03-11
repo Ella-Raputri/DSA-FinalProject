@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ArrayListBenchmark {
+public class LinkedListBenchmark {
 
-    ArrayList<Question> quiz = new ArrayList<Question>();
+    LinkedList<Question> quiz = new LinkedList<Question>();
     static Scanner scanner = new Scanner(System.in);
 
     public void addQuestion(String question, String correctAnswer){
@@ -14,14 +14,14 @@ public class ArrayListBenchmark {
     }
 
 
-    public void deleteQuestion(String id){
+    public void deleteQuestion(String questionID){
         if(quiz.isEmpty()){
             return;
         }
         else{
             for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    int j = quiz.indexOf(i);
+                if(i.getQuestionID().equals(questionID)){
+                    int j = quiz.indexOf(i); 
                     quiz.remove(i);
 
                     while(j < quiz.size()){
@@ -31,6 +31,7 @@ public class ArrayListBenchmark {
                     return;
                 }
             }
+
         }
     }
 
@@ -59,7 +60,6 @@ public class ArrayListBenchmark {
                     return;
                 }
             }
-
         }
     }
 
@@ -71,6 +71,7 @@ public class ArrayListBenchmark {
         else{
             for(Question i:quiz){
                 if(i.getQuestionID().equals(questionID)){
+                    
                     if(i.getQuestionNumber() == newNumber){
                         return;
                     }
@@ -86,7 +87,6 @@ public class ArrayListBenchmark {
                     return;               
                 }
             }
-
         }
     }
 
@@ -124,59 +124,8 @@ public class ArrayListBenchmark {
                 }
             }
 
-
         }
     }
 
 
-    // public static void main(String[] args) {
-         
-    //     ArrayListBenchmark demo = new ArrayListBenchmark();
-
-    //     while(true){
-    //         System.out.println("\n************************************");
-    //         System.out.println("\nQuestion Editing");
-    //         System.out.println("(A)dd");
-    //         System.out.println("(D)elete");
-    //         System.out.println("(E)dit Question");
-    //         System.out.println("(C)hange Question's Order");
-    //         System.out.println("(P)rint List of Questions");
-    //         System.out.println("(S)earch");
-    //         System.out.println("(Q)uit");
-    //         System.out.println("************************************");
-    //         System.out.print("Please enter a command: ");
-    //         String command = scanner.nextLine();
-    //         command = command.toUpperCase();
-
-    //         switch (command) {
-    //             case "A":
-    //                 demo.addQuestion();
-    //                 break;
-    //             case "D":
-    //                 demo.deleteQuestion();
-    //                 break;
-    //             case "E":
-    //                 demo.editQuestion();
-    //                 break;
-    //             case "C":
-    //                 demo.changeOrder();
-    //                 break;
-    //             case "P":
-    //                 demo.printQuestions();
-    //                 break;
-    //             case "S":
-    //                 demo.questionSearch();
-    //                 break;
-    //             case "Q":
-    //                 return;
-    //             default:
-    //                 System.out.println("Invalid command. Please try again.");
-    //                 break;
-    //         }
-        // }
-
-
-    
-
-    // }
 }
