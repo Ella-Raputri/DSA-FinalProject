@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class LinkedListDemo {
@@ -126,9 +125,15 @@ public class LinkedListDemo {
                         return;
                     }
                     else if(newNumber <= quiz.size() && newNumber > 0){
+                        int indexOfi = quiz.indexOf(i);
+                        quiz.add(newNumber-1, i);
                         i.setQuestionNumber(newNumber);
-                        quiz.get(newNumber-1).setQuestionNumber(quiz.indexOf(i)+1);
-                        Collections.swap(quiz, quiz.indexOf(i), (newNumber-1));
+                        quiz.remove(indexOfi+1);
+
+                        while(newNumber < quiz.size()){
+                            quiz.get(newNumber).setQuestionNumber(newNumber+1);
+                            newNumber++;
+                        }
                         System.out.println("Question number has been changed successfully.");
                     }
                     else{

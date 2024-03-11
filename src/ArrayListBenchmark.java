@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class ArrayListBenchmark {
@@ -65,7 +64,7 @@ public class ArrayListBenchmark {
 
 
     public void changeOrder(String questionID, int newNumber){
-        if(quiz.isEmpty()){
+        if(quiz.isEmpty()){;
             return;
         }
         else{
@@ -75,9 +74,15 @@ public class ArrayListBenchmark {
                         return;
                     }
                     else if(newNumber <= quiz.size() && newNumber > 0){
+                        int indexOfi = quiz.indexOf(i);
+                        quiz.add(newNumber-1, i);
                         i.setQuestionNumber(newNumber);
-                        quiz.get(newNumber-1).setQuestionNumber(quiz.indexOf(i)+1);
-                        Collections.swap(quiz, quiz.indexOf(i), (newNumber-1));
+                        quiz.remove(indexOfi+1);
+
+                        while(newNumber < quiz.size()){
+                            quiz.get(newNumber).setQuestionNumber(newNumber+1);
+                            newNumber++;
+                        }
                     }
                     else{
                         return;
@@ -129,54 +134,5 @@ public class ArrayListBenchmark {
     }
 
 
-    // public static void main(String[] args) {
-         
-    //     ArrayListBenchmark demo = new ArrayListBenchmark();
-
-    //     while(true){
-    //         System.out.println("\n************************************");
-    //         System.out.println("\nQuestion Editing");
-    //         System.out.println("(A)dd");
-    //         System.out.println("(D)elete");
-    //         System.out.println("(E)dit Question");
-    //         System.out.println("(C)hange Question's Order");
-    //         System.out.println("(P)rint List of Questions");
-    //         System.out.println("(S)earch");
-    //         System.out.println("(Q)uit");
-    //         System.out.println("************************************");
-    //         System.out.print("Please enter a command: ");
-    //         String command = scanner.nextLine();
-    //         command = command.toUpperCase();
-
-    //         switch (command) {
-    //             case "A":
-    //                 demo.addQuestion();
-    //                 break;
-    //             case "D":
-    //                 demo.deleteQuestion();
-    //                 break;
-    //             case "E":
-    //                 demo.editQuestion();
-    //                 break;
-    //             case "C":
-    //                 demo.changeOrder();
-    //                 break;
-    //             case "P":
-    //                 demo.printQuestions();
-    //                 break;
-    //             case "S":
-    //                 demo.questionSearch();
-    //                 break;
-    //             case "Q":
-    //                 return;
-    //             default:
-    //                 System.out.println("Invalid command. Please try again.");
-    //                 break;
-    //         }
-        // }
-
-
     
-
-    // }
 }
