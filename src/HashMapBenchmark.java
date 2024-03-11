@@ -3,9 +3,31 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map.Entry;
 
-public class HashMapDemo {
+public class HashMapBenchmark {
     HashMap<Question, String> quiz = new HashMap<Question, String>();
     static Scanner scanner = new Scanner(System.in);
+
+    //to avoid concurrent modification exception in the benchmark file
+    public Question[] returnKeySet(){
+        Question[] setofkey = new Question[250];
+        int index=0;
+        
+        for(Question key: quiz.keySet()){
+            setofkey[index] = key;
+            index++;
+        }
+        return setofkey;
+    }
+
+    public String returnID(int number){
+        for(Question key:quiz.keySet()){
+            if(key.getQuestionNumber() == number){
+                return key.getQuestionID();
+            }
+        }
+        return "";
+    }
+
 
     public static <T, E> T getKeyByValue(Map<T, E> map, E value) {
         for (Entry<T, E> entry : map.entrySet()) {
@@ -17,34 +39,20 @@ public class HashMapDemo {
     }
 
 
-    public void addQuestion(){
-        System.out.print("Enter question: ");
-        String question = scanner.nextLine();
-
-        System.out.print("Enter correct answer: ");
-        String correctAnswer = scanner.nextLine();
-        
+    public void addQuestion(String question, String correctAnswer){
         Question q1 = new Question(correctAnswer, question);
         q1.setNumberID(quiz.size()+1);
-
         quiz.put(q1, q1.getQuestionID());
-        System.out.println("Added successfully");
     }
 
 
-    public void deleteQuestion(){
+    public void deleteQuestion(String questionID){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
-            printQuestions();
-            System.out.print("What question ID do you want to delete? ");
-            String answer = scanner.nextLine();
-
-            if(quiz.containsValue(answer)){
-                quiz.remove(getKeyByValue(quiz, answer));
-                System.out.println("Deleted successfully.");
+            if(quiz.containsValue(questionID)){
+                quiz.remove(getKeyByValue(quiz, questionID));
 
                 int j=1;
                 for(Question i: quiz.keySet()){
@@ -54,84 +62,46 @@ public class HashMapDemo {
                 }
                 return;
             }
-            System.out.println("ID invalid. Please try again.");
         }
     }
 
 
-    public void editQuestion(){
+    public void editQuestion(String questionID, String questionChange, String newQuestion, String answerChange, String newAnswer){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
-            printQuestions();
-            System.out.print("What question ID do you want to edit? ");
-            String answer = scanner.nextLine();
-
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
-                System.out.println("Current question: " + key.getQuestion());
-                System.out.println("Current answer: " + key.getCorrectAnswer());
-
-                System.out.print("Do you want to change the question? (Y/N) ");
-                String questionChange = scanner.nextLine();
-                questionChange = questionChange.toLowerCase();
-
+            if(quiz.containsValue(questionID)){
+                Question key = getKeyByValue(quiz, questionID);
                 if(questionChange.equals("y")){
-                    System.out.print("New Question: ");
-                    String newQuestion = scanner.nextLine();
                     key.setQuestion(newQuestion);
-                    System.out.println("Question has been changed successfully.");
                 }
                 else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                    System.out.println("Invalid input.");
                     return;
                 }
 
-                System.out.print("Do you want to change the answer? (Y/N) ");
-                String answerChange = scanner.nextLine();
-                answerChange = answerChange.toLowerCase();
                 if(answerChange.equals("y")){
-                    System.out.print("New Answer: ");
-                    String newAnswer = scanner.nextLine();
-                    getKeyByValue(quiz, answer).setCorrectAnswer(newAnswer);;
-                    System.out.println("Answer has been changed successfully.");
+                    getKeyByValue(quiz, questionID).setCorrectAnswer(newAnswer);;
                 }
                 else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                    System.out.println("Invalid input.");
                     return;
                 }
                 
-                System.out.println("Returning to the main menu...");
                 return;
             }
 
-            System.out.println("ID invalid. Please try again.");
         }
     }
 
 
-    public void changeOrder(){
+    public void changeOrder(String questionID, int newNumber){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
-            printQuestions();
-            System.out.print("What question ID do you want to change the order? ");
-            String answer = scanner.nextLine();
-
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
-                System.out.println("Current question number: " + key.getQuestionNumber());
-
-                System.out.print("Change to question number: ");
-                int newNumber = scanner.nextInt();
-                scanner.nextLine();
-
+            if(quiz.containsValue(questionID)){
+                Question key = getKeyByValue(quiz, questionID);
                 if(key.getQuestionNumber() == newNumber){
-                    System.out.println("Question number is not changed.");
                     return;
                 }
 
@@ -165,17 +135,14 @@ public class HashMapDemo {
                         
                     }
                     key.setQuestionNumber(newNumber);
-                    System.out.println("Question number has been changed successfully.");
                 }
 
 
                 else if(newNumber > quiz.size()){
-                    System.out.println("The number is out of list");
                     return;
                 }
                 return;
             }
-            System.out.println("ID invalid. Please try again.");
 
         }
     }
@@ -183,7 +150,6 @@ public class HashMapDemo {
 
     public void printQuestions(){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
@@ -206,17 +172,13 @@ public class HashMapDemo {
     }
 
 
-    public void questionSearch(){
+    public void questionSearch(String questionID){
         if(quiz.isEmpty()){
-            System.out.println("Your current quiz is empty.");
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
-            String answer = scanner.nextLine();
-
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
+            if(quiz.containsValue(questionID)){
+                Question key = getKeyByValue(quiz, questionID);
                 System.out.println("Question " + key.getQuestionNumber());
                 System.out.println("Question ID: "+ key.getQuestionID());
                 System.out.println("Question: "+ key.getQuestion());
@@ -224,8 +186,6 @@ public class HashMapDemo {
                 System.out.println();
                 return;
             }
-
-            System.out.println("ID invalid. Please try again.");
 
         }
     }

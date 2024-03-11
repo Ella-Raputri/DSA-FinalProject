@@ -36,7 +36,7 @@ public class Benchmark {
     }
 
 
-    public void add(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void add(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -64,10 +64,20 @@ public class Benchmark {
         endTime = System.nanoTime();
         getTime(startTime, endTime);
 
+
+        //Hashmap
+        System.out.println("Hash Map");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            hashMap.addQuestion(questions[i], answers[i]);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+
     }
 
 
-    public void delete(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void delete(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -94,10 +104,22 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Hashmap
+        System.out.println("Hash Map");
+        startTime = System.nanoTime();
+        Question[] setofkey = hashMap.returnKeySet();
+        for (int i = 0; i < n; i++) {
+            Question key = setofkey[i];
+            hashMap.deleteQuestion(key.getQuestionID());
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void edit(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void edit(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -124,10 +146,22 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Hashmap
+        System.out.println("Hash Map");
+        startTime = System.nanoTime();
+        Question[] setofkey = hashMap.returnKeySet();
+        for (int i = 0; i < n; i++) {
+            Question key = setofkey[i];
+            hashMap.editQuestion(key.getQuestionID(), "y", "a", "y", "a");
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void changeOrder(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void changeOrder(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         int n;
         long startTime, endTime;
 
@@ -159,10 +193,23 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Hashmap
+        System.out.println("Hash Map");
+        startTime = System.nanoTime();
+        Question[] setofkey = hashMap.returnKeySet();
+        for (int i = 0; i < n; i++) {
+            Question key = setofkey[i];
+            int randomNumber = rand.nextInt(n);
+            hashMap.changeOrder(key.getQuestionID(), randomNumber);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void print(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void print(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         long startTime1, endTime1, startTime2, endTime2, startTime3, endTime3, startTime4, endTime4;
         int n;
 
@@ -186,15 +233,24 @@ public class Benchmark {
         }
         endTime2 = System.nanoTime();
 
+        //Hashmap
+        startTime3 = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            hashMap.printQuestions();
+        }
+        endTime3 = System.nanoTime();
+
 
         System.out.println("Array List");
         getTime(startTime1, endTime1);
         System.out.println("Linked List");
         getTime(startTime2, endTime2);
+        System.out.println("Hash Map");
+        getTime(startTime3, endTime3);
     }
 
 
-    public void search(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList){
+    public void search(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
         long startTime, endTime;
 
         System.out.print("Search question number: ");
@@ -216,6 +272,14 @@ public class Benchmark {
         linkedList.questionSearch(linkedList.quiz.get(testingNumber-1).getQuestionID());
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+        //Hashmap
+        System.out.println("Hash Map");
+        startTime = System.nanoTime();
+        String id = hashMap.returnID(testingNumber);
+        hashMap.questionSearch(id);
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
     
@@ -231,6 +295,11 @@ public class Benchmark {
         LinkedListBenchmark linkedList = new LinkedListBenchmark();
         for (int i=0; i<250 && i<count; i++) {
             linkedList.addQuestion(questions[i], answers[i]);
+        }
+
+        HashMapBenchmark hashMap = new HashMapBenchmark();
+        for (int i=0; i<250 && i<count; i++) {
+            hashMap.addQuestion(questions[i], answers[i]);
         }
 
         
@@ -251,32 +320,32 @@ public class Benchmark {
         switch (command) {
             //add question
             case "a":
-                benchmark.add(arrayList, linkedList);
+                benchmark.add(arrayList, linkedList, hashMap);
                 break;
     
             //delete question
             case "d":
-                benchmark.delete(arrayList, linkedList);
+                benchmark.delete(arrayList, linkedList, hashMap);
                 break;
             
             //edit question
             case "e":
-                benchmark.edit(arrayList, linkedList);
+                benchmark.edit(arrayList, linkedList, hashMap);
                 break;
             
             //change order
             case "c":
-                benchmark.changeOrder(arrayList, linkedList);
+                benchmark.changeOrder(arrayList, linkedList, hashMap);
                 break;
             
             //printing all questions
             case "p":
-                benchmark.print(arrayList, linkedList);
+                benchmark.print(arrayList, linkedList, hashMap);
                 break;
             
             //searching a particular question
             case "s":
-                benchmark.search(arrayList, linkedList);
+                benchmark.search(arrayList, linkedList, hashMap);
                 break;
             
             //quit the program
