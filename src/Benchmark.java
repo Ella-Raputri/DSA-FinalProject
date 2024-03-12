@@ -36,7 +36,7 @@ public class Benchmark {
     }
 
 
-    public void add(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void add(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedList){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -55,16 +55,6 @@ public class Benchmark {
         getTime(startTime, endTime);
 
 
-        //Linked List
-        System.out.println("Linked List");
-        startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            linkedList.addQuestion(questions[i], answers[i]);
-        }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-
-
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
@@ -74,10 +64,20 @@ public class Benchmark {
         endTime = System.nanoTime();
         getTime(startTime, endTime);
 
+
+        //Linked list
+        System.out.println("Linked List");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            linkedList.addQuestion(questions[i], answers[i]);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+
     }
 
 
-    public void delete(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void delete(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -96,16 +96,6 @@ public class Benchmark {
         getTime(startTime, endTime);
 
 
-        //Linked List
-        System.out.println("Linked List");
-        startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            linkedList.deleteQuestion(linkedList.quiz.get(i).getQuestionID());
-        }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-
-
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
@@ -116,10 +106,20 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Linked List
+        System.out.println("Linked List");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            linkedlist.deleteQuestion(linkedlist.quiz.getIDFromNumber(i+1));
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void edit(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void edit(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -138,16 +138,6 @@ public class Benchmark {
         getTime(startTime, endTime);
 
 
-        //Linked List
-        System.out.println("Linked List");
-        startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            linkedList.editQuestion(linkedList.quiz.get(i).getQuestionID(), "y", "a", "y", "a");
-        }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-
-
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
@@ -158,10 +148,20 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Linked List
+        System.out.println("Linked List");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            linkedlist.editQuestion(linkedlist.quiz.getIDFromNumber(i), "y", "a", "y", "a");
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void changeOrder(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void changeOrder(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
         int n;
         long startTime, endTime;
 
@@ -184,17 +184,6 @@ public class Benchmark {
         getTime(startTime, endTime);
 
 
-        //Linked List
-        System.out.println("Linked List");
-        startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            int randomNumber = rand.nextInt(n);
-            linkedList.changeOrder(linkedList.quiz.get(i).getQuestionID(), randomNumber);
-        }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-
-
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
@@ -206,10 +195,21 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Linked List 
+        System.out.println("Linked List");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            int randomNumber = rand.nextInt(n);
+            linkedlist.changeOrder(linkedlist.quiz.getIDFromNumber(i), randomNumber);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void print(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void print(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
         long startTime1, endTime1, startTime2, endTime2, startTime3, endTime3, startTime4, endTime4;
         int n;
 
@@ -226,31 +226,31 @@ public class Benchmark {
         }
         endTime1 = System.nanoTime();
 
-        //Linked List
+        //Hashmap
         startTime2 = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            linkedList.printQuestions();
+            hashMap.printQuestions();
         }
         endTime2 = System.nanoTime();
 
-        //Hashmap
+        //Linked List
         startTime3 = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            hashMap.printQuestions();
+            linkedlist.printQuestions();
         }
         endTime3 = System.nanoTime();
 
 
         System.out.println("Array List");
         getTime(startTime1, endTime1);
-        System.out.println("Linked List");
-        getTime(startTime2, endTime2);
         System.out.println("Hash Map");
+        getTime(startTime2, endTime2);
+        System.out.println("Linked List");
         getTime(startTime3, endTime3);
     }
 
 
-    public void search(ArrayListBenchmark arrayList, LinkedListBenchmark linkedList, HashMapBenchmark hashMap){
+    public void search(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
         long startTime, endTime;
 
         System.out.print("Search question number: ");
@@ -266,18 +266,19 @@ public class Benchmark {
         endTime = System.nanoTime();
         getTime(startTime, endTime);
 
-        //Linked List
-        System.out.println("Linked List");
-        startTime = System.nanoTime();
-        linkedList.questionSearch(linkedList.quiz.get(testingNumber-1).getQuestionID());
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
         String id = hashMap.returnID(testingNumber);
         hashMap.questionSearch(id);
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+
+
+        //Linked List
+        System.out.println("Linked List");
+        startTime = System.nanoTime();
+        linkedlist.questionSearch(linkedlist.quiz.getIDFromNumber(testingNumber));
         endTime = System.nanoTime();
         getTime(startTime, endTime);
     }
@@ -292,14 +293,14 @@ public class Benchmark {
             arrayList.addQuestion(questions[i], answers[i]);
         }
 
-        LinkedListBenchmark linkedList = new LinkedListBenchmark();
-        for (int i=0; i<250 && i<count; i++) {
-            linkedList.addQuestion(questions[i], answers[i]);
-        }
-
         HashMapBenchmark hashMap = new HashMapBenchmark();
         for (int i=0; i<250 && i<count; i++) {
             hashMap.addQuestion(questions[i], answers[i]);
+        }
+
+        LinkedlistBenchmark linkedlist = new LinkedlistBenchmark();
+        for (int i=0; i<250 && i<count; i++) {
+            linkedlist.addQuestion(questions[i], answers[i]);
         }
 
         
@@ -320,32 +321,32 @@ public class Benchmark {
         switch (command) {
             //add question
             case "a":
-                benchmark.add(arrayList, linkedList, hashMap);
+                benchmark.add(arrayList, hashMap, linkedlist);
                 break;
     
             //delete question
             case "d":
-                benchmark.delete(arrayList, linkedList, hashMap);
+                benchmark.delete(arrayList, hashMap, linkedlist);
                 break;
             
             //edit question
             case "e":
-                benchmark.edit(arrayList, linkedList, hashMap);
+                benchmark.edit(arrayList, hashMap, linkedlist);
                 break;
             
             //change order
             case "c":
-                benchmark.changeOrder(arrayList, linkedList, hashMap);
+                benchmark.changeOrder(arrayList, hashMap, linkedlist);
                 break;
             
             //printing all questions
             case "p":
-                benchmark.print(arrayList, linkedList, hashMap);
+                benchmark.print(arrayList, hashMap, linkedlist);
                 break;
             
             //searching a particular question
             case "s":
-                benchmark.search(arrayList, linkedList, hashMap);
+                benchmark.search(arrayList, hashMap, linkedlist);
                 break;
             
             //quit the program

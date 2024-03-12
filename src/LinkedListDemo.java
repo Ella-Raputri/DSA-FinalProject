@@ -1,12 +1,10 @@
-import java.util.LinkedList;
 import java.util.Scanner;
 
-public class LinkedListDemo {
-
-    LinkedList<Question> quiz = new LinkedList<Question>();
+public class LinkedlistDemo {
     static Scanner scanner = new Scanner(System.in);
+    Linkedlist quiz = new Linkedlist();
 
-    public void addQuestion(){
+    public void addQuestion(){      
         System.out.print("Enter question: ");
         String question = scanner.nextLine();
 
@@ -14,9 +12,13 @@ public class LinkedListDemo {
         String correctAnswer = scanner.nextLine();
         
         Question q1 = new Question(correctAnswer, question);
-        quiz.add(q1);
-        q1.setNumberID(quiz.indexOf(q1)+1);
+        quiz.addNode(q1);
+
+        int tracker = 1;
+        q1.setNumberID(tracker);
+        quiz.resetNumber();
         System.out.println("Added successfully");
+        tracker++;
     }
 
 
@@ -28,23 +30,10 @@ public class LinkedListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to delete? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
-                    int j = quiz.indexOf(i); 
-                    quiz.remove(i);
-                    System.out.println("Deleted successfully.");
-
-                    while(j < quiz.size()){
-                        quiz.get(j).setQuestionNumber(j+1);
-                        j++;
-                    }
-                    return;
-                }
-            }
-
-            System.out.println("ID invalid. Please try again.");
+            quiz.deleteNode(id);
+            quiz.resetNumber();
         }
     }
 
@@ -57,47 +46,9 @@ public class LinkedListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to edit? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
-                    System.out.println("Current question: " + i.getQuestion());
-                    System.out.println("Current answer: " + i.getCorrectAnswer());
-
-                    System.out.print("Do you want to change the question? (Y/N) ");
-                    String questionChange = scanner.nextLine();
-                    questionChange = questionChange.toLowerCase();
-                    if(questionChange.equals("y")){
-                        System.out.print("New Question: ");
-                        String newQuestion = scanner.nextLine();
-                        i.setQuestion(newQuestion);
-                        System.out.println("Question has been changed successfully.");
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
-                        return;
-                    }
-
-                    System.out.print("Do you want to change the answer? (Y/N) ");
-                    String answerChange = scanner.nextLine();
-                    answerChange = answerChange.toLowerCase();
-                    if(answerChange.equals("y")){
-                        System.out.print("New Answer: ");
-                        String newAnswer = scanner.nextLine();
-                        i.setCorrectAnswer(newAnswer);
-                        System.out.println("Answer has been changed successfully.");
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
-                        return;
-                    }
-                    
-                    System.out.println("Returning to the main menu...");
-                    return;
-                }
-            }
-
-            System.out.println("ID invalid. Please try again.");
+            quiz.editNode(id, scanner);
         }
     }
 
@@ -110,57 +61,8 @@ public class LinkedListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to change the order? ");
-            String answer = scanner.nextLine();
-
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
-                    System.out.println("Current question number: " + i.getQuestionNumber());
-
-                    System.out.print("Change to question number: ");
-                    int newNumber = scanner.nextInt();
-                    scanner.nextLine();
-
-                    if(i.getQuestionNumber() == newNumber){
-                        System.out.println("Question number is not changed.");
-                        return;
-                    }
-                    else if(newNumber <= quiz.size() && newNumber > 0){
-                        int indexOfi = quiz.indexOf(i);
-                        int currentNumber = i.getQuestionNumber();
-
-                        //setting the new number
-                        if(currentNumber > newNumber){
-                            quiz.add(newNumber-1, i);
-                            quiz.remove(indexOfi+1);
-                        }
-                        else{
-                            if(newNumber+1 > quiz.size()){
-                                quiz.add(i);
-                            }
-                            else{
-                                quiz.add(newNumber, i);
-                            }
-                            quiz.remove(indexOfi);
-                        }
-
-                        
-                        //setting all the question number
-                        for(int j=0; j<quiz.size(); j++){
-                            quiz.get(j).setQuestionNumber(j+1);
-                        }
-
-                        System.out.println("Question number has been changed successfully.");
-                    }
-                    else if(newNumber > quiz.size()){
-                        System.out.println("The number is out of list");
-                        return;
-                    }
-
-                    return;               
-                }
-            }
-
-            System.out.println("ID invalid. Please try again.");
+            String id = scanner.nextLine();
+            quiz.changeNodeOrder(id, scanner);
         }
     }
 
@@ -171,14 +73,7 @@ public class LinkedListDemo {
             return;
         }
         else{
-            System.out.println("\nYour current quiz: ");
-            for(Question i: quiz){
-                System.out.println("Question " + i.getQuestionNumber());
-                System.out.println("Question ID: "+ i.getQuestionID());
-                System.out.println("Question: "+ i.getQuestion());
-                System.out.println("Answer: "+ i.getCorrectAnswer());
-                System.out.println();
-            }
+            quiz.printLinkedList();
         }
     }
 
@@ -190,28 +85,16 @@ public class LinkedListDemo {
         }
         else{
             System.out.print("Search for question ID: ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
-                    System.out.println("Question " + i.getQuestionNumber());
-                    System.out.println("Question ID: "+ i.getQuestionID());
-                    System.out.println("Question: "+ i.getQuestion());
-                    System.out.println("Answer: "+ i.getCorrectAnswer());
-                    System.out.println();
-                    return;
-                }
-            }
-
-            System.out.println("ID invalid. Please try again.");
-
+            quiz.searchNode(id);
         }
     }
 
 
     public static void main(String[] args) {
          
-        LinkedListDemo demo = new LinkedListDemo();
+        LinkedlistDemo demo = new LinkedlistDemo();
 
         while(true){
             System.out.println("\n************************************");

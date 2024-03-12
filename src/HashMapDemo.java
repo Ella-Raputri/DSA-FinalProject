@@ -40,10 +40,10 @@ public class HashMapDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to delete? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            if(quiz.containsValue(answer)){
-                quiz.remove(getKeyByValue(quiz, answer));
+            if(quiz.containsValue(id)){
+                quiz.remove(getKeyByValue(quiz, id));
                 System.out.println("Deleted successfully.");
 
                 int j=1;
@@ -67,10 +67,10 @@ public class HashMapDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to edit? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
+            if(quiz.containsValue(id)){
+                Question key = getKeyByValue(quiz, id);
                 System.out.println("Current question: " + key.getQuestion());
                 System.out.println("Current answer: " + key.getCorrectAnswer());
 
@@ -95,7 +95,7 @@ public class HashMapDemo {
                 if(answerChange.equals("y")){
                     System.out.print("New Answer: ");
                     String newAnswer = scanner.nextLine();
-                    getKeyByValue(quiz, answer).setCorrectAnswer(newAnswer);;
+                    getKeyByValue(quiz, id).setCorrectAnswer(newAnswer);;
                     System.out.println("Answer has been changed successfully.");
                 }
                 else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
@@ -120,10 +120,10 @@ public class HashMapDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to change the order? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
+            if(quiz.containsValue(id)){
+                Question key = getKeyByValue(quiz, id);
                 System.out.println("Current question number: " + key.getQuestionNumber());
 
                 System.out.print("Change to question number: ");
@@ -169,7 +169,7 @@ public class HashMapDemo {
                 }
 
 
-                else if(newNumber > quiz.size()){
+                else if(newNumber > quiz.size() || newNumber < 0){
                     System.out.println("The number is out of list");
                     return;
                 }
@@ -213,10 +213,10 @@ public class HashMapDemo {
         }
         else{
             System.out.print("Search for question ID: ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
-            if(quiz.containsValue(answer)){
-                Question key = getKeyByValue(quiz, answer);
+            if(quiz.containsValue(id)){
+                Question key = getKeyByValue(quiz, id);
                 System.out.println("Question " + key.getQuestionNumber());
                 System.out.println("Question ID: "+ key.getQuestionID());
                 System.out.println("Question: "+ key.getQuestion());
