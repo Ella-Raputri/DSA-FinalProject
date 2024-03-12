@@ -75,16 +75,30 @@ public class ArrayListBenchmark {
                     }
                     else if(newNumber <= quiz.size() && newNumber > 0){
                         int indexOfi = quiz.indexOf(i);
-                        quiz.add(newNumber-1, i);
-                        i.setQuestionNumber(newNumber);
-                        quiz.remove(indexOfi+1);
+                        int currentNumber = i.getQuestionNumber();
 
-                        while(newNumber < quiz.size()){
-                            quiz.get(newNumber).setQuestionNumber(newNumber+1);
-                            newNumber++;
+                        //setting the new number
+                        if(currentNumber > newNumber){
+                            quiz.add(newNumber-1, i);
+                            quiz.remove(indexOfi+1);
+                        }
+                        else{
+                            if(newNumber+1 > quiz.size()){
+                                quiz.add(i);
+                            }
+                            else{
+                                quiz.add(newNumber, i);
+                            }
+                            quiz.remove(indexOfi);
+                        }
+
+                        
+                        //setting all the question number
+                        for(int j=0; j<quiz.size(); j++){
+                            quiz.get(j).setQuestionNumber(j+1);
                         }
                     }
-                    else{
+                    else if(newNumber > quiz.size()){
                         return;
                     }
 
