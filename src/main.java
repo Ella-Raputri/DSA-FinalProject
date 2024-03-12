@@ -45,5 +45,7 @@ public class main {
         int count = demo.count_nodes(demo.getRoot());
       
         System.out.println("The total number of nodes in the given complete binary tree are: "+count);
+
+        demo.printFullNode(demo.getRoot());
     }
 }

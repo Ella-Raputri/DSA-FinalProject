@@ -403,7 +403,8 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
 
     @Override
     protected void appendNodeToString(TreeNode node, StringBuilder builder) {
-        builder.append(node.data.getQuestionID()).append(node.color == RED ? "[R]" : "[B]");
+        if (node != null)
+            builder.append(node.data.getQuestionID()).append(node.color == RED ? "[R]" : "[B]");
     }
 
     public int getQuestionNumberfromNode(String questionID) {
@@ -419,15 +420,19 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
             }
         }
 
-        if (node == null) {
-            throw new IllegalStateException("Invalid ID");
+        try {
+            int number = node.data.getQuestionNumber();
+        } catch (Exception e) {
+            System.out.println("Error");
+            return -1;
         }
+
         return node.data.getQuestionNumber();       
     }
     
     public void setQuestionNumberfromNode(TreeNode node, int questionNumber) {
         // Traverse the tree
-        if (node != null) {
+        if (node != null && questionNumber > 0) {
             if (questionNumber < node.data.getQuestionNumber()) {
                 node.data.setQuestionNumber(node.data.getQuestionNumber()-1);
                 

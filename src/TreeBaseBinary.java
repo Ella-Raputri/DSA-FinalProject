@@ -16,21 +16,25 @@ public class TreeBaseBinary implements TreeBinary {
         }
 
         private void appendNodeToStringRecursive(TreeNode node, StringBuilder builder) {
-            appendNodeToString(node, builder);
-            if (node.left != null) {
-                builder.append(" L{");
-                appendNodeToStringRecursive(node.left, builder);
-                builder.append('}');
+            if (node != null) {
+                appendNodeToString(node, builder);
+                if (node.left != null) {
+                    builder.append(" L{");
+                    appendNodeToStringRecursive(node.left, builder);
+                    builder.append('}');
+                }
+                if (node.right != null) {
+                    builder.append(" R{");
+                    appendNodeToStringRecursive(node.right, builder);
+                    builder.append('}');
+                }                
             }
-            if (node.right != null) {
-                builder.append(" R{");
-                appendNodeToStringRecursive(node.right, builder);
-                builder.append('}');
-            }
+
         }
 
         protected void appendNodeToString(TreeNode node, StringBuilder builder) {
-            builder.append(node.data.getQuestionNumber());
+            if (node != null)
+                builder.append(node.data.getQuestionNumber());
         }
 
         // public void inOrderTrav(TreeNode  curr, int count[]) {
@@ -48,5 +52,19 @@ public class TreeBaseBinary implements TreeBinary {
             }
             return count_nodes(root.left) + count_nodes(root.right) + 1;
         }
+
+        public void printFullNode(TreeNode root){  
+            if (root != null){  
+                printFullNode(root.left);  
+  
+                System.out.println("Question " + root.data.getQuestionNumber());
+                System.out.println("Question ID: "+ root.data.getQuestionID());
+                System.out.println("Question: "+ root.data.getQuestion());
+                System.out.println("Answer: "+ root.data.getCorrectAnswer());
+                System.out.println();
+                
+                printFullNode(root.right);  
+            }  
+        }  
     }
 

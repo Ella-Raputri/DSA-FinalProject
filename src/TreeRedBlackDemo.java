@@ -38,14 +38,68 @@ public class TreeRedBlackDemo {
 
             int number = quiz.getQuestionNumberfromNode(answer);
             quiz.deleteNode(answer);
-            nodeCount -= 1;
+
+            if (number > 0) {
+               nodeCount -= 1; 
+            }
+            
             quiz.setQuestionNumberfromNode(quiz.getRoot(), number);
+            System.out.println("amount:" + nodeCount);
+            System.out.println(quiz.toString());
         }
     }
 
 
     public void editQuestion(){
-        System.out.println("edit");
+        if(nodeCount == 0){
+            System.out.println("Your current quiz is empty.");
+            return;
+        }
+        else{
+            printQuestions();
+            // System.out.print("What question ID do you want to edit? ");
+            // String answer = scanner.nextLine();
+
+            // for(Question i:quiz){
+            //     if(i.getQuestionID().equals(answer)){
+            //         System.out.println("Current question: " + i.getQuestion());
+            //         System.out.println("Current answer: " + i.getCorrectAnswer());
+
+            //         System.out.print("Do you want to change the question? (Y/N) ");
+            //         String questionChange = scanner.nextLine();
+            //         questionChange = questionChange.toLowerCase();
+            //         if(questionChange.equals("y")){
+            //             System.out.print("New Question: ");
+            //             String newQuestion = scanner.nextLine();
+            //             i.setQuestion(newQuestion);
+            //             System.out.println("Question has been changed successfully.");
+            //         }
+            //         else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+            //             System.out.println("Invalid input.");
+            //             return;
+            //         }
+
+            //         System.out.print("Do you want to change the answer? (Y/N) ");
+            //         String answerChange = scanner.nextLine();
+            //         answerChange = answerChange.toLowerCase();
+            //         if(answerChange.equals("y")){
+            //             System.out.print("New Answer: ");
+            //             String newAnswer = scanner.nextLine();
+            //             i.setCorrectAnswer(newAnswer);
+            //             System.out.println("Answer has been changed successfully.");
+            //         }
+            //         else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+            //             System.out.println("Invalid input.");
+            //             return;
+            //         }
+                    
+            //         System.out.println("Returning to the main menu...");
+            //         return;
+            //     }
+            // }
+
+            // System.out.println("ID invalid. Please try again.");
+        }
     }
 
 
@@ -55,7 +109,12 @@ public class TreeRedBlackDemo {
 
 
     public void printQuestions(){
-        System.out.println("print");
+        if (nodeCount == 0){
+            System.out.println("Your quiz is empty.");
+        }else{
+            System.out.println("Your current quiz: ");
+            quiz.printFullNode(quiz.getRoot());
+        }
     }
 
 
@@ -70,7 +129,7 @@ public class TreeRedBlackDemo {
 
         while(true){
             System.out.println("\n************************************");
-            System.out.println("\nQuestion Editing");
+            System.out.println("Question Editing");
             System.out.println("(A)dd");
             System.out.println("(D)elete");
             System.out.println("(E)dit Question");
