@@ -9,12 +9,13 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
     static final boolean BLACK = true;
 
     @Override
-    public TreeNode searchNode(int key) {
+    public TreeNode searchNode(String key) {
+        int key_number = Integer.parseInt(key);
         TreeNode node = root;
         while (node != null) {
-            if (key == Integer.parseInt(node.data.getQuestionID())) {
+            if (key_number == Integer.parseInt(node.data.getQuestionID())) {
                 return node;
-            } else if (key < Integer.parseInt(node.data.getQuestionID())) {
+            } else if (key_number < Integer.parseInt(node.data.getQuestionID())) {
                 node = node.left;
             } else {
                 node = node.right;
@@ -214,7 +215,6 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
                 replaceParentsChild(movedUpNode.parent, movedUpNode, null);
             }
         }
-        System.out.println("Deleted successfully.");
     }
 
     private TreeNode deleteNodeWithZeroOrOneChild(TreeNode node) {
@@ -430,24 +430,106 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
         return node.data.getQuestionNumber();       
     }
     
-    public void setQuestionNumberfromNode(TreeNode node, int questionNumber) {
+    public void setQuestionNumberForward(TreeNode node, int questionNumber) { //forward direction
         // Traverse the tree
         if (node != null && questionNumber > 0) {
             if (questionNumber < node.data.getQuestionNumber()) {
                 node.data.setQuestionNumber(node.data.getQuestionNumber()-1);
-                
+            }  
                 //recursively call function on left child, if it exists
-                if (node.left != null && questionNumber < node.left.data.getQuestionNumber())
-                    setQuestionNumberfromNode(node.left, questionNumber);
-            
-                //recursively call function on right child, if it exists
-                if (node.right != null && questionNumber < node.right.data.getQuestionNumber())
-                    setQuestionNumberfromNode(node.right, questionNumber);
-            }            
+            if (node.left != null && questionNumber < node.left.data.getQuestionNumber())
+                setQuestionNumberForward(node.left, questionNumber);
+        
+            //recursively call function on right child, if it exists
+            if (node.right != null && questionNumber < node.right.data.getQuestionNumber())
+                setQuestionNumberForward(node.right, questionNumber);
+                     
         }
 
     }
+
+    public void setQuestionNumberBackward(TreeNode node, int questionNumber) { //forward direction
+        // Traverse the tree
+        if (node != null && questionNumber > 0) {
+            if (questionNumber < node.data.getQuestionNumber()){
+                node.data.setQuestionNumber(node.data.getQuestionNumber()+1);}
+                
+            //recursively call function on left child, if it exists
+            if (node.left != null && questionNumber < node.left.data.getQuestionNumber()){
+                setQuestionNumberBackward(node.left, questionNumber);}
+        
+            //recursively call function on right child, if it exists
+            if (node.right != null && questionNumber < node.right.data.getQuestionNumber()){
+                setQuestionNumberBackward(node.right, questionNumber);}
+                       
+        }
+
+    }
+
+
+    public TreeNode searchNodeBasedonNumber(TreeNode rootNode, int key) {
+        if (rootNode == null) 
+            return null; 
+
+        if (rootNode.data.getQuestionNumber() == key) 
+            return rootNode; 
     
+        // then recur on left subtree /
+        TreeNode res1 = searchNodeBasedonNumber(rootNode.left, key); 
+        // node found, no need to look further
+        if(res1 != null) 
+            return res1; 
+    
+        // node is not found in left, 
+        // so recur on right subtree /
+        TreeNode res2 = searchNodeBasedonNumber(rootNode.right, key); 
+        return res2;
+    }
+    
+
+    public void resetQuestionNumber(TreeNode rootNode, TreeNode nodeOri, TreeNode nodeAfter, int questionOri, int questionAfter) {
+        //pindah ke depan forward direction
+        if (questionAfter < questionOri) {
+           //delete node Ori, setQuestion di belakangnya semua forward
+            Question temp1 = searchNode(nodeOri.data.getQuestionID()).data;
+            deleteNode(nodeOri.data.getQuestionID());
+            setQuestionNumberForward(rootNode, questionOri);
+
+            //delete node After, setQuestion di belakangnya semua backward
+            Question temp2 = searchNode(nodeAfter.data.getQuestionID()).data;
+            setQuestionNumberBackward(rootNode, questionAfter);
+            deleteNode(nodeAfter.data.getQuestionID());
+            System.out.println("heii"+temp2.getQuestionID());
+
+            // //set question number 
+            temp1.setQuestionNumber(questionAfter); //ori
+            temp2.setQuestionNumber(questionAfter+1); //after
+
+            // //insert temp1 dan temp2 balik
+            insertNode(temp2);
+            insertNode(temp1);
+
+        }
+
+    }
+
+    public void printFullNode(TreeNode rootNode, int count){  
+        for (int i = 0; i < count; i++){
+            TreeNode result = searchNodeBasedonNumber(rootNode,i+1);  
+
+            if (result == null){ 
+                continue;
+            }else{
+                Question q1 = searchNodeBasedonNumber(rootNode, i+1).data;
+                System.out.println("Question " + (i+1));
+                System.out.println("Question ID: "+ q1.getQuestionID());
+                System.out.println("Question: "+ q1.getQuestion());
+                System.out.println("Answer: "+ q1.getCorrectAnswer());
+                System.out.println();
+            }
+        }
+         
+    }
 
 
 

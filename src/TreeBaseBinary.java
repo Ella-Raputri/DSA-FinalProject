@@ -53,9 +53,9 @@ public class TreeBaseBinary implements TreeBinary {
             return count_nodes(root.left) + count_nodes(root.right) + 1;
         }
 
-        public void printFullNode(TreeNode root){  
+        public void printFullNodess(TreeNode root){  
             if (root != null){  
-                printFullNode(root.left);  
+                printFullNodess(root.left);  
   
                 System.out.println("Question " + root.data.getQuestionNumber());
                 System.out.println("Question ID: "+ root.data.getQuestionID());
@@ -63,7 +63,7 @@ public class TreeBaseBinary implements TreeBinary {
                 System.out.println("Answer: "+ root.data.getCorrectAnswer());
                 System.out.println();
                 
-                printFullNode(root.right);  
+                printFullNodess(root.right);  
             }  
         }  
     }

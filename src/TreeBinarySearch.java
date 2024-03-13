@@ -6,7 +6,7 @@ public interface TreeBinarySearch extends TreeBinary {
      * @param key the search key
      * @return the node or <code>null</code> if no node with the given search key exists
      */
-    TreeNode searchNode(int key);
+    TreeNode searchNode(String key);
 
     /**
      * Inserts a node with the given key.
