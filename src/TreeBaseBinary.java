@@ -37,15 +37,6 @@ public class TreeBaseBinary implements TreeBinary {
                 builder.append(node.data.getQuestionNumber());
         }
 
-        // public void inOrderTrav(TreeNode  curr, int count[]) {
-        //     if (curr == null)
-        //         return;
-
-        //     count[0]++;
-        //     inOrderTrav(curr . left, count);
-        //     inOrderTrav(curr . right, count);
-        // }
-
         public int count_nodes(TreeNode root){
             if (root == null){
                 return 0;
@@ -53,18 +44,6 @@ public class TreeBaseBinary implements TreeBinary {
             return count_nodes(root.left) + count_nodes(root.right) + 1;
         }
 
-        public void printFullNodess(TreeNode root){  
-            if (root != null){  
-                printFullNodess(root.left);  
-  
-                System.out.println("Question " + root.data.getQuestionNumber());
-                System.out.println("Question ID: "+ root.data.getQuestionID());
-                System.out.println("Question: "+ root.data.getQuestion());
-                System.out.println("Answer: "+ root.data.getCorrectAnswer());
-                System.out.println();
-                
-                printFullNodess(root.right);  
-            }  
-        }  
+
     }
 

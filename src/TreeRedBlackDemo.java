@@ -18,8 +18,8 @@ public class TreeRedBlackDemo {
         quiz.insertNode(q1);
 
         nodeCount += 1;
-        System.out.println("amount:"+nodeCount);
-        System.out.println(quiz.toString());
+        // System.out.println("amount:"+nodeCount);
+        // System.out.println(quiz.toString());
 
         System.out.println("Question number: "+q1.getQuestionNumber()+" question Id: "+q1.getQuestionID());
         System.out.println("Added successfully");
@@ -44,8 +44,8 @@ public class TreeRedBlackDemo {
             }
             
             quiz.setQuestionNumberForward(quiz.getRoot(), number);
-            System.out.println("amount:" + nodeCount);
-            System.out.println(quiz.toString());
+            // System.out.println("amount:" + nodeCount);
+            // System.out.println(quiz.toString());
             System.out.println("Deleted successfully.");
         }
     }

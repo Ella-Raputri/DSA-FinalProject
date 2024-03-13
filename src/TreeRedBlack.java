@@ -499,7 +499,6 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
             Question temp2 = searchNode(nodeAfter.data.getQuestionID()).data;
             setQuestionNumberBackward(rootNode, questionAfter);
             deleteNode(nodeAfter.data.getQuestionID());
-            System.out.println("heii"+temp2.getQuestionID());
 
             // //set question number 
             temp1.setQuestionNumber(questionAfter); //ori
