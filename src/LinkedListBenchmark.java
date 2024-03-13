@@ -1,112 +1,47 @@
-import java.util.LinkedList;
 import java.util.Scanner;
 
-public class LinkedListBenchmark {
-
-    LinkedList<Question> quiz = new LinkedList<Question>();
+public class LinkedlistBenchmark {
     static Scanner scanner = new Scanner(System.in);
+    LLbench quiz = new LLbench();
 
-    public void addQuestion(String question, String correctAnswer){
+    public void addQuestion(String question, String correctAnswer){      
         Question q1 = new Question(correctAnswer, question);
-        quiz.add(q1);
-        q1.setNumberID(quiz.indexOf(q1)+1);
+        quiz.addNode(q1);
+
+        int tracker = 1;
+        q1.setNumberID(tracker);
+        quiz.resetNumber();
+        tracker++;
     }
 
 
-    public void deleteQuestion(String questionID){
+    public void deleteQuestion(String id){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    int j = quiz.indexOf(i); 
-                    quiz.remove(i);
-
-                    while(j < quiz.size()){
-                        quiz.get(j).setQuestionNumber(j+1);
-                        j++;
-                    }
-                    return;
-                }
-            }
-
+            quiz.deleteNode(id);
+            quiz.resetNumber();
         }
     }
 
 
-    public void editQuestion(String questionID, String questionChange, String newQuestion, String answerChange, String newAnswer){
+    public void editQuestion(String id, String questionChange, String newQuestion, String answerChange, String newAnswer){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    if(questionChange.equals("y")){
-                        i.setQuestion(newQuestion);
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        return;
-                    }
-
-                    if(answerChange.equals("y")){
-                        i.setCorrectAnswer(newAnswer);
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        return;
-                    }
-                    
-                    return;
-                }
-            }
+            quiz.editNode(id, scanner, questionChange, newQuestion, answerChange, newAnswer);
         }
     }
 
 
-    public void changeOrder(String questionID, int newNumber){
+    public void changeOrder(String id, int newNumber){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    
-                    if(i.getQuestionNumber() == newNumber){
-                        return;
-                    }
-                    else if(newNumber <= quiz.size() && newNumber > 0){
-                        int indexOfi = quiz.indexOf(i);
-                        int currentNumber = i.getQuestionNumber();
-
-                        //setting the new number
-                        if(currentNumber > newNumber){
-                            quiz.add(newNumber-1, i);
-                            quiz.remove(indexOfi+1);
-                        }
-                        else{
-                            if(newNumber+1 > quiz.size()){
-                                quiz.add(i);
-                            }
-                            else{
-                                quiz.add(newNumber, i);
-                            }
-                            quiz.remove(indexOfi);
-                        }
-
-                        
-                        //setting all the question number
-                        for(int j=0; j<quiz.size(); j++){
-                            quiz.get(j).setQuestionNumber(j+1);
-                        }
-
-                    }
-                    else if(newNumber > quiz.size()){
-                        return;
-                    }
-
-                    return;               
-                }
-            }
+            quiz.changeNodeOrder(id, scanner, newNumber);
         }
     }
 
@@ -116,36 +51,20 @@ public class LinkedListBenchmark {
             return;
         }
         else{
-            System.out.println("\nYour current quiz: ");
-            for(Question i: quiz){
-                System.out.println("Question " + i.getQuestionNumber());
-                System.out.println("Question ID: "+ i.getQuestionID());
-                System.out.println("Question: "+ i.getQuestion());
-                System.out.println("Answer: "+ i.getCorrectAnswer());
-                System.out.println();
-            }
+            quiz.printLinkedList();
         }
     }
 
 
-    public void questionSearch(String questionID){
+    public void questionSearch(String id){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    System.out.println("Question " + i.getQuestionNumber());
-                    System.out.println("Question ID: "+ i.getQuestionID());
-                    System.out.println("Question: "+ i.getQuestion());
-                    System.out.println("Answer: "+ i.getCorrectAnswer());
-                    System.out.println();
-                    return;
-                }
-            }
-
+            quiz.searchNode(id);
         }
     }
 
 
+    
 }

@@ -138,7 +138,7 @@ public class HashMapBenchmark {
                 }
 
 
-                else if(newNumber > quiz.size()){
+                else if(newNumber > quiz.size() || newNumber < 0){
                     return;
                 }
                 return;
@@ -186,7 +186,7 @@ public class HashMapBenchmark {
                 System.out.println();
                 return;
             }
-
+            System.out.println("ID invalid. Please try again.");
         }
     }
 

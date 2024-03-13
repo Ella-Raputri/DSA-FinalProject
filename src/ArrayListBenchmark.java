@@ -98,7 +98,7 @@ public class ArrayListBenchmark {
                             quiz.get(j).setQuestionNumber(j+1);
                         }
                     }
-                    else if(newNumber > quiz.size()){
+                    else if(newNumber > quiz.size() || newNumber < 0){
                         return;
                     }
 
@@ -142,8 +142,7 @@ public class ArrayListBenchmark {
                     return;
                 }
             }
-
-
+            System.out.println("ID invalid. Please try again.");
         }
     }
 

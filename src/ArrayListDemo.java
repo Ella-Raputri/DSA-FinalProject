@@ -28,10 +28,10 @@ public class ArrayListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to delete? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
             for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
+                if(i.getQuestionID().equals(id)){
                     int j = quiz.indexOf(i);
                     quiz.remove(i);
                     System.out.println("Deleted successfully.");
@@ -57,10 +57,10 @@ public class ArrayListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to edit? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
             for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
+                if(i.getQuestionID().equals(id)){
                     System.out.println("Current question: " + i.getQuestion());
                     System.out.println("Current answer: " + i.getCorrectAnswer());
 
@@ -110,10 +110,10 @@ public class ArrayListDemo {
         else{
             printQuestions();
             System.out.print("What question ID do you want to change the order? ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
             for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
+                if(i.getQuestionID().equals(id)){
                     System.out.println("Current question number: " + i.getQuestionNumber());
 
                     System.out.print("Change to question number: ");
@@ -154,7 +154,7 @@ public class ArrayListDemo {
                     }
                         
 
-                    else if(newNumber > quiz.size()) {
+                    else if(newNumber > quiz.size() || newNumber < 0) {
                         System.out.println("The number is out of list");
                         return;
                     }
@@ -193,10 +193,10 @@ public class ArrayListDemo {
         }
         else{
             System.out.print("Search for question ID: ");
-            String answer = scanner.nextLine();
+            String id = scanner.nextLine();
 
             for(Question i:quiz){
-                if(i.getQuestionID().equals(answer)){
+                if(i.getQuestionID().equals(id)){
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());
                     System.out.println("Question: "+ i.getQuestion());
