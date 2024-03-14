@@ -36,7 +36,7 @@ public class Benchmark {
     }
 
 
-    public void add(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedList){
+    public void add(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedList, TreeRedBlackBenchmark tree){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -74,10 +74,20 @@ public class Benchmark {
         endTime = System.nanoTime();
         getTime(startTime, endTime);
 
+
+        //Red Black Tree
+        System.out.println("Red Black Tree");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            tree.addQuestion(questions[i], answers[i]);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+
     }
 
 
-    public void delete(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
+    public void delete(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -116,10 +126,22 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Red Black Tree
+        System.out.println("Red Black Tree");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
+            String id = treenode.data.getQuestionID();
+            tree.deleteQuestion(id);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
     }
 
 
-    public void edit(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
+    public void edit(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -158,10 +180,23 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Red Black Tree
+        System.out.println("Red Black Tree");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
+            String id = treenode.data.getQuestionID();
+            tree.editQuestion(id, "y", "a", "y", "a");
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+        
     }
 
 
-    public void changeOrder(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
+    public void changeOrder(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         int n;
         long startTime, endTime;
 
@@ -206,10 +241,24 @@ public class Benchmark {
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Red Black Tree
+        System.out.println("Red Black Tree");
+        startTime = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            int randomNumber = rand.nextInt(n);
+            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
+            String id = treenode.data.getQuestionID();
+            tree.changeOrder(id, randomNumber);
+        }
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+        
     }
 
 
-    public void print(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
+    public void print(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         long startTime1, endTime1, startTime2, endTime2, startTime3, endTime3, startTime4, endTime4;
         int n;
 
@@ -240,6 +289,13 @@ public class Benchmark {
         }
         endTime3 = System.nanoTime();
 
+        //Red Black Tree
+        startTime4 = System.nanoTime();
+        for (int i = 0; i < n; i++) {
+            tree.printQuestions();
+        }
+        endTime4 = System.nanoTime();
+
 
         System.out.println("Array List");
         getTime(startTime1, endTime1);
@@ -247,10 +303,12 @@ public class Benchmark {
         getTime(startTime2, endTime2);
         System.out.println("Linked List");
         getTime(startTime3, endTime3);
+        System.out.println("Red Black Tree");
+        getTime(startTime4, endTime4);
     }
 
 
-    public void search(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist){
+    public void search(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         long startTime, endTime;
 
         System.out.print("Search question number: ");
@@ -281,6 +339,17 @@ public class Benchmark {
         linkedlist.questionSearch(linkedlist.quiz.getIDFromNumber(testingNumber));
         endTime = System.nanoTime();
         getTime(startTime, endTime);
+
+
+        //Red Black Tree
+        System.out.println("Red Black Tree");
+        startTime = System.nanoTime();
+        TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), testingNumber);
+        String id_tree = treenode.data.getQuestionID();
+        tree.questionSearch(id_tree);
+        endTime = System.nanoTime();
+        getTime(startTime, endTime);
+        
     }
 
     
@@ -303,6 +372,11 @@ public class Benchmark {
             linkedlist.addQuestion(questions[i], answers[i]);
         }
 
+        TreeRedBlackBenchmark tree = new TreeRedBlackBenchmark();
+        for (int i=0; i<250 && i<count; i++) {
+            tree.addQuestion(questions[i], answers[i]);
+        }
+
         
         System.out.println("\n************************************");
         System.out.println("\nSpeed Testing");
@@ -321,32 +395,32 @@ public class Benchmark {
         switch (command) {
             //add question
             case "a":
-                benchmark.add(arrayList, hashMap, linkedlist);
+                benchmark.add(arrayList, hashMap, linkedlist, tree);
                 break;
     
             //delete question
             case "d":
-                benchmark.delete(arrayList, hashMap, linkedlist);
+                benchmark.delete(arrayList, hashMap, linkedlist, tree);
                 break;
             
             //edit question
             case "e":
-                benchmark.edit(arrayList, hashMap, linkedlist);
+                benchmark.edit(arrayList, hashMap, linkedlist, tree);
                 break;
             
             //change order
             case "c":
-                benchmark.changeOrder(arrayList, hashMap, linkedlist);
+                benchmark.changeOrder(arrayList, hashMap, linkedlist, tree);
                 break;
             
             //printing all questions
             case "p":
-                benchmark.print(arrayList, hashMap, linkedlist);
+                benchmark.print(arrayList, hashMap, linkedlist, tree);
                 break;
             
             //searching a particular question
             case "s":
-                benchmark.search(arrayList, hashMap, linkedlist);
+                benchmark.search(arrayList, hashMap, linkedlist, tree);
                 break;
             
             //quit the program
