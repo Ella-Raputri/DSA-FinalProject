@@ -6,6 +6,15 @@ public class ArrayListDemo {
     ArrayList<Question> quiz = new ArrayList<Question>();
     static Scanner scanner = new Scanner(System.in);
 
+    public Question getQuestionfromID(String id){
+        for(Question i:quiz){
+            if(i.getQuestionID().equals(id)){
+                return i;
+            }
+        }
+        return null;
+    }
+
     public void addQuestion(){
         System.out.print("Enter question: ");
         String question = scanner.nextLine();
@@ -30,19 +39,18 @@ public class ArrayListDemo {
             System.out.print("What question ID do you want to delete? ");
             String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    int j = quiz.indexOf(i);
-                    quiz.remove(i);
-                    System.out.println("Deleted successfully.");
+            Question i = getQuestionfromID(id);
+            if(i!= null){
+                int j = quiz.indexOf(i);
+                quiz.remove(i);
+                System.out.println("Deleted successfully.");
 
-                    while(j < quiz.size()){
-                        quiz.get(j).setQuestionNumber(j+1);
-                        j++;
-                    }
-                    return;
+                while(j < quiz.size()){
+                    quiz.get(j).setQuestionNumber(j+1);
+                    j++;
                 }
-            }
+                return;
+            }                    
 
             System.out.println("ID invalid. Please try again.");
         }
@@ -59,44 +67,42 @@ public class ArrayListDemo {
             System.out.print("What question ID do you want to edit? ");
             String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    System.out.println("Current question: " + i.getQuestion());
-                    System.out.println("Current answer: " + i.getCorrectAnswer());
+            Question i = getQuestionfromID(id);
+            if(i != null){
+                System.out.println("Current question: " + i.getQuestion());
+                System.out.println("Current answer: " + i.getCorrectAnswer());
 
-                    System.out.print("Do you want to change the question? (Y/N) ");
-                    String questionChange = scanner.nextLine();
-                    questionChange = questionChange.toLowerCase();
-                    if(questionChange.equals("y")){
-                        System.out.print("New Question: ");
-                        String newQuestion = scanner.nextLine();
-                        i.setQuestion(newQuestion);
-                        System.out.println("Question has been changed successfully.");
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
-                        return;
-                    }
-
-                    System.out.print("Do you want to change the answer? (Y/N) ");
-                    String answerChange = scanner.nextLine();
-                    answerChange = answerChange.toLowerCase();
-                    if(answerChange.equals("y")){
-                        System.out.print("New Answer: ");
-                        String newAnswer = scanner.nextLine();
-                        i.setCorrectAnswer(newAnswer);
-                        System.out.println("Answer has been changed successfully.");
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        System.out.println("Invalid input.");
-                        return;
-                    }
-                    
-                    System.out.println("Returning to the main menu...");
+                System.out.print("Do you want to change the question? (Y/N) ");
+                String questionChange = scanner.nextLine();
+                questionChange = questionChange.toLowerCase();
+                if(questionChange.equals("y")){
+                    System.out.print("New Question: ");
+                    String newQuestion = scanner.nextLine();
+                    i.setQuestion(newQuestion);
+                    System.out.println("Question has been changed successfully.");
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
                     return;
                 }
-            }
 
+                System.out.print("Do you want to change the answer? (Y/N) ");
+                String answerChange = scanner.nextLine();
+                answerChange = answerChange.toLowerCase();
+                if(answerChange.equals("y")){
+                    System.out.print("New Answer: ");
+                    String newAnswer = scanner.nextLine();
+                    i.setCorrectAnswer(newAnswer);
+                    System.out.println("Answer has been changed successfully.");
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
+                    return;
+                }
+                
+                System.out.println("Returning to the main menu...");
+                return;
+            }
             System.out.println("ID invalid. Please try again.");
         }
     }
@@ -112,57 +118,56 @@ public class ArrayListDemo {
             System.out.print("What question ID do you want to change the order? ");
             String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    System.out.println("Current question number: " + i.getQuestionNumber());
+            Question i = getQuestionfromID(id);
 
-                    System.out.print("Change to question number: ");
-                    int newNumber = scanner.nextInt();
-                    scanner.nextLine();
-                    
-                    if(i.getQuestionNumber() == newNumber){
-                        System.out.println("Question number is not changed.");
-                        return;
+            if(i!=null){
+                System.out.println("Current question number: " + i.getQuestionNumber());
+
+                System.out.print("Change to question number: ");
+                int newNumber = scanner.nextInt();
+                scanner.nextLine();
+                
+                if(i.getQuestionNumber() == newNumber){
+                    System.out.println("Question number is not changed.");
+                    return;
+                }
+
+                else if(newNumber <= quiz.size() && newNumber > 0){
+                    int indexOfi = quiz.indexOf(i);
+                    int currentNumber = i.getQuestionNumber();
+
+                    //setting the new number
+                    if(currentNumber > newNumber){
+                        quiz.add(newNumber-1, i);
+                        quiz.remove(indexOfi+1);
                     }
-
-                    else if(newNumber <= quiz.size() && newNumber > 0){
-                        int indexOfi = quiz.indexOf(i);
-                        int currentNumber = i.getQuestionNumber();
-
-                        //setting the new number
-                        if(currentNumber > newNumber){
-                            quiz.add(newNumber-1, i);
-                            quiz.remove(indexOfi+1);
+                    else{
+                        if(newNumber+1 > quiz.size()){
+                            quiz.add(i);
                         }
                         else{
-                            if(newNumber+1 > quiz.size()){
-                                quiz.add(i);
-                            }
-                            else{
-                                quiz.add(newNumber, i);
-                            }
-                            quiz.remove(indexOfi);
+                            quiz.add(newNumber, i);
                         }
-
-                        
-                        //setting all the question number
-                        for(int j=0; j<quiz.size(); j++){
-                            quiz.get(j).setQuestionNumber(j+1);
-                        }
-
-                        System.out.println("Question number has been changed successfully.");
-                    }
-                        
-
-                    else if(newNumber > quiz.size() || newNumber < 0) {
-                        System.out.println("The number is out of list");
-                        return;
+                        quiz.remove(indexOfi);
                     }
 
-                    return;               
+                    
+                    //setting all the question number
+                    for(int j=0; j<quiz.size(); j++){
+                        quiz.get(j).setQuestionNumber(j+1);
+                    }
+
+                    System.out.println("Question number has been changed successfully.");
                 }
-            }
+                    
 
+                else if(newNumber > quiz.size() || newNumber < 0) {
+                    System.out.println("The number is out of list");
+                    return;
+                }
+
+                return;
+            }
             System.out.println("ID invalid. Please try again.");
         }
     }
@@ -195,17 +200,16 @@ public class ArrayListDemo {
             System.out.print("Search for question ID: ");
             String id = scanner.nextLine();
 
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    System.out.println("Question " + i.getQuestionNumber());
-                    System.out.println("Question ID: "+ i.getQuestionID());
-                    System.out.println("Question: "+ i.getQuestion());
-                    System.out.println("Answer: "+ i.getCorrectAnswer());
-                    System.out.println();
-                    return;
-                }
+            Question i = getQuestionfromID(id);
+            
+            if(i!= null){
+                System.out.println("Question " + i.getQuestionNumber());
+                System.out.println("Question ID: "+ i.getQuestionID());
+                System.out.println("Question: "+ i.getQuestion());
+                System.out.println("Answer: "+ i.getCorrectAnswer());
+                System.out.println();
+                return;
             }
-
             System.out.println("ID invalid. Please try again.");
 
         }

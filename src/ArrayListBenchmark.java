@@ -4,6 +4,15 @@ public class ArrayListBenchmark {
 
     ArrayList<Question> quiz = new ArrayList<Question>();
 
+    public Question getQuestionfromID(String id){
+        for(Question i:quiz){
+            if(i.getQuestionID().equals(id)){
+                return i;
+            }
+        }
+        return null;
+    }
+
     public void addQuestion(String question, String correctAnswer){
         Question q1 = new Question(correctAnswer, question);
         quiz.add(q1);
@@ -16,18 +25,18 @@ public class ArrayListBenchmark {
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(id)){
-                    int j = quiz.indexOf(i);
-                    quiz.remove(i);
+            Question i = getQuestionfromID(id);
+            if(i!= null){
+                int j = quiz.indexOf(i);
+                quiz.remove(i);
 
-                    while(j < quiz.size()){
-                        quiz.get(j).setQuestionNumber(j+1);
-                        j++;
-                    }
-                    return;
+                while(j < quiz.size()){
+                    quiz.get(j).setQuestionNumber(j+1);
+                    j++;
                 }
+                return;
             }
+                    
         }
     }
 
@@ -37,24 +46,23 @@ public class ArrayListBenchmark {
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    if(questionChange.equals("y")){
-                        i.setQuestion(newQuestion);
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        return;
-                    }
-
-                    if(answerChange.equals("y")){
-                        i.setCorrectAnswer(newAnswer);
-                    }
-                    else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
-                        return;
-                    }
-                    
+            Question i = getQuestionfromID(questionID);
+            if(i!= null){
+                if(questionChange.equals("y")){
+                    i.setQuestion(newQuestion);
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
                     return;
                 }
+
+                if(answerChange.equals("y")){
+                    i.setCorrectAnswer(newAnswer);
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    return;
+                }
+                
+                return;
             }
 
         }
@@ -66,42 +74,42 @@ public class ArrayListBenchmark {
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    if(i.getQuestionNumber() == newNumber){
-                        return;
-                    }
-                    else if(newNumber <= quiz.size() && newNumber > 0){
-                        int indexOfi = quiz.indexOf(i);
-                        int currentNumber = i.getQuestionNumber();
+            Question i = getQuestionfromID(questionID);
 
-                        //setting the new number
-                        if(currentNumber > newNumber){
-                            quiz.add(newNumber-1, i);
-                            quiz.remove(indexOfi+1);
+            if(i!=null){
+                if(i.getQuestionNumber() == newNumber){
+                    return;
+                }
+                else if(newNumber <= quiz.size() && newNumber > 0){
+                    int indexOfi = quiz.indexOf(i);
+                    int currentNumber = i.getQuestionNumber();
+
+                    //setting the new number
+                    if(currentNumber > newNumber){
+                        quiz.add(newNumber-1, i);
+                        quiz.remove(indexOfi+1);
+                    }
+                    else{
+                        if(newNumber+1 > quiz.size()){
+                            quiz.add(i);
                         }
                         else{
-                            if(newNumber+1 > quiz.size()){
-                                quiz.add(i);
-                            }
-                            else{
-                                quiz.add(newNumber, i);
-                            }
-                            quiz.remove(indexOfi);
+                            quiz.add(newNumber, i);
                         }
-
-                        
-                        //setting all the question number
-                        for(int j=0; j<quiz.size(); j++){
-                            quiz.get(j).setQuestionNumber(j+1);
-                        }
-                    }
-                    else if(newNumber > quiz.size() || newNumber < 0){
-                        return;
+                        quiz.remove(indexOfi);
                     }
 
-                    return;               
+                    
+                    //setting all the question number
+                    for(int j=0; j<quiz.size(); j++){
+                        quiz.get(j).setQuestionNumber(j+1);
+                    }
                 }
+                else if(newNumber > quiz.size() || newNumber < 0){
+                    return;
+                }
+
+                return;
             }
 
         }
@@ -130,15 +138,15 @@ public class ArrayListBenchmark {
             return;
         }
         else{
-            for(Question i:quiz){
-                if(i.getQuestionID().equals(questionID)){
-                    System.out.println("Question " + i.getQuestionNumber());
-                    System.out.println("Question ID: "+ i.getQuestionID());
-                    System.out.println("Question: "+ i.getQuestion());
-                    System.out.println("Answer: "+ i.getCorrectAnswer());
-                    System.out.println();
-                    return;
-                }
+            Question i = getQuestionfromID(questionID);
+
+            if(i!=null){
+                System.out.println("Question " + i.getQuestionNumber());
+                System.out.println("Question ID: "+ i.getQuestionID());
+                System.out.println("Question: "+ i.getQuestion());
+                System.out.println("Answer: "+ i.getCorrectAnswer());
+                System.out.println();
+                return;
             }
             System.out.println("ID invalid. Please try again.");
         }

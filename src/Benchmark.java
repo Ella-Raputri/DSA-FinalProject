@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -28,9 +27,14 @@ public class Benchmark {
     }
 
 
-    static void getTime(long startTime, long endTime) {
+    static void getTime(long startTime, long endTime, int nullCount, int n) {
         double nanoSeconds = endTime - startTime;
         double milliSeconds = nanoSeconds/1000000;
+
+        if(nullCount != 0){
+            milliSeconds = ((nullCount/n) * milliSeconds) + milliSeconds;
+        }
+        
         System.out.println("Time used: " + milliSeconds + " milliseconds");
         System.out.println();
     }
@@ -52,7 +56,7 @@ public class Benchmark {
             arrayList.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Hashmap
@@ -62,7 +66,7 @@ public class Benchmark {
             hashMap.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Linked list
@@ -72,7 +76,7 @@ public class Benchmark {
             linkedList.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Red Black Tree
@@ -82,7 +86,7 @@ public class Benchmark {
             tree.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
     }
 
@@ -103,7 +107,7 @@ public class Benchmark {
             arrayList.deleteQuestion(arrayList.quiz.get(i).getQuestionID());
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Hashmap
@@ -115,7 +119,7 @@ public class Benchmark {
             hashMap.deleteQuestion(key.getQuestionID());
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Linked List
@@ -125,7 +129,7 @@ public class Benchmark {
             linkedlist.deleteQuestion(linkedlist.quiz.getIDFromNumber(i+1));
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
 
 
         //Red Black Tree
@@ -137,7 +141,7 @@ public class Benchmark {
             tree.deleteQuestion(id);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
     }
 
 
@@ -157,7 +161,7 @@ public class Benchmark {
             arrayList.editQuestion(arrayList.quiz.get(i).getQuestionID(), "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
 
 
         //Hashmap
@@ -169,7 +173,7 @@ public class Benchmark {
             hashMap.editQuestion(key.getQuestionID(), "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
 
 
         //Linked List
@@ -179,7 +183,7 @@ public class Benchmark {
             linkedlist.editQuestion(linkedlist.quiz.getIDFromNumber(i), "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
 
 
         //Red Black Tree
@@ -191,20 +195,22 @@ public class Benchmark {
             tree.editQuestion(id, "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
         
     }
 
 
     public void changeOrder(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
-        int n;
+        int n, randomNumber;
         long startTime, endTime;
 
         System.out.print("Enter number of questions: ");
         n = scanner.nextInt();
         scanner.nextLine();
 
-        Random rand = new Random();
+        System.out.print("Enter random number (1-250): ");
+        randomNumber = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("\nCHANGING ORDER OF QUESTIONS");
 
@@ -212,11 +218,10 @@ public class Benchmark {
         System.out.println("Array List");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            int randomNumber = rand.nextInt(n);
             arrayList.changeOrder(arrayList.quiz.get(i).getQuestionID(), randomNumber);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0,n);
 
 
         //Hashmap
@@ -225,35 +230,41 @@ public class Benchmark {
         Question[] setofkey = hashMap.returnKeySet();
         for (int i = 0; i < n; i++) {
             Question key = setofkey[i];
-            int randomNumber = rand.nextInt(n);
             hashMap.changeOrder(key.getQuestionID(), randomNumber);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0, n);
 
 
         //Linked List 
         System.out.println("Linked List");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            int randomNumber = rand.nextInt(n);
+            // int randomNumber = rand.nextInt(n);
             linkedlist.changeOrder(linkedlist.quiz.getIDFromNumber(i), randomNumber);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime,0, n);
 
 
         //Red Black Tree
+        int nullCount=0;
         System.out.println("Red Black Tree");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            int randomNumber = rand.nextInt(n);
             TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
-            String id = treenode.data.getQuestionID();
-            tree.changeOrder(id, randomNumber);
+            if(treenode != null){
+                String id = treenode.data.getQuestionID();
+                tree.changeOrder(id, randomNumber);
+            }
+            else{
+                nullCount++;
+                System.out.println("null");
+            }
+            
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, nullCount, n);
         
     }
 
@@ -298,18 +309,19 @@ public class Benchmark {
 
 
         System.out.println("Array List");
-        getTime(startTime1, endTime1);
+        getTime(startTime1, endTime1,0,n);
         System.out.println("Hash Map");
-        getTime(startTime2, endTime2);
+        getTime(startTime2, endTime2,0,n);
         System.out.println("Linked List");
-        getTime(startTime3, endTime3);
+        getTime(startTime3, endTime3, 0,n);
         System.out.println("Red Black Tree");
-        getTime(startTime4, endTime4);
+        getTime(startTime4, endTime4, 0,n);
     }
 
 
     public void search(ArrayListBenchmark arrayList, HashMapBenchmark hashMap, LinkedlistBenchmark linkedlist, TreeRedBlackBenchmark tree){
         long startTime, endTime;
+        int n = 250;
 
         System.out.print("Search question number: ");
         int testingNumber = scanner.nextInt();
@@ -322,7 +334,7 @@ public class Benchmark {
         startTime = System.nanoTime();
         arrayList.questionSearch(arrayList.quiz.get(testingNumber-1).getQuestionID());
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
         //Hashmap
         System.out.println("Hash Map");
@@ -330,7 +342,7 @@ public class Benchmark {
         String id = hashMap.returnID(testingNumber);
         hashMap.questionSearch(id);
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Linked List
@@ -338,7 +350,7 @@ public class Benchmark {
         startTime = System.nanoTime();
         linkedlist.questionSearch(linkedlist.quiz.getIDFromNumber(testingNumber));
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
 
 
         //Red Black Tree
@@ -348,7 +360,7 @@ public class Benchmark {
         String id_tree = treenode.data.getQuestionID();
         tree.questionSearch(id_tree);
         endTime = System.nanoTime();
-        getTime(startTime, endTime);
+        getTime(startTime, endTime, 0, n);
         
     }
 
