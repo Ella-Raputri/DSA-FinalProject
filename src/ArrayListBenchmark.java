@@ -1,10 +1,8 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ArrayListBenchmark {
 
     ArrayList<Question> quiz = new ArrayList<Question>();
-    static Scanner scanner = new Scanner(System.in);
 
     public void addQuestion(String question, String correctAnswer){
         Question q1 = new Question(correctAnswer, question);

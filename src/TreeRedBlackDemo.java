@@ -93,7 +93,7 @@ public class TreeRedBlackDemo {
                     result.data.setCorrectAnswer(newAnswer);
                     System.out.println("Answer has been changed successfully.");
                 }
-                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                else if(!(answerChange.equals("y")) && !(answerChange.equals("n"))){
                     System.out.println("Invalid input.");
                     return;
                 }
