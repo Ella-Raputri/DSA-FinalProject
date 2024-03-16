@@ -6,14 +6,28 @@ public class ArrayListDemo {
     ArrayList<Question> quiz = new ArrayList<Question>();
     static Scanner scanner = new Scanner(System.in);
 
-    public Question getQuestionfromID(String id){
-        for(Question i:quiz){
-            if(i.getQuestionID().equals(id)){
-                return i;
-            }
+    public Question getQuestionfromID(String id){   
+        int target = Integer.parseInt(id);
+        int left = 0, right = quiz.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            int current = Integer.parseInt(quiz.get(mid).getQuestionID());
+
+            if (current == target)
+                return quiz.get(mid);
+ 
+            if (current < target)
+                left = mid + 1;
+ 
+            else
+                right = mid - 1;
         }
+ 
         return null;
     }
+
 
     public void addQuestion(){
         System.out.print("Enter question: ");

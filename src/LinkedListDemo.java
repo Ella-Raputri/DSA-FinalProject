@@ -32,8 +32,16 @@ public class LinkedlistDemo {
             System.out.print("What question ID do you want to delete? ");
             String id = scanner.nextLine();
 
-            quiz.deleteNode(id);
-            quiz.resetNumber();
+            Linkedlist.Node current = quiz.getNode(id);
+
+            if(current!= null){
+                quiz.deleteNode(current);
+                System.out.println("Deleted successfully.");
+                quiz.resetNumber();
+                return;
+            }
+            System.out.println("ID invalid. Please try again.");
+            
         }
     }
 
@@ -48,7 +56,44 @@ public class LinkedlistDemo {
             System.out.print("What question ID do you want to edit? ");
             String id = scanner.nextLine();
 
-            quiz.editNode(id, scanner);
+            Linkedlist.Node current = quiz.getNode(id);
+            if (current != null){
+                System.out.println("Current question: " + current.data.getQuestion());
+                System.out.println("Current answer: " + current.data.getCorrectAnswer());
+                System.out.print("Do you want to change the question? (Y/N) ");
+                String questionChange = scanner.nextLine();
+                questionChange = questionChange.toLowerCase();
+    
+                if(questionChange.equals("y")){
+                    System.out.print("New Question: ");
+                    String newQuestion = scanner.nextLine();
+                    current.data.setQuestion(newQuestion);
+                    System.out.println("Question has been changed successfully.");
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
+                    return;
+                }
+    
+                System.out.print("Do you want to change the answer? (Y/N) ");
+                String answerChange = scanner.nextLine();
+                answerChange = answerChange.toLowerCase();
+                if(answerChange.equals("y")){
+                    System.out.print("New Answer: ");
+                    String newAnswer = scanner.nextLine();
+                    current.data.setCorrectAnswer(newAnswer);
+                    System.out.println("Answer has been changed successfully.");
+                }
+                else if(!(questionChange.equals("y")) && !(questionChange.equals("n"))){
+                    System.out.println("Invalid input.");
+                    return;
+                }
+    
+                System.out.println("Returning to the main menu...");
+                return;
+            }
+            System.out.println("ID invalid. Please try again.");
+
         }
     }
 
@@ -58,11 +103,44 @@ public class LinkedlistDemo {
             System.out.println("Your current quiz is empty.");
             return;
         }
+        else if(quiz.head.equals(quiz.tail)){
+            System.out.println("Your current quiz only contains one number.");
+            return;
+        }
         else{
             printQuestions();
             System.out.print("What question ID do you want to change the order? ");
             String id = scanner.nextLine();
-            quiz.changeNodeOrder(id, scanner);
+
+            Linkedlist.Node current = quiz.getNode(id);
+            if(current != null){
+                int currentNumber = current.data.getQuestionNumber();
+
+                System.out.println("Current question number: " + current.data.getQuestionNumber());
+                System.out.print("Change to question number: ");
+                int newNumber = scanner.nextInt();
+                scanner.nextLine();
+
+                if(currentNumber == newNumber){
+                    System.out.println("Question number is not changed.");
+                    return;
+                }
+
+                else if(newNumber <= Linkedlist.nodeAmount && newNumber > 0){
+                    quiz.changeNodeOrder(newNumber, current, currentNumber);
+                    quiz.resetNumber();
+                    System.out.println("Question number has been changed successfully.");
+                }
+
+                else if(newNumber > Linkedlist.nodeAmount || newNumber < 0){
+                    System.out.println("The number is out of list");
+                    return;
+            }
+
+            return;
+        }
+        System.out.println("Invalid ID number. Please try again.");
+
         }
     }
 
@@ -73,7 +151,17 @@ public class LinkedlistDemo {
             return;
         }
         else{
-            quiz.printLinkedList();
+            Linkedlist.Node current = quiz.head;
+            System.out.println("\nYour current quiz: ");
+            while(current!=null){
+                System.out.println("Question " + current.data.getQuestionNumber());
+                System.out.println("Question ID: "+ current.data.getQuestionID());
+                System.out.println("Question: "+ current.data.getQuestion());
+                System.out.println("Answer: "+ current.data.getCorrectAnswer());
+                System.out.println();
+                current = current.next;
+            }
+            
         }
     }
 
@@ -87,7 +175,17 @@ public class LinkedlistDemo {
             System.out.print("Search for question ID: ");
             String id = scanner.nextLine();
 
-            quiz.searchNode(id);
+            Linkedlist.Node current = quiz.getNode(id);
+        
+            if(current != null){
+                System.out.println("Question " + current.data.getQuestionNumber());
+                System.out.println("Question ID: "+ current.data.getQuestionID());
+                System.out.println("Question: "+ current.data.getQuestion());
+                System.out.println("Answer: "+ current.data.getCorrectAnswer());
+                System.out.println();
+                return;
+            }
+            System.out.println("ID invalid. Please try again.");
         }
     }
 
