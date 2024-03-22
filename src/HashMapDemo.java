@@ -4,13 +4,22 @@ import java.util.Scanner;
 import java.util.Map.Entry;
 
 public class HashMapDemo {
-    HashMap<Question, String> quiz = new HashMap<Question, String>();
+    static HashMap<Question, String> quiz = new HashMap<Question, String>();
     static Scanner scanner = new Scanner(System.in);
 
     public static <T, E> T getKeyByValue(Map<T, E> map, E value) {
         for (Entry<T, E> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {
                 return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public static String getIDfromNumber(int num){
+        for(Question i: quiz.keySet()){
+            if(i.getQuestionNumber() == num){
+                return i.getQuestionID();
             }
         }
         return null;
@@ -123,48 +132,42 @@ public class HashMapDemo {
             String id = scanner.nextLine();
 
             if(quiz.containsValue(id)){
-                Question key = getKeyByValue(quiz, id);
-                System.out.println("Current question number: " + key.getQuestionNumber());
+                Question currentkey = getKeyByValue(quiz, id);
+                int currentNumber = currentkey.getQuestionNumber();
+                System.out.println("Current question number: " + currentNumber);
 
                 System.out.print("Change to question number: ");
                 int newNumber = scanner.nextInt();
                 scanner.nextLine();
 
-                if(key.getQuestionNumber() == newNumber){
+                String newNumid = getIDfromNumber(newNumber);
+                Question oldkey = getKeyByValue(quiz, newNumid);
+                
+
+                if(currentNumber == newNumber){
                     System.out.println("Question number is not changed.");
                     return;
                 }
 
-                else if(newNumber <= quiz.size() && newNumber > 0){
-                    int tracker = newNumber;
-                    int currentNumber = key.getQuestionNumber();
-                    
-                    for(Question i:quiz.keySet()){
-                        if(currentNumber > newNumber){
-                            if(i.getQuestionNumber() > newNumber && i.getQuestionNumber()<currentNumber){
-                                i.setQuestionNumber(tracker+2);
-                                tracker++;
-                            }
-                            else if(i.getQuestionNumber() == newNumber){
-                                i.setQuestionNumber(i.getQuestionNumber()+1);
-                                tracker++;
-                            }
-                        }
-
-                        else{
-                            if(i.getQuestionNumber() < newNumber && i.getQuestionNumber()>currentNumber){
-                                i.setQuestionNumber(tracker-2);
-                                tracker++;
-                                
-                            }
-                            else if(i.getQuestionNumber() == newNumber){
+                else if(newNumber <= quiz.size() && newNumber > 0){                    
+                    if(currentNumber < newNumber){
+                        oldkey.setQuestionNumber(oldkey.getQuestionNumber()-1);
+                        for(Question i: quiz.keySet()){
+                            if(i.getQuestionNumber() < newNumber && i.getQuestionNumber()>currentNumber && i!=oldkey){
                                 i.setQuestionNumber(i.getQuestionNumber()-1);
-                                tracker++;
                             }
                         }
-                        
                     }
-                    key.setQuestionNumber(newNumber);
+                    else{
+                        oldkey.setQuestionNumber(oldkey.getQuestionNumber()+1);
+                        for(Question i: quiz.keySet()){
+                            if(i.getQuestionNumber() > newNumber && i.getQuestionNumber()<currentNumber && i!=oldkey){
+                                i.setQuestionNumber(i.getQuestionNumber()+1);
+                            }
+                        }
+                    }
+
+                    currentkey.setQuestionNumber(newNumber);
                     System.out.println("Question number has been changed successfully.");
                 }
 

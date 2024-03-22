@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Map.Entry;
 
 public class HashMapBenchmark {
-    HashMap<Question, String> quiz = new HashMap<Question, String>();
+    static HashMap<Question, String> quiz = new HashMap<Question, String>();
     static Scanner scanner = new Scanner(System.in);
 
     //to avoid concurrent modification exception in the benchmark file
@@ -33,6 +33,15 @@ public class HashMapBenchmark {
         for (Entry<T, E> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {
                 return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public static String getIDfromNumber(int num){
+        for(Question i: quiz.keySet()){
+            if(i.getQuestionNumber() == num){
+                return i.getQuestionID();
             }
         }
         return null;
@@ -94,47 +103,42 @@ public class HashMapBenchmark {
     }
 
 
-    public void changeOrder(String questionID, int newNumber){
+    public void changeOrder(String id, int newNumber){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            if(quiz.containsValue(questionID)){
-                Question key = getKeyByValue(quiz, questionID);
-                if(key.getQuestionNumber() == newNumber){
+            if(quiz.containsValue(id)){
+                Question currentkey = getKeyByValue(quiz, id);
+                int currentNumber = currentkey.getQuestionNumber();
+                
+                String newNumid = getIDfromNumber(newNumber);
+                Question oldkey = getKeyByValue(quiz, newNumid);
+                
+
+                if(currentNumber == newNumber){
                     return;
                 }
 
-                else if(newNumber <= quiz.size() && newNumber > 0){
-                    int tracker = newNumber;
-                    int currentNumber = key.getQuestionNumber();
-                    
-                    for(Question i:quiz.keySet()){
-                        if(currentNumber > newNumber){
-                            if(i.getQuestionNumber() > newNumber && i.getQuestionNumber()<currentNumber){
-                                i.setQuestionNumber(tracker+2);
-                                tracker++;
-                            }
-                            else if(i.getQuestionNumber() == newNumber){
-                                i.setQuestionNumber(i.getQuestionNumber()+1);
-                                tracker++;
-                            }
-                        }
-
-                        else{
-                            if(i.getQuestionNumber() < newNumber && i.getQuestionNumber()>currentNumber){
-                                i.setQuestionNumber(tracker-2);
-                                tracker++;
-                                
-                            }
-                            else if(i.getQuestionNumber() == newNumber){
+                else if(newNumber <= quiz.size() && newNumber > 0){                    
+                    if(currentNumber < newNumber){
+                        oldkey.setQuestionNumber(oldkey.getQuestionNumber()-1);
+                        for(Question i: quiz.keySet()){
+                            if(i.getQuestionNumber() < newNumber && i.getQuestionNumber()>currentNumber && i!=oldkey){
                                 i.setQuestionNumber(i.getQuestionNumber()-1);
-                                tracker++;
                             }
                         }
-                        
                     }
-                    key.setQuestionNumber(newNumber);
+                    else{
+                        oldkey.setQuestionNumber(oldkey.getQuestionNumber()+1);
+                        for(Question i: quiz.keySet()){
+                            if(i.getQuestionNumber() > newNumber && i.getQuestionNumber()<currentNumber && i!=oldkey){
+                                i.setQuestionNumber(i.getQuestionNumber()+1);
+                            }
+                        }
+                    }
+
+                    currentkey.setQuestionNumber(newNumber);
                 }
 
 
@@ -191,56 +195,7 @@ public class HashMapBenchmark {
     }
 
 
-    public static void main(String[] args) {
-         
-        HashMapDemo demo = new HashMapDemo();
-
-        while(true){
-            System.out.println("\n************************************");
-            System.out.println("\nQuestion Editing");
-            System.out.println("(A)dd");
-            System.out.println("(D)elete");
-            System.out.println("(E)dit Question");
-            System.out.println("(C)hange Question's Order");
-            System.out.println("(P)rint List of Questions");
-            System.out.println("(S)earch");
-            System.out.println("(Q)uit");
-            System.out.println("************************************");
-            System.out.print("Please enter a command: ");
-            String command = scanner.nextLine();
-            command = command.toUpperCase();
-
-            switch (command) {
-                case "A":
-                    demo.addQuestion();
-                    break;
-                case "D":
-                    demo.deleteQuestion();
-                    break;
-                case "E":
-                    demo.editQuestion();
-                    break;
-                case "C":
-                    demo.changeOrder();
-                    break;
-                case "P":
-                    demo.printQuestions();
-                    break;
-                case "S":
-                    demo.questionSearch();
-                    break;
-                case "Q":
-                    return;
-                default:
-                    System.out.println("Invalid command. Please try again.");
-                    break;
-            }
-        }
-
-
     
-
-    }
 }
 
 
