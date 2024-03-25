@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LinkedlistDemo {
+public class LinkedListDemo {
     static Scanner scanner = new Scanner(System.in);
     Linkedlist quiz = new Linkedlist();
 
@@ -192,7 +192,7 @@ public class LinkedlistDemo {
 
     public static void main(String[] args) {
          
-        LinkedlistDemo demo = new LinkedlistDemo();
+        LinkedListDemo demo = new LinkedListDemo();
 
         while(true){
             System.out.println("\n************************************");
