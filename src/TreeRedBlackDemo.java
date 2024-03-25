@@ -164,6 +164,7 @@ public class TreeRedBlackDemo {
             System.out.println("Your current quiz: ");
             quiz.printFullNode(quiz.getRoot(), nodeCount);
         }
+        System.out.println(quiz.toString());
     }
 
 
