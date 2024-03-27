@@ -168,16 +168,15 @@ public class Benchmark3 {
     public void search(LinkedlistBenchmark linkedlist){
         long startTime, endTime;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Linked List
         System.out.println("Linked List");
         startTime = System.nanoTime();
-        linkedlist.questionSearch(linkedlist.quiz.getIDFromNumber(testingNumber));
+        linkedlist.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

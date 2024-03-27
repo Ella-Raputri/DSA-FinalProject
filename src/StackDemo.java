@@ -189,21 +189,29 @@ public class StackDemo {
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
-            String id = scanner.nextLine();
-
-            Question i = getQuestionfromID(id);
+            System.out.print("Search for string: ");
+            String str = scanner.nextLine();
+            boolean track = false;
             
-            if(i!= null){
-                System.out.println("Question " + i.getQuestionNumber());
-                System.out.println("Question ID: "+ i.getQuestionID());
-                System.out.println("Question: "+ i.getQuestion());
-                System.out.println("Answer: "+ i.getCorrectAnswer());
-                System.out.println();
+            for(Question i: quiz){
+                String question = i.getQuestion();
+                String answer = i.getCorrectAnswer();
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + i.getQuestionNumber());
+                    System.out.println("Question ID: "+ i.getQuestionID());
+                    System.out.println("Question: "+ i.getQuestion());
+                    System.out.println("Answer: "+ i.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
+            }
+
+            if(track){
                 return;
             }
-            System.out.println("ID invalid. Please try again.");
-
+            else{
+                System.out.println("No question or answer with such string.");
+            }
         }
     }
 

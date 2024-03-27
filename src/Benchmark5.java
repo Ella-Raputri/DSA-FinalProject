@@ -173,17 +173,15 @@ public class Benchmark5 {
     public void search(QueueBenchmark queue){
         long startTime, endTime;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Queue
         System.out.println("Queue");
         startTime = System.nanoTime();
-        String id = queue.returnID(testingNumber);
-        queue.questionSearch(id);
+        queue.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

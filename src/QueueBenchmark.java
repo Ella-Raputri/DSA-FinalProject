@@ -162,20 +162,31 @@ public class QueueBenchmark {
     }
 
 
-    public void questionSearch(String id){
+    public void questionSearch(String str){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            Question i = getQuestionfromID(id);
+            boolean track = false;
             
-            if(i!= null){
-                System.out.println("Question " + i.getQuestionNumber());
-                System.out.println("Question ID: "+ i.getQuestionID());
-                System.out.println("Question: "+ i.getQuestion());
-                System.out.println("Answer: "+ i.getCorrectAnswer());
-                System.out.println();
+            for(Question i: quiz){
+                String question = i.getQuestion();
+                String answer = i.getCorrectAnswer();
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + i.getQuestionNumber());
+                    System.out.println("Question ID: "+ i.getQuestionID());
+                    System.out.println("Question: "+ i.getQuestion());
+                    System.out.println("Answer: "+ i.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
+            }
+
+            if(track){
                 return;
+            }
+            else{
+                System.out.println("No question or answer with such string.");
             }
 
         }

@@ -164,16 +164,15 @@ public class Benchmark6 {
     public void search(StackBenchmark stack){
         long startTime, endTime;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Stack
         System.out.println("Stack");
         startTime = System.nanoTime();
-        stack.questionSearch(stack.quiz.get(testingNumber-1).getQuestionID());
+        stack.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

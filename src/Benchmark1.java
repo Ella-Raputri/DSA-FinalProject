@@ -165,16 +165,15 @@ public class Benchmark1 {
     public void search(ArrayListBenchmark arrayList){
         long startTime, endTime;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Array List
         System.out.println("Array List");
         startTime = System.nanoTime();
-        arrayList.questionSearch(arrayList.quiz.get(testingNumber-1).getQuestionID());
+        arrayList.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

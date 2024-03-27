@@ -112,20 +112,35 @@ public class LinkedlistBenchmark {
     }
 
 
-    public void questionSearch(String id){
+    public void questionSearch(String str){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            Linkedlist.Node current = quiz.getNode(id);
-        
-            if(current != null){
-                System.out.println("Question " + current.data.getQuestionNumber());
-                System.out.println("Question ID: "+ current.data.getQuestionID());
-                System.out.println("Question: "+ current.data.getQuestion());
-                System.out.println("Answer: "+ current.data.getCorrectAnswer());
-                System.out.println();
+            boolean track = false;
+
+            Linkedlist.Node current = quiz.head;
+
+            while(current!=null){
+                String question = current.data.getQuestion();
+                String answer = current.data.getCorrectAnswer();
+
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + current.data.getQuestionNumber());
+                    System.out.println("Question ID: "+ current.data.getQuestionID());
+                    System.out.println("Question: "+ current.data.getQuestion());
+                    System.out.println("Answer: "+ current.data.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
+                current = current.next;
+            }
+            
+            if(track){
                 return;
+            }
+            else{
+                System.out.println("No question or answer with such string.");
             }
         }
     }

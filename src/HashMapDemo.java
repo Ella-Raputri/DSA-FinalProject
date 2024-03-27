@@ -215,20 +215,30 @@ public class HashMapDemo {
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
-            String id = scanner.nextLine();
+            System.out.print("Search for string: ");
+            String str = scanner.nextLine();
+            boolean track = false;
 
-            if(quiz.containsValue(id)){
-                Question key = getKeyByValue(quiz, id);
-                System.out.println("Question " + key.getQuestionNumber());
-                System.out.println("Question ID: "+ key.getQuestionID());
-                System.out.println("Question: "+ key.getQuestion());
-                System.out.println("Answer: "+ key.getCorrectAnswer());
-                System.out.println();
-                return;
+            for(Question i:quiz.keySet()){
+                String question = i.getQuestion();
+                String answer = i.getCorrectAnswer();
+
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + i.getQuestionNumber());
+                    System.out.println("Question ID: "+ i.getQuestionID());
+                    System.out.println("Question: "+ i.getQuestion());
+                    System.out.println("Answer: "+ i.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
             }
 
-            System.out.println("ID invalid. Please try again.");
+            if(track){
+                return;
+            }
+            else{
+                System.out.println("No question or answer with such string.");
+            }
 
         }
     }

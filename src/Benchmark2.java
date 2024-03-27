@@ -173,17 +173,15 @@ public class Benchmark2 {
     public void search(HashMapBenchmark hashMap){
         long startTime, endTime;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Hashmap
         System.out.println("Hash Map");
         startTime = System.nanoTime();
-        String id = hashMap.returnID(testingNumber);
-        hashMap.questionSearch(id);
+        hashMap.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
