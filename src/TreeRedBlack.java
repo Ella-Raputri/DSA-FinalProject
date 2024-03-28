@@ -429,42 +429,6 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
 
         return node.data.getQuestionNumber();       
     }
-    
-    public void setQuestionNumberForward(TreeNode node, int questionNumber) { //forward direction
-        // Traverse the tree
-        if (node != null && questionNumber > 0) {
-            if (questionNumber < node.data.getQuestionNumber()) {
-                node.data.setQuestionNumber(node.data.getQuestionNumber()-1);
-            }  
-                //recursively call function on left child, if it exists
-            if (node.left != null && questionNumber < node.left.data.getQuestionNumber())
-                setQuestionNumberForward(node.left, questionNumber);
-        
-            //recursively call function on right child, if it exists
-            if (node.right != null && questionNumber < node.right.data.getQuestionNumber())
-                setQuestionNumberForward(node.right, questionNumber);
-                     
-        }
-
-    }
-
-    public void setQuestionNumberBackward(TreeNode node, int questionNumber) { //forward direction
-        // Traverse the tree
-        if (node != null && questionNumber > 0) {
-            if (questionNumber < node.data.getQuestionNumber()){
-                node.data.setQuestionNumber(node.data.getQuestionNumber()+1);}
-                
-            //recursively call function on left child, if it exists
-            if (node.left != null && questionNumber < node.left.data.getQuestionNumber()){
-                setQuestionNumberBackward(node.left, questionNumber);}
-        
-            //recursively call function on right child, if it exists
-            if (node.right != null && questionNumber < node.right.data.getQuestionNumber()){
-                setQuestionNumberBackward(node.right, questionNumber);}
-                       
-        }
-
-    }
 
 
     public TreeNode searchNodeBasedonNumber(TreeNode rootNode, int key) {
@@ -499,32 +463,6 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
 
         return res;
     }
-    
-
-    public void resetQuestionNumber(TreeNode rootNode, TreeNode nodeOri, TreeNode nodeAfter, int questionOri, int questionAfter) {
-        //pindah ke depan forward direction
-        if (questionAfter < questionOri) {
-           //delete node Ori, setQuestion di belakangnya semua forward
-            Question temp1 = searchNode(nodeOri.data.getQuestionID()).data;
-            deleteNode(nodeOri.data.getQuestionID());
-            setQuestionNumberForward(rootNode, questionOri);
-
-            //delete node After, setQuestion di belakangnya semua backward
-            Question temp2 = searchNode(nodeAfter.data.getQuestionID()).data;
-            setQuestionNumberBackward(rootNode, questionAfter);
-            deleteNode(nodeAfter.data.getQuestionID());
-
-            // //set question number 
-            temp1.setQuestionNumber(questionAfter); //ori
-            temp2.setQuestionNumber(questionAfter+1); //after
-
-            // //insert temp1 dan temp2 balik
-            insertNode(temp2);
-            insertNode(temp1);
-
-        }
-
-    }
 
     public void printFullNode(TreeNode rootNode, int count){  
         for (int i = 0; i < count; i++){
@@ -553,6 +491,35 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
         System.out.print(" "+root.data.getQuestionID()+" "+root.data.getQuestionNumber());
         inOrder(root.right);
     } 
+
+    //for forward case, set some numbers backward
+    public void inOrderForward(TreeNode root, int newNum, int oldNum){  
+        if (root == null) {
+            return;
+        }   
+
+        inOrderForward(root.left, newNum, oldNum);
+        int a = root.data.getQuestionNumber();
+        if (a < oldNum && a > newNum) {
+           root.data.setQuestionNumber(a+1); 
+        }
+        inOrderForward(root.right, newNum, oldNum);
+    }
+
+
+    //for backward case, set some numbers forward
+    public void inOrderBackward(TreeNode root, int newNum, int oldNum){  
+        if (root == null) {
+            return;
+        }   
+
+        inOrderBackward(root.left, newNum, oldNum);
+        int a = root.data.getQuestionNumber();
+        if (a > oldNum && a < newNum) {
+           root.data.setQuestionNumber(a-1); 
+        }
+        inOrderBackward(root.right, newNum, oldNum);
+    }
 
 
 

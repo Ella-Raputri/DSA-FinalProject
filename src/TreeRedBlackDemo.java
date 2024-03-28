@@ -42,12 +42,12 @@ public class TreeRedBlackDemo {
 
             if (number > 0) {
                nodeCount -= 1; 
+               System.out.println("Deleted successfully.");
             }
-            
-            quiz.setQuestionNumberForward(quiz.getRoot(), number);
-            // System.out.println("amount:" + nodeCount);
+            quiz.inOrderBackward(quiz.getRoot(), nodeCount+2, number);
+            //System.out.println("amount:" + nodeCount);
             // System.out.println(quiz.toString());
-            System.out.println("Deleted successfully.");
+            
         }
     }
 
@@ -149,39 +149,17 @@ public class TreeRedBlackDemo {
 
                 }else if(newNumber <= nodeCount && newNumber > 0){
                     //search for the original one
-                    TreeNode nodeAfter = quiz.searchNodeBasedonNumber(quiz.getRoot(), newNumber);
                     int ori = want_to_change.data.getQuestionNumber();
                     //forward
-                    //quiz.resetQuestionNumber(quiz.getRoot(), want_to_change, nodeAfter, ori, newNumber);
                     if (ori > newNumber){
-                        //delete node Ori, setQuestion di belakangnya semua forward
-                        Question temp1 = quiz.searchNode(want_to_change.data.getQuestionID()).data;
-                        quiz.deleteNode(want_to_change.data.getQuestionID());
-                        quiz.setQuestionNumberForward(quiz.getRoot(), ori);
-
-                        //delete node After, setQuestion di belakangnya semua backward
-                        Question temp2 = quiz.searchNode(nodeAfter.data.getQuestionID()).data;
-                        quiz.setQuestionNumberBackward(quiz.getRoot(), newNumber);
-                        quiz.deleteNode(nodeAfter.data.getQuestionID());
-
-                        // //set question number 
-                        temp1.setQuestionNumber(newNumber); //ori
-                        temp2.setQuestionNumber(newNumber+1); //after
-
-                        // //insert temp1 dan temp2 balik
-                        quiz.insertNode(temp2);
-                        quiz.insertNode(temp1);
+                        quiz.inOrderForward(quiz.getRoot(), newNumber-1, ori);
+                        want_to_change.data.setQuestionNumber(newNumber);
                     }
 
                     //backward
                     if (ori < newNumber) {
-                        Question temp1 = quiz.searchNode(want_to_change.data.getQuestionID()).data;
-                        quiz.setQuestionNumberForward(quiz.getRoot(), ori);
-                        quiz.deleteNode(want_to_change.data.getQuestionID());
-
-                        quiz.setQuestionNumberBackward(quiz.getRoot(), newNumber-1);
-                        temp1.setQuestionNumber(newNumber);
-                        quiz.insertNode(temp1);
+                        quiz.inOrderBackward(quiz.getRoot(), newNumber+1, ori);
+                        want_to_change.data.setQuestionNumber(newNumber);
                     }
                     System.out.println("Changed successfully");
                 }
@@ -201,8 +179,8 @@ public class TreeRedBlackDemo {
         }else{
             System.out.println("Your current quiz: ");
             quiz.printFullNode(quiz.getRoot(), nodeCount);
-            System.out.println(quiz.toString());
-            quiz.inOrder(quiz.getRoot());
+            // System.out.println(quiz.toString());
+            // quiz.inOrder(quiz.getRoot());
         }
     }
 
@@ -243,7 +221,7 @@ public class TreeRedBlackDemo {
             results = quiz.searchNodeString(quiz.getRoot(), answer, results);
             results = bubbleSort(results);
 
-            System.out.println(results);
+           // System.out.println(results);
             if (results == null || results.size() == 0){
                 System.out.println("Invalid. Please try again.");
                 return;

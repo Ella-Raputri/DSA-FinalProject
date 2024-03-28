@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class TreeRedBlackBenchmark {
 
     TreeRedBlack quiz = new TreeRedBlack();
@@ -10,7 +12,6 @@ public class TreeRedBlackBenchmark {
         nodeCount += 1;
     }
 
-
     public void deleteQuestion(String answer){
         if(nodeCount == 0){
             return;
@@ -22,8 +23,7 @@ public class TreeRedBlackBenchmark {
             if (number > 0) {
                nodeCount -= 1; 
             }
-            
-            quiz.setQuestionNumberForward(quiz.getRoot(), number);
+            quiz.inOrderBackward(quiz.getRoot(), nodeCount+2, number);
         }
     }
 
@@ -58,11 +58,26 @@ public class TreeRedBlackBenchmark {
     }
     
 
+    public boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            int d = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     public void changeOrder(String answer, int newNumber){
         if (nodeCount == 0){            
             return;
         }
         else{
+            if(!isNumeric(answer)){
+                return;
+            }
             TreeNode want_to_change = quiz.searchNode(answer);
 
             if(want_to_change != null){               
@@ -71,20 +86,17 @@ public class TreeRedBlackBenchmark {
 
                 }else if(newNumber <= nodeCount && newNumber > 0){
                     //search for the original one
-                    TreeNode nodeAfter = quiz.searchNodeBasedonNumber(quiz.getRoot(), newNumber);
                     int ori = want_to_change.data.getQuestionNumber();
                     //forward
-                    quiz.resetQuestionNumber(quiz.getRoot(), want_to_change, nodeAfter, ori, newNumber);
+                    if (ori > newNumber){
+                        quiz.inOrderForward(quiz.getRoot(), newNumber-1, ori);
+                        want_to_change.data.setQuestionNumber(newNumber);
+                    }
 
                     //backward
                     if (ori < newNumber) {
-                        Question temp1 = quiz.searchNode(want_to_change.data.getQuestionID()).data;
-                        quiz.setQuestionNumberForward(quiz.getRoot(), ori);
-                        quiz.deleteNode(want_to_change.data.getQuestionID());
-
-                        quiz.setQuestionNumberBackward(quiz.getRoot(), newNumber-1);
-                        temp1.setQuestionNumber(newNumber);
-                        quiz.insertNode(temp1);
+                        quiz.inOrderBackward(quiz.getRoot(), newNumber+1, ori);
+                        want_to_change.data.setQuestionNumber(newNumber);
                     }
                 }
 
@@ -104,22 +116,49 @@ public class TreeRedBlackBenchmark {
         }
     }
 
+    public LinkedList<TreeNode> bubbleSort(LinkedList<TreeNode> al){
+        int i, j;
+        boolean swapped;
+
+        for (i = 0; i < al.size() - 1; i++) {
+            swapped = false;
+            for (j = 0; j < al.size() - i - 1; j++) {
+                if (al.get(j).data.getQuestionNumber() > al.get(j+1).data.getQuestionNumber()) {
+                    TreeNode temp = al.get(j);
+                    al.set(j, al.get(j+1));
+                    al.set(j+1, temp);
+                    // Collections.swap(al, j, j+1);
+                    swapped = true;
+                }
+            }
+ 
+            if (swapped == false){
+                break;
+            }
+        }
+        return al;
+    }
+
 
     public void questionSearch(String answer){
         if(nodeCount == 0){
             return;
         }
         else{
-            TreeNode result = quiz.searchNode(answer);
-
-            if (result == null){                
+            LinkedList<TreeNode> results = new LinkedList<TreeNode>();
+            results = quiz.searchNodeString(quiz.getRoot(), answer, results);
+            results = bubbleSort(results);
+            
+            if (results == null || results.size() == 0){
                 return;
             }else{
-                System.out.println("Question " + result.data.getQuestionNumber());
-                System.out.println("Question ID: "+ result.data.getQuestionID());
-                System.out.println("Question: "+ result.data.getQuestion());
-                System.out.println("Answer: "+ result.data.getCorrectAnswer());
-                System.out.println();
+                for (TreeNode result : results){
+                    System.out.println("Question " + result.data.getQuestionNumber());
+                    System.out.println("Question ID: "+ result.data.getQuestionID());
+                    System.out.println("Question: "+ result.data.getQuestion());
+                    System.out.println("Answer: "+ result.data.getCorrectAnswer());
+                    System.out.println();                 
+                }
                 return;
             }
 
