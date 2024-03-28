@@ -27,26 +27,36 @@ public class HashMapDemo {
         return null;
     }
 
-    public  static ArrayList<Question> sorting(ArrayList<Question> al){
-        int i, j;
-        boolean swapped;
+    static int partition(ArrayList<Question> arr, int low, int high){
+        // Choosing the pivot
+        int pivot = arr.get(high).getQuestionNumber();
 
-        for (i = 0; i < al.size() - 1; i++) {
-            swapped = false;
-            for (j = 0; j < al.size() - i - 1; j++) {
-                if (al.get(j).getQuestionNumber() > al.get(j+1).getQuestionNumber()) {
-                    Collections.swap(al, j, j+1);
-                    swapped = true;
-                }
-            }
- 
-            if (swapped == false){
-                break;
+        // Index of smaller element and indicates
+        // the right position of pivot found so far
+        int i = (low - 1);
+
+        for (int j = low; j <= high - 1; j++) {
+
+            // If current element is smaller than the pivot
+            if (arr.get(j).getQuestionNumber() < pivot) {
+
+                // Increment index of smaller element
+                i++;
+                Collections.swap(arr, i, j);
             }
         }
-        return al;
+        Collections.swap(arr, i + 1, high);
+        return (i + 1);
     }
+    
+    static void quickSort(ArrayList<Question> arr, int low, int high){
+        if (low < high) {
+            int pi = partition(arr, low, high);
 
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
 
     public void addQuestion(){
         System.out.print("Enter question: ");
@@ -243,7 +253,7 @@ public class HashMapDemo {
 
             ArrayList<Question> al = new ArrayList<>();
             al.addAll(quiz.keySet());
-            al = sorting(al);
+            quickSort(al, 0, al.size()-1);
 
             for(Question i:al){
                 String question = i.getQuestion();
