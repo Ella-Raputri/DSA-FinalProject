@@ -1,4 +1,4 @@
-
+import java.util.LinkedList;
 /**
  * A red-black tree implementation with <code>int</code> keys.
  *
@@ -485,6 +485,20 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
         TreeNode res2 = searchNodeBasedonNumber(rootNode.right, key); 
         return res2;
     }
+
+
+    public LinkedList<TreeNode> searchNodeString(TreeNode rootNode, String str, LinkedList<TreeNode> res) {
+        if (rootNode != null){
+            if (rootNode.data.getQuestion().contains(str) || rootNode.data.getCorrectAnswer().contains(str)){
+                res.add(rootNode);
+            }
+            
+            res = searchNodeString(rootNode.left, str, res); 
+            res = searchNodeString(rootNode.right, str, res);  
+        }
+
+        return res;
+    }
     
 
     public void resetQuestionNumber(TreeNode rootNode, TreeNode nodeOri, TreeNode nodeAfter, int questionOri, int questionAfter) {
@@ -529,6 +543,16 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
         }
          
     }
+
+    public void inOrder(TreeNode root){  
+        if (root == null) {
+            return;
+        }   
+
+        inOrder(root.left);
+        System.out.print(" "+root.data.getQuestionID()+" "+root.data.getQuestionNumber());
+        inOrder(root.right);
+    } 
 
 
 

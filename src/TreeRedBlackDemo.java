@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class TreeRedBlackDemo {
@@ -108,6 +109,18 @@ public class TreeRedBlackDemo {
     }
     
 
+    public boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            int d = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     public void changeOrder(){
         if (nodeCount == 0){
             System.out.println("Your current quiz is empty.");
@@ -117,6 +130,10 @@ public class TreeRedBlackDemo {
             printQuestions();
             System.out.print("What question ID do you want to change the order? ");
             String answer = scanner.nextLine();
+            if(!isNumeric(answer)){
+                System.out.println("Invalid. Please try again.");
+                return;
+            }
             TreeNode want_to_change = quiz.searchNode(answer);
 
             if(want_to_change != null){
@@ -135,7 +152,26 @@ public class TreeRedBlackDemo {
                     TreeNode nodeAfter = quiz.searchNodeBasedonNumber(quiz.getRoot(), newNumber);
                     int ori = want_to_change.data.getQuestionNumber();
                     //forward
-                    quiz.resetQuestionNumber(quiz.getRoot(), want_to_change, nodeAfter, ori, newNumber);
+                    //quiz.resetQuestionNumber(quiz.getRoot(), want_to_change, nodeAfter, ori, newNumber);
+                    if (ori > newNumber){
+                        //delete node Ori, setQuestion di belakangnya semua forward
+                        Question temp1 = quiz.searchNode(want_to_change.data.getQuestionID()).data;
+                        quiz.deleteNode(want_to_change.data.getQuestionID());
+                        quiz.setQuestionNumberForward(quiz.getRoot(), ori);
+
+                        //delete node After, setQuestion di belakangnya semua backward
+                        Question temp2 = quiz.searchNode(nodeAfter.data.getQuestionID()).data;
+                        quiz.setQuestionNumberBackward(quiz.getRoot(), newNumber);
+                        quiz.deleteNode(nodeAfter.data.getQuestionID());
+
+                        // //set question number 
+                        temp1.setQuestionNumber(newNumber); //ori
+                        temp2.setQuestionNumber(newNumber+1); //after
+
+                        // //insert temp1 dan temp2 balik
+                        quiz.insertNode(temp2);
+                        quiz.insertNode(temp1);
+                    }
 
                     //backward
                     if (ori < newNumber) {
@@ -150,6 +186,8 @@ public class TreeRedBlackDemo {
                     System.out.println("Changed successfully");
                 }
 
+            }else{
+                System.out.println("Invalid. Please try again.");
             }
 
 
@@ -163,10 +201,34 @@ public class TreeRedBlackDemo {
         }else{
             System.out.println("Your current quiz: ");
             quiz.printFullNode(quiz.getRoot(), nodeCount);
+            System.out.println(quiz.toString());
+            quiz.inOrder(quiz.getRoot());
         }
-        System.out.println(quiz.toString());
     }
 
+
+    public LinkedList<TreeNode> bubbleSort(LinkedList<TreeNode> al){
+        int i, j;
+        boolean swapped;
+
+        for (i = 0; i < al.size() - 1; i++) {
+            swapped = false;
+            for (j = 0; j < al.size() - i - 1; j++) {
+                if (al.get(j).data.getQuestionNumber() > al.get(j+1).data.getQuestionNumber()) {
+                    TreeNode temp = al.get(j);
+                    al.set(j, al.get(j+1));
+                    al.set(j+1, temp);
+                    // Collections.swap(al, j, j+1);
+                    swapped = true;
+                }
+            }
+ 
+            if (swapped == false){
+                break;
+            }
+        }
+        return al;
+    }
 
     public void questionSearch(){
         if(nodeCount == 0){
@@ -174,20 +236,25 @@ public class TreeRedBlackDemo {
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
+            System.out.print("Search for string: ");
             String answer = scanner.nextLine();
 
-            TreeNode result = quiz.searchNode(answer);
+            LinkedList<TreeNode> results = new LinkedList<TreeNode>();
+            results = quiz.searchNodeString(quiz.getRoot(), answer, results);
+            results = bubbleSort(results);
 
-            if (result == null){
-                System.out.println("ID invalid. Please try again.");
+            System.out.println(results);
+            if (results == null || results.size() == 0){
+                System.out.println("Invalid. Please try again.");
                 return;
             }else{
-                System.out.println("Question " + result.data.getQuestionNumber());
-                System.out.println("Question ID: "+ result.data.getQuestionID());
-                System.out.println("Question: "+ result.data.getQuestion());
-                System.out.println("Answer: "+ result.data.getCorrectAnswer());
-                System.out.println();
+                for (TreeNode result : results){
+                    System.out.println("Question " + result.data.getQuestionNumber());
+                    System.out.println("Question ID: "+ result.data.getQuestionID());
+                    System.out.println("Question: "+ result.data.getQuestion());
+                    System.out.println("Answer: "+ result.data.getCorrectAnswer());
+                    System.out.println();                 
+                }
                 return;
             }
 
