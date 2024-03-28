@@ -1,8 +1,9 @@
-import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Scanner;
 
-public class ArrayListBenchmark {
-
-    ArrayList<Question> quiz = new ArrayList<Question>();
+public class StackBenchmark {
+    Stack<Question> quiz = new Stack<Question>();
+    static Scanner scanner = new Scanner(System.in);
 
     public Question getQuestionfromID(String id){   
         for(Question i: quiz){
@@ -12,6 +13,16 @@ public class ArrayListBenchmark {
         }
         return null;
     }
+
+
+    public void resetNumber(){
+        int tracker = 1;
+        for(Question i: quiz){
+            i.setQuestionNumber(tracker);
+            tracker++;
+        }
+    }
+
 
     public void addQuestion(String question, String correctAnswer){
         Question q1 = new Question(correctAnswer, question);
@@ -27,27 +38,21 @@ public class ArrayListBenchmark {
         else{
             Question i = getQuestionfromID(id);
             if(i!= null){
-                int j = quiz.indexOf(i);
                 quiz.remove(i);
-
-                while(j < quiz.size()){
-                    quiz.get(j).setQuestionNumber(j+1);
-                    j++;
-                }
+                resetNumber();
                 return;
-            }
-                    
+            }                    
         }
     }
 
 
-    public void editQuestion(String questionID, String questionChange, String newQuestion, String answerChange, String newAnswer){
+    public void editQuestion(String id, String questionChange, String newQuestion, String answerChange, String newAnswer){
         if(quiz.isEmpty()){
             return;
         }
         else{
-            Question i = getQuestionfromID(questionID);
-            if(i!= null){
+            Question i = getQuestionfromID(id);
+            if(i != null){
                 if(questionChange.equals("y")){
                     i.setQuestion(newQuestion);
                 }
@@ -64,54 +69,43 @@ public class ArrayListBenchmark {
                 
                 return;
             }
-
         }
     }
 
 
-    public void changeOrder(String questionID, int newNumber){
-        if(quiz.isEmpty()){;
+    public void changeOrder(String id, int newNumber){
+        if(quiz.isEmpty()){
             return;
         }
         else{
-            Question i = getQuestionfromID(questionID);
+            Question i = getQuestionfromID(id);
 
             if(i!=null){
                 if(i.getQuestionNumber() == newNumber){
                     return;
                 }
-                else if(newNumber <= quiz.size() && newNumber > 0){
-                    int indexOfi = quiz.indexOf(i);
+
+                else if(newNumber <= quiz.size() && newNumber > 0){                    
                     int currentNumber = i.getQuestionNumber();
-
-                    //setting the new number
-                    if(currentNumber > newNumber){
-                        quiz.add(newNumber-1, i);
-                        quiz.remove(indexOfi+1);
+                    if(currentNumber < newNumber){
+                        quiz.insertElementAt(i, newNumber);
+                        quiz.remove(currentNumber-1);
                     }
-                    else{
-                        if(newNumber+1 > quiz.size()){
-                            quiz.add(i);
-                        }
-                        else{
-                            quiz.add(newNumber, i);
-                        }
-                        quiz.remove(indexOfi);
+                    else if (currentNumber > newNumber){
+                        quiz.insertElementAt(i, newNumber-1);
+                        quiz.remove(currentNumber);
                     }
 
-                    
-                    //setting all the question number
-                    for(int j=0; j<quiz.size(); j++){
-                        quiz.get(j).setQuestionNumber(j+1);
-                    }
+                    resetNumber();
                 }
-                else if(newNumber > quiz.size() || newNumber < 0){
+                    
+
+                else if(newNumber > quiz.size() || newNumber < 0) {
                     return;
                 }
 
                 return;
             }
-
         }
     }
 
@@ -139,7 +133,7 @@ public class ArrayListBenchmark {
         }
         else{
             boolean track = false;
-
+            
             for(Question i: quiz){
                 String question = i.getQuestion();
                 String answer = i.getCorrectAnswer();
@@ -151,18 +145,16 @@ public class ArrayListBenchmark {
                     System.out.println();
                     track = true;
                 }
-            }            
-            
+            }
+
             if(track){
                 return;
             }
             else{
                 System.out.println("No question or answer with such string.");
             }
-
         }
     }
 
 
-    
 }

@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 
-public class Benchmark3 {
+public class Benchmark5 {
     static String[] questions = new String[250];
     static String[] answers = new String[250];
     static int count = 0;
@@ -46,7 +46,7 @@ public class Benchmark3 {
     }
 
 
-    public void add(LinkedlistBenchmark linkedList){
+    public void add(QueueBenchmark queue){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -55,20 +55,21 @@ public class Benchmark3 {
 
         System.out.println("\nADDING QUESTIONS");
 
-        //Linked list
-        System.out.println("Linked List");
+        //Queue
+        System.out.println("Queue");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            linkedList.addQuestion(questions[i], answers[i]);
+            queue.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
 
+
     }
 
 
-    public void delete(LinkedlistBenchmark linkedlist){
+    public void delete(QueueBenchmark queue){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -77,21 +78,21 @@ public class Benchmark3 {
 
         System.out.println("\nDELETING QUESTIONS");
 
-        //Linked List
-        System.out.println("Linked List");
+        //Queue
+        System.out.println("Queue");
         startTime = System.nanoTime();
+        Question[] questionSet = queue.returnQuestions();
         for (int i = 0; i < n; i++) {
-            linkedlist.deleteQuestion(linkedlist.quiz.getIDFromNumber(i+1));
+            Question question = questionSet[i];
+            queue.deleteQuestion(question.getQuestionID());
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
-
-
     }
 
 
-    public void edit(LinkedlistBenchmark linkedlist){
+    public void edit(QueueBenchmark queue){
         int n;
         long startTime, endTime;
         System.out.print("Enter number of questions: ");
@@ -100,20 +101,22 @@ public class Benchmark3 {
 
         System.out.println("\nEDITING QUESTIONS");
 
-        //Linked List
-        System.out.println("Linked List");
+        //Queue
+        System.out.println("Queue");
         startTime = System.nanoTime();
+        Question[] questionSet = queue.returnQuestions();
         for (int i = 0; i < n; i++) {
-            linkedlist.editQuestion(linkedlist.quiz.getIDFromNumber(i), "y", "a", "y", "a");
+            Question question = questionSet[i];
+            queue.editQuestion(question.getQuestionID(), "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
-        
+
     }
 
 
-    public void changeOrder(LinkedlistBenchmark linkedlist){
+    public void changeOrder(QueueBenchmark queue){
         int n, randomNumber;
         long startTime, endTime;
 
@@ -127,21 +130,23 @@ public class Benchmark3 {
 
         System.out.println("\nCHANGING ORDER OF QUESTIONS");
 
-        //Linked List 
-        System.out.println("Linked List");
+        //Queue
+        System.out.println("Queue");
         startTime = System.nanoTime();
+        Question[] questionSet = queue.returnQuestions();
         for (int i = 0; i < n; i++) {
-            // int randomNumber = rand.nextInt(n);
-            linkedlist.changeOrder(linkedlist.quiz.getIDFromNumber(i), randomNumber);
+            Question question = questionSet[i];
+            queue.changeOrder(question.getQuestionID(), randomNumber);
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
-        
+
+
     }
 
 
-    public void print(LinkedlistBenchmark linkedlist){
+    public void print(QueueBenchmark queue){
         long startTime, endTime;
         int n;
 
@@ -151,21 +156,21 @@ public class Benchmark3 {
 
         System.out.println("\nPRINTING QUESTIONS");
 
-        //Linked List
+        //Queue
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            linkedlist.printQuestions();
+            queue.printQuestions();
         }
         endTime = System.nanoTime();
+
         
-        System.out.println("Linked List");
+        System.out.println("Hash Map");
         getTime(startTime, endTime);
         getSpace();
-        
     }
 
 
-    public void search(LinkedlistBenchmark linkedlist){
+    public void search(QueueBenchmark queue){
         long startTime, endTime;
 
         System.out.print("Search for string: ");
@@ -173,26 +178,26 @@ public class Benchmark3 {
 
         System.out.println("\nSEARCHING A QUESTION");
 
-        //Linked List
-        System.out.println("Linked List");
+        //Queue
+        System.out.println("Queue");
         startTime = System.nanoTime();
-        linkedlist.questionSearch(str);
+        queue.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();
-        
+
     }
 
     
     public static void main(String[] args) {
-        Benchmark3 benchmark = new Benchmark3();
+        Benchmark5 benchmark = new Benchmark5();
         inputQuestion();
 
-        LinkedlistBenchmark linkedlist = new LinkedlistBenchmark();
+        QueueBenchmark queue = new QueueBenchmark();
         for (int i=0; i<250 && i<count; i++) {
-            linkedlist.addQuestion(questions[i], answers[i]);
+            queue.addQuestion(questions[i], answers[i]);
         }
-
+        
         System.out.println("\n************************************");
         System.out.println("\nSpeed Testing");
         System.out.println("(A)dd");
@@ -210,32 +215,32 @@ public class Benchmark3 {
         switch (command) {
             //add question
             case "a":
-                benchmark.add(linkedlist);
+                benchmark.add(queue);
                 break;
     
             //delete question
             case "d":
-                benchmark.delete(linkedlist);
+                benchmark.delete(queue);
                 break;
             
             //edit question
             case "e":
-                benchmark.edit(linkedlist);
+                benchmark.edit(queue);
                 break;
             
             //change order
             case "c":
-                benchmark.changeOrder(linkedlist);
+                benchmark.changeOrder(queue);
                 break;
             
             //printing all questions
             case "p":
-                benchmark.print(linkedlist);
+                benchmark.print(queue);
                 break;
             
             //searching a particular question
             case "s":
-                benchmark.search(linkedlist);
+                benchmark.search(queue);
                 break;
             
             //quit the program

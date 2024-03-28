@@ -1,4 +1,6 @@
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map.Entry;
@@ -23,6 +25,26 @@ public class HashMapDemo {
             }
         }
         return null;
+    }
+
+    public  static ArrayList<Question> sorting(ArrayList<Question> al){
+        int i, j;
+        boolean swapped;
+
+        for (i = 0; i < al.size() - 1; i++) {
+            swapped = false;
+            for (j = 0; j < al.size() - i - 1; j++) {
+                if (al.get(j).getQuestionNumber() > al.get(j+1).getQuestionNumber()) {
+                    Collections.swap(al, j, j+1);
+                    swapped = true;
+                }
+            }
+ 
+            if (swapped == false){
+                break;
+            }
+        }
+        return al;
     }
 
 
@@ -215,20 +237,34 @@ public class HashMapDemo {
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
-            String id = scanner.nextLine();
+            System.out.print("Search for string: ");
+            String str = scanner.nextLine();
+            boolean track = false;
 
-            if(quiz.containsValue(id)){
-                Question key = getKeyByValue(quiz, id);
-                System.out.println("Question " + key.getQuestionNumber());
-                System.out.println("Question ID: "+ key.getQuestionID());
-                System.out.println("Question: "+ key.getQuestion());
-                System.out.println("Answer: "+ key.getCorrectAnswer());
-                System.out.println();
+            ArrayList<Question> al = new ArrayList<>();
+            al.addAll(quiz.keySet());
+            al = sorting(al);
+
+            for(Question i:al){
+                String question = i.getQuestion();
+                String answer = i.getCorrectAnswer();
+
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + i.getQuestionNumber());
+                    System.out.println("Question ID: "+ i.getQuestionID());
+                    System.out.println("Question: "+ i.getQuestion());
+                    System.out.println("Answer: "+ i.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
+            }             
+
+            if(track){
                 return;
             }
-
-            System.out.println("ID invalid. Please try again.");
+            else{
+                System.out.println("No question or answer with such string.");
+            }
 
         }
     }

@@ -172,20 +172,33 @@ public class LinkedListDemo {
             return;
         }
         else{
-            System.out.print("Search for question ID: ");
-            String id = scanner.nextLine();
+            System.out.print("Search for string: ");
+            String str = scanner.nextLine();
+            boolean track = false;
 
-            Linkedlist.Node current = quiz.getNode(id);
-        
-            if(current != null){
-                System.out.println("Question " + current.data.getQuestionNumber());
-                System.out.println("Question ID: "+ current.data.getQuestionID());
-                System.out.println("Question: "+ current.data.getQuestion());
-                System.out.println("Answer: "+ current.data.getCorrectAnswer());
-                System.out.println();
+            Linkedlist.Node current = quiz.head;
+
+            while(current!=null){
+                String question = current.data.getQuestion();
+                String answer = current.data.getCorrectAnswer();
+
+                if(question.contains(str) || answer.contains(str)){
+                    System.out.println("Question " + current.data.getQuestionNumber());
+                    System.out.println("Question ID: "+ current.data.getQuestionID());
+                    System.out.println("Question: "+ current.data.getQuestion());
+                    System.out.println("Answer: "+ current.data.getCorrectAnswer());
+                    System.out.println();
+                    track = true;
+                }
+                current = current.next;
+            }
+            
+            if(track){
                 return;
             }
-            System.out.println("ID invalid. Please try again.");
+            else{
+                System.out.println("No question or answer with such string.");
+            }
         }
     }
 
