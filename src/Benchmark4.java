@@ -182,18 +182,15 @@ public class Benchmark4 {
         long startTime, endTime;
         int n = 250;
 
-        System.out.print("Search question number: ");
-        int testingNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Search for a string: ");
+        String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
 
         //Red Black Tree
         System.out.println("Red Black Tree");
         startTime = System.nanoTime();
-        TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), testingNumber);
-        String id_tree = treenode.data.getQuestionID();
-        tree.questionSearch(id_tree);
+        tree.questionSearch(str);
         endTime = System.nanoTime();
         getTime(startTime, endTime, 0, n);
         getSpace();
