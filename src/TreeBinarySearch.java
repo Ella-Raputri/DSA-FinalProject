@@ -1,24 +1,12 @@
+//binary search tree interface which inherits from binary tree
 public interface TreeBinarySearch extends TreeBinary {
 
-    /**
-     * Searches for a node with the given search key.
-     *
-     * @param key the search key
-     * @return the node or <code>null</code> if no node with the given search key exists
-     */
-    TreeNode searchNode(String key);
+    //search nodes in the tree based on the Question ID
+    TreeNode searchNode(String key_id);
 
-    /**
-     * Inserts a node with the given key.
-     *
-     * @param key the key of the node to be inserted
-     */
-    void insertNode(Question key);
+    //insert Question as data in a node
+    void insertNode(Question question);
 
-    /**
-     * Deletes the node with the given key.
-     *
-     * @param key the key of the node to be deleted
-     */
+    //delete a node based on the Question ID
     void deleteNode(String key_id);
 }

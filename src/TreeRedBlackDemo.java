@@ -46,7 +46,7 @@ public class TreeRedBlackDemo {
             }
             quiz.inOrderBackward(quiz.getRoot(), nodeCount+2, number);
             //System.out.println("amount:" + nodeCount);
-            // System.out.println(quiz.toString());
+           System.out.println(quiz.toString());
             
         }
     }

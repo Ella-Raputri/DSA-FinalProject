@@ -1,26 +1,16 @@
 public class TreeNode {
 
-    // also called "value" in a binary tree
-    // also called "key" in a binary search tree
-    Question data;
+    //Attributes of the node in the tree
+    Question data; //value of the node
 
-    TreeNode left;
-    TreeNode right;
-    TreeNode parent; // used in SimpleBinaryTree + red-black tree
+    TreeNode left; //left child of the node
+    TreeNode right; //right child of the node
+    TreeNode parent; //parent of the node
 
-    int height; // used in AVL tree
-    boolean color; // used in red-black tree
+    boolean color; // used in red-black tree to track if the tree is balanced or not
 
-    /**
-     * Constructs a new node with the given data.
-     *
-     * @param data the data to store in the node
-     */
+    //constructor
     public TreeNode(Question data) {
         this.data = data;
-    }
-
-    public Question getData() {
-        return data;
     }
 }

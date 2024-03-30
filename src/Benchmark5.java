@@ -3,44 +3,56 @@ import java.util.Scanner;
 
 
 public class Benchmark5 {
+    //initialize String arrays for questions and answers
     static String[] questions = new String[250];
     static String[] answers = new String[250];
-    static int count = 0;
-    static Scanner scanner = new Scanner(System.in);
+
+    static int count = 0; //to track count of questions when inputting
+    static Scanner scanner = new Scanner(System.in); //scanner for user input
 
     public static void inputQuestion() {
         try {
+            //read the ExampleQuestions file
             FileReader fr =new FileReader("src/ExampleQuestions.txt");    
             BufferedReader reader = new BufferedReader(fr);
             String eachLine;
+            //while reading each line
             while ((eachLine = reader.readLine()) != null) {
+                //split each line by the '_' symbol
                 String[] part = eachLine.split("_");
-                questions[count] = part[0];
-                answers[count] = part[1];
+                questions[count] = part[0]; //the first part is the question
+                answers[count] = part[1]; //the second part is the answer
                 count++;
             }
             reader.close();
 
         } catch (IOException e) {
+            //exception if file is not available
             System.out.println("Cannot find file. Please try again.");
         }
     }
 
 
     static void getTime(long startTime, long endTime) {
+        //get runtime by substracting endtime with startime
         double nanoSeconds = endTime - startTime;
+        //convert it to miliseconds
         double milliSeconds = nanoSeconds/1000000;
 
+        //print the result
         System.out.println("Time used: " + milliSeconds + " milliseconds");
         System.out.println();
     }
 
     static void getSpace(){
+        //get space by first access the total memory and free memory
         Runtime rt = Runtime.getRuntime();
         long total_mem = rt.totalMemory();
         long free_mem = rt.freeMemory();
+        //count the used memory
         long used_mem = total_mem - free_mem;
 
+        //print the result
         String str = String.format("%,d", used_mem);
         System.out.println("Amount of used memory: " + str);
     }
@@ -49,21 +61,22 @@ public class Benchmark5 {
     public void add(QueueBenchmark queue){
         int n;
         long startTime, endTime;
+        //ask user to input how many question numbers that user wants to test
         System.out.print("Enter number of questions: ");
         n = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("\nADDING QUESTIONS");
-
-        //Queue
         System.out.println("Queue");
-        startTime = System.nanoTime();
+        startTime = System.nanoTime(); //get start time
+
+        //perform n times adding Questions based on user input
         for (int i = 0; i < n; i++) {
             queue.addQuestion(questions[i], answers[i]);
         }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-        getSpace();
+        endTime = System.nanoTime(); //get end time
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
 
 
     }
@@ -72,49 +85,50 @@ public class Benchmark5 {
     public void delete(QueueBenchmark queue){
         int n;
         long startTime, endTime;
+        //ask user to input how many question numbers that user wants to test
         System.out.print("Enter number of questions: ");
         n = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("\nDELETING QUESTIONS");
-
-        //Queue
         System.out.println("Queue");
-        startTime = System.nanoTime();
+        startTime = System.nanoTime(); //get start time
         Question[] questionSet = queue.returnQuestions();
         
+        //perform n times deleting Questions based on user input
         int iterate = 0;
         while (iterate < n) {
             Question question = questionSet[0];
            queue.deleteQuestion(question.getQuestionID());
            iterate++;
         }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-        getSpace();
+        endTime = System.nanoTime(); //get end time
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
     }
 
 
     public void edit(QueueBenchmark queue){
         int n;
         long startTime, endTime;
+        //ask user to input how many question numbers that user wants to test
         System.out.print("Enter number of questions: ");
         n = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("\nEDITING QUESTIONS");
-
-        //Queue
         System.out.println("Queue");
-        startTime = System.nanoTime();
+        startTime = System.nanoTime(); //get start time
         Question[] questionSet = queue.returnQuestions();
+
+        //perform n times editing Questions based on user input
         for (int i = 0; i < n; i++) {
             Question question = questionSet[i];
             queue.editQuestion(question.getQuestionID(), "y", "a", "y", "a");
         }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-        getSpace();
+        endTime = System.nanoTime(); //get end time
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
 
     }
 
@@ -123,27 +137,29 @@ public class Benchmark5 {
         int n, randomNumber;
         long startTime, endTime;
 
+        //ask user to input how many question numbers that user wants to test
         System.out.print("Enter number of questions: ");
         n = scanner.nextInt();
         scanner.nextLine();
-
+ 
+        //ask user to input which number that user wants to change all the number to it
         System.out.print("Enter random number (1-250): ");
         randomNumber = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("\nCHANGING ORDER OF QUESTIONS");
-
-        //Queue
         System.out.println("Queue");
-        startTime = System.nanoTime();
+
+        startTime = System.nanoTime(); //get start time
         Question[] questionSet = queue.returnQuestions();
+        //perform n times changing Questions order based on user input
         for (int i = 0; i < n; i++) {
             Question question = questionSet[i];
             queue.changeOrder(question.getQuestionID(), randomNumber);
         }
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-        getSpace();
+        endTime = System.nanoTime(); //get end time
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
 
 
     }
@@ -153,54 +169,58 @@ public class Benchmark5 {
         long startTime, endTime;
         int n;
 
+        //ask user to input how many times they want to print all questions
         System.out.print("How many times you want to print all the questions? ");
         n = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("\nPRINTING QUESTIONS");
-
-        //Queue
-        startTime = System.nanoTime();
+        startTime = System.nanoTime(); //get start time
+        //perform n times printing Questions based on user input
         for (int i = 0; i < n; i++) {
             queue.printQuestions();
         }
-        endTime = System.nanoTime();
+        endTime = System.nanoTime(); //get end time
 
         
-        System.out.println("Hash Map");
-        getTime(startTime, endTime);
-        getSpace();
+        System.out.println("Queue");
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
     }
 
 
     public void search(QueueBenchmark queue){
         long startTime, endTime;
 
+        //ask user to input a string to be searched
         System.out.print("Search for string: ");
         String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");
-
-        //Queue
         System.out.println("Queue");
-        startTime = System.nanoTime();
-        queue.questionSearch(str);
-        endTime = System.nanoTime();
-        getTime(startTime, endTime);
-        getSpace();
+
+        startTime = System.nanoTime(); //get start time
+        queue.questionSearch(str); //search for string
+        endTime = System.nanoTime(); //get end time
+
+        getTime(startTime, endTime); //get time used
+        getSpace(); //get space used
 
     }
 
     
     public static void main(String[] args) {
+        //initialize benchmark5 to benchmark Queue
         Benchmark5 benchmark = new Benchmark5();
-        inputQuestion();
+        inputQuestion(); //input all 250 questions and answers to the String arrays
 
         QueueBenchmark queue = new QueueBenchmark();
+        //add all 250 questions to the Queue
         for (int i=0; i<250 && i<count; i++) {
             queue.addQuestion(questions[i], answers[i]);
         }
         
+        //print the menus
         System.out.println("\n************************************");
         System.out.println("\nSpeed Testing");
         System.out.println("(A)dd");
@@ -211,6 +231,8 @@ public class Benchmark5 {
         System.out.println("(S)earch");
         System.out.println("(Q)uit");
         System.out.println("************************************");
+        
+        //ask user to input a command to be counted
         System.out.print("Please enter a command: ");
         String command = scanner.nextLine();
         command = command.toLowerCase();
