@@ -82,10 +82,13 @@ public class Benchmark2 {
         System.out.println("Hash Map");
         startTime = System.nanoTime();
         Question[] setofkey = hashMap.returnKeySet();
-        for (int i = 0; i < n; i++) {
-            Question key = setofkey[i];
+        int iterate = 0;
+        while (iterate < n) {
+            Question key = setofkey[0];
             hashMap.deleteQuestion(key.getQuestionID());
+            iterate++;
         }
+        
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

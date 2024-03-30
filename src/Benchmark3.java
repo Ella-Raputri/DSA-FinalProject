@@ -80,9 +80,12 @@ public class Benchmark3 {
         //Linked List
         System.out.println("Linked List");
         startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            linkedlist.deleteQuestion(linkedlist.quiz.getIDFromNumber(i+1));
+        int iterate = 0;
+        while (iterate < n) {
+            linkedlist.deleteQuestion(linkedlist.quiz.getIDFromNumber(1));
+            iterate++;
         }
+
         endTime = System.nanoTime();
         getTime(startTime, endTime);
         getSpace();

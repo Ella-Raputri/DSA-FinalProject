@@ -27,13 +27,13 @@ public class Benchmark4 {
     }
 
 
-    static void getTime(long startTime, long endTime, int nullCount, int n) {
+    static void getTime(long startTime, long endTime, int n) {
         double nanoSeconds = endTime - startTime;
         double milliSeconds = nanoSeconds/1000000;
 
-        if(nullCount != 0){
-            milliSeconds = ((nullCount/n) * milliSeconds) + milliSeconds;
-        }
+        // if(nullCount != 0){
+        //     milliSeconds = ((nullCount/n) * milliSeconds) + milliSeconds;
+        // }
         
         System.out.println("Time used: " + milliSeconds + " milliseconds");
         System.out.println();
@@ -66,7 +66,7 @@ public class Benchmark4 {
             tree.addQuestion(questions[i], answers[i]);
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime, 0, n);
+        getTime(startTime, endTime, n);
         getSpace();
     }
 
@@ -83,13 +83,16 @@ public class Benchmark4 {
         //Red Black Tree
         System.out.println("Red Black Tree");
         startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
+        int iterate = 0;
+        while (iterate < n) {
+            TreeNode treenode = null;
+            treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), 1, treenode);
             String id = treenode.data.getQuestionID();
             tree.deleteQuestion(id);
+            iterate++;
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime,0,n);
+        getTime(startTime, endTime,n);
         getSpace();
     }
 
@@ -107,12 +110,13 @@ public class Benchmark4 {
         System.out.println("Red Black Tree");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
+            TreeNode treenode = null;
+            treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1,treenode);
             String id = treenode.data.getQuestionID();
             tree.editQuestion(id, "y", "a", "y", "a");
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime,0,n);
+        getTime(startTime, endTime,n);
         getSpace();
         
     }
@@ -133,23 +137,24 @@ public class Benchmark4 {
         System.out.println("\nCHANGING ORDER OF QUESTIONS");
 
         //Red Black Tree
-        int nullCount=0;
+        //int nullCount=0;
         System.out.println("Red Black Tree");
         startTime = System.nanoTime();
         for (int i = 0; i < n; i++) {
-            TreeNode treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1);
-            if(treenode != null){
+            TreeNode treenode = null;
+            treenode = tree.quiz.searchNodeBasedonNumber(tree.quiz.getRoot(), i+1, treenode);
+            //if(treenode != null){
                 String id = treenode.data.getQuestionID();
                 tree.changeOrder(id, randomNumber);
-            }
-            else{
-                nullCount++;
-                System.out.println("null");
-            }
+            //}
+            // else{
+            //     nullCount++;
+            //     System.out.println("null");
+            // }
             
         }
         endTime = System.nanoTime();
-        getTime(startTime, endTime, nullCount, n);
+        getTime(startTime, endTime, n);
         getSpace();
         
     }
@@ -173,7 +178,7 @@ public class Benchmark4 {
         endTime = System.nanoTime();
 
         System.out.println("Red Black Tree");
-        getTime(startTime, endTime, 0,n);
+        getTime(startTime, endTime, n);
         getSpace();
     }
 
@@ -192,7 +197,7 @@ public class Benchmark4 {
         startTime = System.nanoTime();
         tree.questionSearch(str);
         endTime = System.nanoTime();
-        getTime(startTime, endTime, 0, n);
+        getTime(startTime, endTime,  n);
         getSpace();
     }
 

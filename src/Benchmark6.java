@@ -79,8 +79,11 @@ public class Benchmark6 {
         //Stack
         System.out.println("Stack");
         startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            stack.deleteQuestion(stack.quiz.get(i).getQuestionID());
+
+        int iterate = 0;
+        while (iterate < n) {
+            stack.deleteQuestion(stack.quiz.get(0).getQuestionID());
+            iterate++;
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);

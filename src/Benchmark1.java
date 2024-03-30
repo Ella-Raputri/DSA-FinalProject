@@ -80,8 +80,10 @@ public class Benchmark1 {
         //Array List
         System.out.println("Array List");
         startTime = System.nanoTime();
-        for (int i = 0; i < n; i++) {
-            arrayList.deleteQuestion(arrayList.quiz.get(i).getQuestionID());
+        int iterate = 0;
+        while (iterate < n) {
+            arrayList.deleteQuestion(arrayList.quiz.get(0).getQuestionID());
+            iterate++;
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);

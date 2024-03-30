@@ -82,9 +82,12 @@ public class Benchmark5 {
         System.out.println("Queue");
         startTime = System.nanoTime();
         Question[] questionSet = queue.returnQuestions();
-        for (int i = 0; i < n; i++) {
-            Question question = questionSet[i];
-            queue.deleteQuestion(question.getQuestionID());
+        
+        int iterate = 0;
+        while (iterate < n) {
+            Question question = questionSet[0];
+           queue.deleteQuestion(question.getQuestionID());
+           iterate++;
         }
         endTime = System.nanoTime();
         getTime(startTime, endTime);

@@ -431,23 +431,15 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
     }
 
 
-    public TreeNode searchNodeBasedonNumber(TreeNode rootNode, int key) {
-        if (rootNode == null) 
-            return null; 
-
-        if (rootNode.data.getQuestionNumber() == key) 
-            return rootNode; 
-    
-        // then recur on left subtree /
-        TreeNode res1 = searchNodeBasedonNumber(rootNode.left, key); 
-        // node found, no need to look further
-        if(res1 != null) 
-            return res1; 
-    
-        // node is not found in left, 
-        // so recur on right subtree /
-        TreeNode res2 = searchNodeBasedonNumber(rootNode.right, key); 
-        return res2;
+    public TreeNode searchNodeBasedonNumber(TreeNode rootNode, int key, TreeNode result) {
+        if (rootNode != null){ 
+            if (rootNode.data.getQuestionNumber() == key){ 
+                result = rootNode;
+            } 
+            result = searchNodeBasedonNumber(rootNode.left, key, result); 
+            result = searchNodeBasedonNumber(rootNode.right, key, result); 
+        }
+        return result;
     }
 
 
@@ -466,12 +458,13 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
 
     public void printFullNode(TreeNode rootNode, int count){  
         for (int i = 0; i < count; i++){
-            TreeNode result = searchNodeBasedonNumber(rootNode,i+1);  
+            TreeNode result = null;
+            result = searchNodeBasedonNumber(rootNode,i+1, result);  
 
             if (result == null){ 
                 continue;
             }else{
-                Question q1 = searchNodeBasedonNumber(rootNode, i+1).data;
+                Question q1 = result.data;
                 System.out.println("Question " + (i+1));
                 System.out.println("Question ID: "+ q1.getQuestionID());
                 System.out.println("Question: "+ q1.getQuestion());
@@ -482,15 +475,6 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
          
     }
 
-    public void inOrder(TreeNode root){  
-        if (root == null) {
-            return;
-        }   
-
-        inOrder(root.left);
-        System.out.print(" "+root.data.getQuestionID()+" "+root.data.getQuestionNumber());
-        inOrder(root.right);
-    } 
 
     //for forward case, set some numbers backward
     public void inOrderForward(TreeNode root, int newNum, int oldNum){  
