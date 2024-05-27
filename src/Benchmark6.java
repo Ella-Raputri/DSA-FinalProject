@@ -202,11 +202,11 @@ public class Benchmark6 {
     public static void main(String[] args) {
         //initialize benchmark6 to benchmark Stack
         Benchmark6 benchmark = new Benchmark6();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         StackBenchmark stack = new StackBenchmark();
-        //add all 250 questions to the Stack
-        for (int i=0; i<250 && i<count; i++) {
+        //add all questions to the Stack
+        for (int i=0; i<1000 && i<count; i++) {
             stack.addQuestion(questions[i], answers[i]);
         }
         

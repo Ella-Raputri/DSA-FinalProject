@@ -208,11 +208,11 @@ public class Benchmark3 {
     public static void main(String[] args) {
         //initialize benchmark3 to benchmark LinkedList
         Benchmark3 benchmark = new Benchmark3();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         LinkedlistBenchmark linkedlist = new LinkedlistBenchmark();
-        //add all 250 questions to the LinkedList
-        for (int i=0; i<250 && i<count; i++) {
+        //add all questions to the LinkedList
+        for (int i=0; i<1000 && i<count; i++) {
             linkedlist.addQuestion(questions[i], answers[i]);
         }
 

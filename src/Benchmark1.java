@@ -210,11 +210,11 @@ public class Benchmark1 {
     public static void main(String[] args) {
         //initialize benchmark1 to benchmark ArrayList
         Benchmark1 benchmark = new Benchmark1();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         ArrayListBenchmark arrayList = new ArrayListBenchmark();
-        //add all 250 questions to the ArrayList
-        for (int i=0; i<250 && i<count; i++) {
+        //add all 1000 questions to the ArrayList
+        for (int i=0; i<1000 && i<count; i++) {
             arrayList.addQuestion(questions[i], answers[i]);
         }
         

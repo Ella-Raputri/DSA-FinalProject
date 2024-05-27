@@ -220,11 +220,11 @@ public class Benchmark2 {
     public static void main(String[] args) {
         //initialize benchmark2 to benchmark HashMap
         Benchmark2 benchmark = new Benchmark2();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         HashMapBenchmark hashMap = new HashMapBenchmark();
-        //add all 250 questions to the HashMap
-        for (int i=0; i<250 && i<count; i++) {
+        //add all questions to the HashMap
+        for (int i=0; i<1000 && i<count; i++) {
             hashMap.addQuestion(questions[i], answers[i]);
         }
         

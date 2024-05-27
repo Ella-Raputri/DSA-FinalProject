@@ -219,11 +219,11 @@ public class Benchmark4 {
     public static void main(String[] args) {
         //initialize benchmark4 to benchmark RedBlackTree
         Benchmark4 benchmark = new Benchmark4();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         TreeRedBlackBenchmark tree = new TreeRedBlackBenchmark();
-        //add all 250 questions to the Red Black Tree
-        for (int i=0; i<250 && i<count; i++) {
+        //add all questions to the Red Black Tree
+        for (int i=0; i<1000 && i<count; i++) {
             tree.addQuestion(questions[i], answers[i]);
         }
 

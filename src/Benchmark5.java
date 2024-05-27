@@ -212,11 +212,11 @@ public class Benchmark5 {
     public static void main(String[] args) {
         //initialize benchmark5 to benchmark Queue
         Benchmark5 benchmark = new Benchmark5();
-        inputQuestion(); //input all 250 questions and answers to the String arrays
+        inputQuestion(); //input all questions and answers to the String arrays
 
         QueueBenchmark queue = new QueueBenchmark();
-        //add all 250 questions to the Queue
-        for (int i=0; i<250 && i<count; i++) {
+        //add all questions to the Queue
+        for (int i=0; i<1000 && i<count; i++) {
             queue.addQuestion(questions[i], answers[i]);
         }
         
