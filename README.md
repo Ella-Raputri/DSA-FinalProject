@@ -8,7 +8,7 @@
 - Ellis Raputri (2702298116)
 
 
-**Report and Presentation Slide:** [Click here](https://drive.google.com/drive/folders/1seG4K2Eytrg1HmvgL7JVdhSqt80uZnfi?usp=sharing)
+**All Documentations:** [Click here](https://drive.google.com/drive/folders/1seG4K2Eytrg1HmvgL7JVdhSqt80uZnfi?usp=sharing)
 
 
 **GUI Implementation of the Best Data Structure:** [Click here](https://github.com/Ella-Raputri/DSA-FinalProject-QuizPro) 
