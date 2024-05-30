@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Benchmark1 {
     //initialize String arrays for questions and answers
-    static String[] questions = new String[250];
-    static String[] answers = new String[250];
+    static String[] questions = new String[1000];
+    static String[] answers = new String[1000];
 
     static int count = 0; //to track count of questions when inputting
     static Scanner scanner = new Scanner(System.in); //scanner for user input
@@ -144,7 +144,7 @@ public class Benchmark1 {
         scanner.nextLine();
 
         //ask user to input which number that user wants to change all the number to it
-        System.out.print("Enter random number (1-250): ");
+        System.out.print("Enter random number (1-2000): ");
         randomNumber = scanner.nextInt();
         scanner.nextLine();
 

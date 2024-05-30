@@ -12,7 +12,7 @@ public class QueueBenchmark {
     public Question[] returnQuestions(){
         //to add all the questions in the queue to an array
         //initialize the array
-        Question[] questions = new Question[250];
+        Question[] questions = new Question[1000];
         int index=0;
 
         //add the questions to the array

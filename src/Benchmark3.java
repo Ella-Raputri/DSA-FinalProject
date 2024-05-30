@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Benchmark3 {
     //initialize String arrays for questions and answers
-    static String[] questions = new String[250];
-    static String[] answers = new String[250];
+    static String[] questions = new String[1000];
+    static String[] answers = new String[1000];
 
     static int count = 0; //to track count of questions when inputting
     static Scanner scanner = new Scanner(System.in); //scanner for user input

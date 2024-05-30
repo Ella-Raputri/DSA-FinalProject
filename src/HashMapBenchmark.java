@@ -14,7 +14,7 @@ public class HashMapBenchmark {
     //to avoid concurrent modification exception in the benchmark file
     public Question[] returnKeySet(){
         //initialize array to contain the set of key
-        Question[] setofkey = new Question[250];
+        Question[] setofkey = new Question[1000];
         int index=0;
         
         //add all the key in the hashmap to the setofkey array
