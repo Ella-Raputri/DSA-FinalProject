@@ -143,7 +143,7 @@ public class Benchmark5 {
         scanner.nextLine();
  
         //ask user to input which number that user wants to change all the number to it
-        System.out.print("Enter random number (1-250): ");
+        System.out.print("Enter random number (1-1000): ");
         randomNumber = scanner.nextInt();
         scanner.nextLine();
 
