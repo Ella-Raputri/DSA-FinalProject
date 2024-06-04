@@ -40,7 +40,7 @@ After the benchmarking process, we concluded that the winner is Linked List. To 
 
 ## Credits
 
-credits for red black tree (insert, delete, and search node based on its ID) : sven@happycoders.eu
+Credits for Red Black Tree (insert, delete, and search node based on its ID) : sven@happycoders.eu
 
 
 <br>
