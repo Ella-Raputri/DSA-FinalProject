@@ -1,0 +1,1000 @@
+What’s your address?_123 street
+How’s your family?_good
+Do you work here?_no
+Who’s your favorite food?_rice
+What’s for dinner?_pasta
+Do you want to play?_no
+Have you met Lia?_no
+Can I see your ID?_no
+What are you reading?_a novel
+Do you agree?_I cannot agree
+Are you a starter or a finisher?_a finisher
+What do you value most: free time, recognition, or money?_money
+What form of transport is best?_car 
+Are you living your life purpose, or are you still searching?_searching
+What's the best item in your fridge, right this moment?_bread
+Are you useful in a crisis?_no
+If you could sit down with your 15-year old self, what would you say?_good luck
+What is your favorite thing about your career?_money
+What is your proudest accomplishment?_getting awards
+What is your favorite book to read?_Conan
+What did you want to be when you were small?_a vet
+If you could choose to do anything for a day, what would it be?_playing games
+What is your favorite game or sport to watch and play?_Genshin
+Would you rather ride a bike, ride a horse, or drive a car?_drive a car
+What would you sing at Karaoke night?_no
+Which would you rather do: wash dishes, mow the lawn, clean the bathroom, or vacuum the house?_wash dishes
+If you could hire someone to help you, would it be with cleaning, cooking, or yard work?_cooking
+If you could only eat one meal for the rest of your life, what would it be?_rice
+Who is your favorite author?_Aoyama Gosho
+Have you ever had a nickname? What is it?_No
+Do you like or dislike surprises?_Like
+In the evening, would you rather play a game, visit a relative, watch a movie, or read?_play game
+Would you rather win the lottery or work at the perfect job?_work at the perfect job
+Who would you want to be stranded with on a deserted island?_my mom
+If money was no object, what would you do all day?_sleeping
+If you could go back in time, what year would you travel to?_2022
+How would your friends describe you?_punctual
+What are your hobbies?_playing games
+What is the best gift you have been given?_laptop
+Aside from necessities, what one thing could you not go a day without?_phone
+How many pairs of shoes do you own?_four
+If you were a super-hero, what powers would you have?_time pause
+What's your favorite family tradition?_chinese new year traditions
+What is your favorite childhood memory?_playing in garden
+What's your favorite movie?_Conan movie 20
+What was your favorite subject in school?_biology
+Do you collect anything?_nope
+Is there anything you wished would come back into fashion?_nope
+Are you an introvert or an extrovert?_introvert
+Which of the five senses would you say is your strongest?_hearing
+Have you ever had a surprise party? (that was an actual surprise)_no
+Are you related or distantly related to anyone famous?_no
+What do you do to keep fit?_eat sufficiently
+What would you do if you won the lottery?_send money to my parents
+What's your favorite zoo animal?_lion
+If you could go back in time to change one thing, what would it be?_my grades
+How many pillows do you sleep with?_one
+What's the longest you've gone without sleep?_not even one day
+What's the tallest building you've been to the top in?_taipei 101
+Would you rather trade intelligence for looks or looks for intelligence?_looks for intelligence
+How often do you buy clothes?_once a year
+What's your favorite holiday?_in Balai
+What's the most daring thing you've ever done?_skip class
+What was the last book you read?_ABC Murder
+What's your favorite type of foreign food?_chinese food
+Are you a clean or messy person?_clean
+How long does it take you to get ready in the morning?_30 minutes
+What kitchen appliance do you use every day?_spoon
+What's your favorite family recipe?_sambal
+Do you love or hate rollercoasters?_never try
+Who was your favorite teacher in school?_my math teacher
+What three things do you think of the most each day?_eat,game,sleep
+On a scale of 1-10 how funny would you say you are?_1
+Where do you see yourself in 10 years?_working
+What was your first job?_teacher
+How many languages do you speak?_3
+What is your favorite family holiday tradition?_chinese new year
+Who is the most intelligent person you know?_my underclassman
+What is one thing you will never do again?_starve myself
+Have you ever cheated on anything/anyone?_yes, on the exam
+Do you prefer conversations in person or over text?_in person
+If you had an excess of money, what charity would you donate to and why?_education
+Do you believe in love at first sight?_no
+What makes you feel at peace?_praying and meditation
+What’s the first thing you look for in a partner or friend?_responsibility
+Do you believe in astrology?_no
+Would you rather drive or be the passenger in a car?_passenger
+What is your dream vacation destination?_London and China
+Would you rather be able to travel into the future or the past?_future
+If you had to live in a different city/state/country, where would you want to live?_China
+Would you rather be able to speak to animals or be fluent in every language?_fluent in every language
+Are you a planner or do you go with the flow?_planner
+What is your astrological sign?_aquarius
+Do you have any special skills?_no
+What’s your game plan in a zombie apocalypse?_run
+Do you sing in the shower?_no
+How many hours do you get to the airport before a flight?_3 hours
+What’s the first thing you do in the morning?_take a bath
+What’s the last thing you do at night?_playing games
+How old are you?_59
+Where are you from?_Indonesia
+How are you?_good
+Do you have any siblings?_yes
+Who knows you the best?_my sister
+What’s your favorite place on earth?_my bed
+What’s the best thing you’ve read in the last five years?_Conan comics
+What’s the one item of clothing you couldn’t live without?_tshirt
+If you could save one material thing from a fire, what would you save?_laptop
+Would you rather be hot or cold?_hot
+What’s your favorite quote?_Time is money
+Do you like coffee or tea better?_tea
+What’s your favorite way to spend a day off?_sleeping
+What’s your favorite color?_blue
+Are you an early bird or a night owl?_night owl
+How do you like to spend your free time?_games,sleep
+What does your dream life look like?_no need to worry about money
+What goal do you want to accomplish in the next few years?_having a proper job
+Do you think our dreams have hidden meanings?_no
+Is it ever OK to lie?_yes
+What’s the most annoying thing people do in public?_threaten other people
+Are avocados overrated?_no
+What would you do tomorrow if you won a million dollars today?_save it into the bank
+Are you a dog person or a cat person?_cat person
+Who is the most important person in your life and why?_my family
+Who in your life most makes you feel a sense of home?_all of my families
+Do you have a mentor?_yes
+Have you ever broken up with a friend, and why?_yes, because of my ego
+How many close friends is ideal?_it depends
+Do you believe in soulmates?_yes
+Who’s more important to you, friends or family?_family
+Do you wish you had more siblings?_no
+Do you ever wish you were raised differently?_no
+Do you have any friends you would consider family?_yes
+What activities did you love to do with your family growing up?_walking in the park
+Which family member do you confide in most?_my sister
+What do you want people to say to you at your funeral?_may you rest in peace
+Have you ever made a decision that changed your life?_nope
+What was the happiest day of your life?_holiday
+What’s your favorite thing about yourself?_my ambition
+What did teachers used to say about you on your report card—and is it still true?_maybe
+Have you ever failed at something?_yes
+What can always make you feel better after a bad day?_playing games in one full day
+Do you consider yourself competitive?_yes 
+Have you ever made a promise that you didn’t keep?_yes
+Do you believe in second chances?_no
+What was the biggest favor you’ve ever done for someone else?_letting them copy my answer
+Would you prefer a job you hate with a high salary or a job you love with a low salary?_high salary
+If you had to make an emergency phone call, who would it be?_my father
+If you could change one thing about the world, what would it be?_discrimination
+Do you believe in any higher power?_yes
+What are you most proud of yourself for?_my persistence
+Do you read/watch the news?_yes
+What time is it?_ten at night
+Where do you live?_Indonesia
+How long have you been here?_from the moment I was born
+Do you like it here?_yes
+Have you been to Italy before?_no
+What did you do yesterday?_sleeping,eating
+What are you doing tomorrow?_sleeping,eating
+How was your day?_good
+Are you hungry?_no
+Do you want to go out?_no
+Can I help you?_no need
+How much is this?_90 dollars
+What’s your phone number?_123
+Where were you born?_Indonesia
+Who is that?_my cousin
+Where are you going?_to park
+What are you thinking?_nothing
+When did you arrive?_just a moment ago
+Are you married?_no
+Do you have children?_no
+What do you like to do for fun?_playing games
+Do you speak any other languages?_yes
+Can I ask you a question?_yes
+How can I get to station?_try taking that bus
+Is this seat taken?_no
+Are you sure?_yes
+What’s the weather like?_cloudy
+What’s this called in English?_text
+Can you repeat that?_yes
+Do you understand?_yes
+How far is it?_a bit far
+What does this mean?_it means spider
+Can you help me?_yes
+Where’s the bathroom?_in the corner of the room
+What’s the date today?_december 31st
+How do you feel?_happy
+Have you done your homework?_yes
+What are your plans for the weekend?_sleeping
+How many people are in your family?_10
+Do you know Helia?_no
+Do you have a pet?_no
+When are we leaving?_tomorrow
+Is it close?_yes 
+Can you drive?_no
+What are you looking for?_a bag
+Do you need anything?_I need a coffee
+Are you coming with us?_nope
+How much does it weigh?_2 kg
+Have you seen this movie?_nope
+What do you recommend?_their fried rice 
+Where can I find an apple?_in that store
+Who did you come with?_my father
+Are you allergic to peanuts?_no
+Is it difficult?_not really
+Do you have the time?_no
+What would you like to eat?_fried rice
+Did you like the movie?_yes
+What did he say?_he said that he will come 
+When will it be ready?_5 minutes
+Is it expensive?_yes
+Who’s calling?_my mom
+Where should I put this?_in that table
+What’s your address?_123 street
+How’s your family?_good
+Do you work here?_no
+Who’s your favorite food?_rice
+What’s for dinner?_pasta
+Do you want to play?_no
+Have you met Lia?_no
+Can I see your ID?_no
+What are you reading?_a novel
+Do you agree?_I cannot agree
+Are you a starter or a finisher?_a finisher
+What do you value most: free time, recognition, or money?_money
+What form of transport is best?_car 
+Are you living your life purpose, or are you still searching?_searching
+What's the best item in your fridge, right this moment?_bread
+Are you useful in a crisis?_no
+If you could sit down with your 15-year old self, what would you say?_good luck
+What bores you?_a long conversations
+If you had an extra $100 to spend on yourself every week, what would you do?_save it
+Does everyone deserve forgiveness?_no
+What's in your pocket / bag right now?_wallet
+Do you have any habits you wish you could erase?_scrolling social medias
+Do you think you're currently operating at 100% capacity?_no
+If you could choose your own life obstacles, would you keep the ones you have?_no
+Ever fantasize about being in a rock band?_no
+Has a teacher ever changed your life?_yes
+Have you ever kept a New Year's Resolution?_no
+When was the last time you astonished yourself?_a long time ago
+Have you had a psychic reading, and did it come true?_no
+What's one mistake you keep repeating?_procrastinate
+Have you ever had to make a public apology?_no
+If you were heading out on a road trip right this minute, what would you pack?_phone and money
+Do people deserve to be happy?_yes
+What's the best part of your day so far?_playing games
+Have you ever been genuinely afraid for your physical safety?_yes
+Do you like to be saved — or do the saving?_do the saving
+Do you think everyone can be a leader?_no
+What animal did you last see in the wild?_monkey
+Can you describe your dream home?_a big and comfortable one
+Do birds fly?_true
+Do humans walk?_true
+Are humans mammals?_true
+Are ducks mammals?_false
+Are chickens mammals?_false
+Why we should eat?_to survive
+What is java?_a programming language
+Who is your hero?_my dad
+If you could live anywhere, where would it be?_London
+What is your biggest fear?_getting bad marks
+What is your favorite family vacation?_in Balai
+What would you change about yourself if you could?_my height
+What really makes you angry?_everyone despise on me
+What motivates you to work hard?_to get money
+What is your favorite thing about your career?_money
+What is your proudest accomplishment?_getting awards
+What is your favorite book to read?_Conan
+What did you want to be when you were small?_a vet
+If you could choose to do anything for a day, what would it be?_playing games
+What is your favorite game or sport to watch and play?_Genshin
+Would you rather ride a bike, ride a horse, or drive a car?_drive a car
+What would you sing at Karaoke night?_no
+Which would you rather do: wash dishes, mow the lawn, clean the bathroom, or vacuum the house?_wash dishes
+If you could hire someone to help you, would it be with cleaning, cooking, or yard work?_cooking
+If you could only eat one meal for the rest of your life, what would it be?_rice
+Who is your favorite author?_Aoyama Gosho
+Have you ever had a nickname? What is it?_No
+Do you like or dislike surprises?_Like
+In the evening, would you rather play a game, visit a relative, watch a movie, or read?_play game
+Would you rather win the lottery or work at the perfect job?_work at the perfect job
+Who would you want to be stranded with on a deserted island?_my mom
+If money was no object, what would you do all day?_sleeping
+If you could go back in time, what year would you travel to?_2022
+How would your friends describe you?_punctual
+What are your hobbies?_playing games
+What is the best gift you have been given?_laptop
+Aside from necessities, what one thing could you not go a day without?_phone
+How many pairs of shoes do you own?_four
+If you were a super-hero, what powers would you have?_time pause
+What would you do if you won the lottery?_send money to my parents
+What's your favorite zoo animal?_lion
+If you could go back in time to change one thing, what would it be?_my grades
+How many pillows do you sleep with?_one
+What's the longest you've gone without sleep?_not even one day
+What's the tallest building you've been to the top in?_taipei 101
+Would you rather trade intelligence for looks or looks for intelligence?_looks for intelligence
+How often do you buy clothes?_once a year
+What's your favorite holiday?_in Balai
+What's the most daring thing you've ever done?_skip class
+What was the last book you read?_ABC Murder
+What's your favorite type of foreign food?_chinese food
+Are you a clean or messy person?_clean
+How long does it take you to get ready in the morning?_30 minutes
+What kitchen appliance do you use every day?_spoon
+What's your favorite family recipe?_sambal
+Do you love or hate rollercoasters?_never try
+What's your favorite family tradition?_chinese new year traditions
+What is your favorite childhood memory?_playing in garden
+What's your favorite movie?_Conan movie 20
+What was your favorite subject in school?_biology
+Do you collect anything?_nope
+Is there anything you wished would come back into fashion?_nope
+Are you an introvert or an extrovert?_introvert
+Which of the five senses would you say is your strongest?_hearing
+Have you ever had a surprise party? (that was an actual surprise)_no
+Are you related or distantly related to anyone famous?_no
+What do you do to keep fit?_eat sufficiently
+Who was your favorite teacher in school?_my math teacher
+What three things do you think of the most each day?_eat,game,sleep
+On a scale of 1-10 how funny would you say you are?_1
+Where do you see yourself in 10 years?_working
+What was your first job?_teacher
+How many languages do you speak?_3
+What is your favorite family holiday tradition?_chinese new year
+Who is the most intelligent person you know?_my underclassman
+What is one thing you will never do again?_starve myself
+Who knows you the best?_my sister
+What’s your favorite place on earth?_my bed
+What’s the best thing you’ve read in the last five years?_Conan comics
+What’s the one item of clothing you couldn’t live without?_tshirt
+If you could save one material thing from a fire, what would you save?_laptop
+Would you rather be hot or cold?_hot
+What’s your favorite quote?_Time is money
+Do you like coffee or tea better?_tea
+What’s your favorite way to spend a day off?_sleeping
+What’s your favorite color?_blue
+Are you an early bird or a night owl?_night owl
+How do you like to spend your free time?_games,sleep
+What does your dream life look like?_no need to worry about money
+What goal do you want to accomplish in the next few years?_having a proper job
+Do you think our dreams have hidden meanings?_no
+Is it ever OK to lie?_yes
+What’s the most annoying thing people do in public?_threaten other people
+Are avocados overrated?_no
+What would you do tomorrow if you won a million dollars today?_save it into the bank
+Are you a dog person or a cat person?_cat person
+Who is the most important person in your life and why?_my family
+Who in your life most makes you feel a sense of home?_all of my families
+Do you have a mentor?_yes
+Have you ever broken up with a friend, and why?_yes, because of my ego
+How many close friends is ideal?_it depends
+Do you believe in soulmates?_yes
+Who’s more important to you, friends or family?_family
+Do you wish you had more siblings?_no
+Do you ever wish you were raised differently?_no
+Do you have any friends you would consider family?_yes
+What activities did you love to do with your family growing up?_walking in the park
+Which family member do you confide in most?_my sister
+What do you want people to say to you at your funeral?_may you rest in peace
+Have you ever made a decision that changed your life?_nope
+What was the happiest day of your life?_holiday
+What’s your favorite thing about yourself?_my ambition
+What did teachers used to say about you on your report card—and is it still true?_maybe
+Have you ever failed at something?_yes
+What can always make you feel better after a bad day?_playing games in one full day
+Do you consider yourself competitive?_yes 
+Have you ever made a promise that you didn’t keep?_yes
+Do you believe in second chances?_no
+What was the biggest favor you’ve ever done for someone else?_letting them copy my answer
+Would you prefer a job you hate with a high salary or a job you love with a low salary?_high salary
+If you had to make an emergency phone call, who would it be?_my father
+If you could change one thing about the world, what would it be?_discrimination
+Do you believe in any higher power?_yes
+What are you most proud of yourself for?_my persistence
+Do you read/watch the news?_yes
+Have you ever cheated on anything/anyone?_yes, on the exam
+Do you prefer conversations in person or over text?_in person
+If you had an excess of money, what charity would you donate to and why?_education
+Do you believe in love at first sight?_no
+What makes you feel at peace?_praying and meditation
+What’s the first thing you look for in a partner or friend?_responsibility
+Do you believe in astrology?_no
+Would you rather drive or be the passenger in a car?_passenger
+What is your dream vacation destination?_London and China
+Would you rather be able to travel into the future or the past?_future
+If you had to live in a different city/state/country, where would you want to live?_China
+Would you rather be able to speak to animals or be fluent in every language?_fluent in every language
+Are you a planner or do you go with the flow?_planner
+What is your astrological sign?_aquarius
+Do you have any special skills?_no
+What’s your game plan in a zombie apocalypse?_run
+Do you sing in the shower?_no
+How many hours do you get to the airport before a flight?_3 hours
+What’s the first thing you do in the morning?_take a bath
+What’s the last thing you do at night?_playing games
+How old are you?_59
+Where are you from?_Indonesia
+How are you?_good
+Do you have any siblings?_yes
+What time is it?_ten at night
+Where do you live?_Indonesia
+How long have you been here?_from the moment I was born
+Do you like it here?_yes
+Have you been to Italy before?_no
+What did you do yesterday?_sleeping,eating
+What are you doing tomorrow?_sleeping,eating
+How was your day?_good
+Are you hungry?_no
+Do you want to go out?_no
+Can I help you?_no need
+How much is this?_90 dollars
+What’s your phone number?_123
+Where were you born?_Indonesia
+Who is that?_my cousin
+Where are you going?_to park
+What are you thinking?_nothing
+When did you arrive?_just a moment ago
+Are you married?_no
+Do you have children?_no
+What do you like to do for fun?_playing games
+Do you speak any other languages?_yes
+Can I ask you a question?_yes
+How can I get to station?_try taking that bus
+Is this seat taken?_no
+Are you sure?_yes
+What’s the weather like?_cloudy
+What’s this called in English?_text
+Can you repeat that?_yes
+Do you understand?_yes
+How far is it?_a bit far
+What does this mean?_it means spider
+Can you help me?_yes
+Where’s the bathroom?_in the corner of the room
+What’s the date today?_december 31st
+How do you feel?_happy
+Have you done your homework?_yes
+What are your plans for the weekend?_sleeping
+How many people are in your family?_10
+Do you know Helia?_no
+Do you have a pet?_no
+When are we leaving?_tomorrow
+Is it close?_yes 
+Can you drive?_no
+What are you looking for?_a bag
+Do you need anything?_I need a coffee
+Are you coming with us?_nope
+How much does it weigh?_2 kg
+Have you seen this movie?_nope
+What do you recommend?_their fried rice 
+Where can I find an apple?_in that store
+Who did you come with?_my father
+Are you allergic to peanuts?_no
+Is it difficult?_not really
+Do you have the time?_no
+What would you like to eat?_fried rice
+Did you like the movie?_yes
+What did he say?_he said that he will come 
+When will it be ready?_5 minutes
+Is it expensive?_yes
+Who’s calling?_my mom
+Where should I put this?_in that table
+What’s your address?_123 street
+How’s your family?_good
+Do you work here?_no
+Who’s your favorite food?_rice
+What’s for dinner?_pasta
+Do you want to play?_no
+Have you met Lia?_no
+Can I see your ID?_no
+What are you reading?_a novel
+Do you agree?_I cannot agree
+Are you a starter or a finisher?_a finisher
+What do you value most: free time, recognition, or money?_money
+What form of transport is best?_car 
+Are you living your life purpose, or are you still searching?_searching
+What's the best item in your fridge, right this moment?_bread
+Are you useful in a crisis?_no
+If you could sit down with your 15-year old self, what would you say?_good luck
+What bores you?_a long conversations
+If you had an extra $100 to spend on yourself every week, what would you do?_save it
+Does everyone deserve forgiveness?_no
+What's in your pocket / bag right now?_wallet
+Do you have any habits you wish you could erase?_scrolling social medias
+Do you think you're currently operating at 100% capacity?_no
+If you could choose your own life obstacles, would you keep the ones you have?_no
+Ever fantasize about being in a rock band?_no
+Has a teacher ever changed your life?_yes
+Have you ever kept a New Year's Resolution?_no
+When was the last time you astonished yourself?_a long time ago
+Have you had a psychic reading, and did it come true?_no
+What's one mistake you keep repeating?_procrastinate
+Have you ever had to make a public apology?_no
+If you were heading out on a road trip right this minute, what would you pack?_phone and money
+Do people deserve to be happy?_yes
+What's the best part of your day so far?_playing games
+Have you ever been genuinely afraid for your physical safety?_yes
+Do you like to be saved — or do the saving?_do the saving
+Do you think everyone can be a leader?_no
+What animal did you last see in the wild?_monkey
+Can you describe your dream home?_a big and comfortable one
+Do birds fly?_true
+Do humans walk?_true
+Are humans mammals?_true
+Are ducks mammals?_false
+Are chickens mammals?_false
+Why we should eat?_to survive
+What is java?_a programming language
+Who is your hero?_my dad
+If you could live anywhere, where would it be?_London
+What is your biggest fear?_getting bad marks
+What is your favorite family vacation?_in Balai
+What would you change about yourself if you could?_my height
+What really makes you angry?_everyone despise on me
+What motivates you to work hard?_to get money
+What is your favorite thing about your career?_money
+What is your proudest accomplishment?_getting awards
+What is your favorite book to read?_Conan
+What did you want to be when you were small?_a vet
+If you could choose to do anything for a day, what would it be?_playing games
+What is your favorite game or sport to watch and play?_Genshin
+Would you rather ride a bike, ride a horse, or drive a car?_drive a car
+What would you sing at Karaoke night?_no
+Which would you rather do: wash dishes, mow the lawn, clean the bathroom, or vacuum the house?_wash dishes
+If you could hire someone to help you, would it be with cleaning, cooking, or yard work?_cooking
+If you could only eat one meal for the rest of your life, what would it be?_rice
+Who is your favorite author?_Aoyama Gosho
+Have you ever had a nickname? What is it?_No
+Do you like or dislike surprises?_Like
+In the evening, would you rather play a game, visit a relative, watch a movie, or read?_play game
+Would you rather win the lottery or work at the perfect job?_work at the perfect job
+Who would you want to be stranded with on a deserted island?_my mom
+If money was no object, what would you do all day?_sleeping
+If you could go back in time, what year would you travel to?_2022
+How would your friends describe you?_punctual
+What are your hobbies?_playing games
+What is the best gift you have been given?_laptop
+Aside from necessities, what one thing could you not go a day without?_phone
+How many pairs of shoes do you own?_four
+If you were a super-hero, what powers would you have?_time pause
+What would you do if you won the lottery?_send money to my parents
+What's your favorite zoo animal?_lion
+If you could go back in time to change one thing, what would it be?_my grades
+How many pillows do you sleep with?_one
+What's the longest you've gone without sleep?_not even one day
+What's the tallest building you've been to the top in?_taipei 101
+Would you rather trade intelligence for looks or looks for intelligence?_looks for intelligence
+How often do you buy clothes?_once a year
+What's your favorite holiday?_in Balai
+What's the most daring thing you've ever done?_skip class
+What was the last book you read?_ABC Murder
+What's your favorite type of foreign food?_chinese food
+Are you a clean or messy person?_clean
+How long does it take you to get ready in the morning?_30 minutes
+What kitchen appliance do you use every day?_spoon
+What's your favorite family recipe?_sambal
+Do you love or hate rollercoasters?_never try
+What's your favorite family tradition?_chinese new year traditions
+What is your favorite childhood memory?_playing in garden
+What's your favorite movie?_Conan movie 20
+What was your favorite subject in school?_biology
+Do you collect anything?_nope
+Is there anything you wished would come back into fashion?_nope
+Are you an introvert or an extrovert?_introvert
+Which of the five senses would you say is your strongest?_hearing
+Have you ever had a surprise party? (that was an actual surprise)_no
+Are you related or distantly related to anyone famous?_no
+What do you do to keep fit?_eat sufficiently
+Who was your favorite teacher in school?_my math teacher
+What three things do you think of the most each day?_eat,game,sleep
+On a scale of 1-10 how funny would you say you are?_1
+Where do you see yourself in 10 years?_working
+What was your first job?_teacher
+How many languages do you speak?_3
+What is your favorite family holiday tradition?_chinese new year
+Who is the most intelligent person you know?_my underclassman
+What is one thing you will never do again?_starve myself
+Who knows you the best?_my sister
+What’s your favorite place on earth?_my bed
+What’s the best thing you’ve read in the last five years?_Conan comics
+What’s the one item of clothing you couldn’t live without?_tshirt
+If you could save one material thing from a fire, what would you save?_laptop
+Would you rather be hot or cold?_hot
+What’s your favorite quote?_Time is money
+Do you like coffee or tea better?_tea
+What’s your favorite way to spend a day off?_sleeping
+What’s your favorite color?_blue
+Are you an early bird or a night owl?_night owl
+How do you like to spend your free time?_games,sleep
+What does your dream life look like?_no need to worry about money
+What goal do you want to accomplish in the next few years?_having a proper job
+Do you think our dreams have hidden meanings?_no
+Is it ever OK to lie?_yes
+What’s the most annoying thing people do in public?_threaten other people
+Are avocados overrated?_no
+What would you do tomorrow if you won a million dollars today?_save it into the bank
+Are you a dog person or a cat person?_cat person
+Who is the most important person in your life and why?_my family
+Who in your life most makes you feel a sense of home?_all of my families
+Do you have a mentor?_yes
+Have you ever broken up with a friend, and why?_yes, because of my ego
+How many close friends is ideal?_it depends
+Do you believe in soulmates?_yes
+Who’s more important to you, friends or family?_family
+Do you wish you had more siblings?_no
+Do you ever wish you were raised differently?_no
+Do you have any friends you would consider family?_yes
+What activities did you love to do with your family growing up?_walking in the park
+Which family member do you confide in most?_my sister
+What do you want people to say to you at your funeral?_may you rest in peace
+Have you ever made a decision that changed your life?_nope
+What was the happiest day of your life?_holiday
+What’s your favorite thing about yourself?_my ambition
+What did teachers used to say about you on your report card—and is it still true?_maybe
+Have you ever failed at something?_yes
+What can always make you feel better after a bad day?_playing games in one full day
+Do you consider yourself competitive?_yes 
+Have you ever made a promise that you didn’t keep?_yes
+Do you believe in second chances?_no
+What was the biggest favor you’ve ever done for someone else?_letting them copy my answer
+Would you prefer a job you hate with a high salary or a job you love with a low salary?_high salary
+If you had to make an emergency phone call, who would it be?_my father
+If you could change one thing about the world, what would it be?_discrimination
+Do you believe in any higher power?_yes
+What are you most proud of yourself for?_my persistence
+Do you read/watch the news?_yes
+Have you ever cheated on anything/anyone?_yes, on the exam
+Do you prefer conversations in person or over text?_in person
+If you had an excess of money, what charity would you donate to and why?_education
+Do you believe in love at first sight?_no
+What makes you feel at peace?_praying and meditation
+What’s the first thing you look for in a partner or friend?_responsibility
+Do you believe in astrology?_no
+Would you rather drive or be the passenger in a car?_passenger
+What is your dream vacation destination?_London and China
+Would you rather be able to travel into the future or the past?_future
+If you had to live in a different city/state/country, where would you want to live?_China
+Would you rather be able to speak to animals or be fluent in every language?_fluent in every language
+Are you a planner or do you go with the flow?_planner
+What is your astrological sign?_aquarius
+Do you have any special skills?_no
+What’s your game plan in a zombie apocalypse?_run
+Do you sing in the shower?_no
+How many hours do you get to the airport before a flight?_3 hours
+What’s the first thing you do in the morning?_take a bath
+What’s the last thing you do at night?_playing games
+How old are you?_59
+Where are you from?_Indonesia
+How are you?_good
+Do you have any siblings?_yes
+What time is it?_ten at night
+Where do you live?_Indonesia
+How long have you been here?_from the moment I was born
+Do you like it here?_yes
+Have you been to Italy before?_no
+What did you do yesterday?_sleeping,eating
+What are you doing tomorrow?_sleeping,eating
+How was your day?_good
+Are you hungry?_no
+Do you want to go out?_no
+Can I help you?_no need
+How much is this?_90 dollars
+What’s your phone number?_123
+Where were you born?_Indonesia
+Who is that?_my cousin
+Where are you going?_to park
+What are you thinking?_nothing
+When did you arrive?_just a moment ago
+Are you married?_no
+Do you have children?_no
+What do you like to do for fun?_playing games
+Do you speak any other languages?_yes
+Can I ask you a question?_yes
+How can I get to station?_try taking that bus
+Is this seat taken?_no
+Are you sure?_yes
+What’s the weather like?_cloudy
+What’s this called in English?_text
+Can you repeat that?_yes
+Do you understand?_yes
+How far is it?_a bit far
+What does this mean?_it means spider
+Can you help me?_yes
+Where’s the bathroom?_in the corner of the room
+What’s the date today?_december 31st
+How do you feel?_happy
+Have you done your homework?_yes
+What are your plans for the weekend?_sleeping
+How many people are in your family?_10
+Do you know Helia?_no
+Do you have a pet?_no
+When are we leaving?_tomorrow
+Is it close?_yes 
+Can you drive?_no
+What are you looking for?_a bag
+Do you need anything?_I need a coffee
+Are you coming with us?_nope
+How much does it weigh?_2 kg
+Have you seen this movie?_nope
+What do you recommend?_their fried rice 
+Where can I find an apple?_in that store
+Who did you come with?_my father
+Are you allergic to peanuts?_no
+Is it difficult?_not really
+Do you have the time?_no
+What would you like to eat?_fried rice
+Did you like the movie?_yes
+What did he say?_he said that he will come 
+When will it be ready?_5 minutes
+Is it expensive?_yes
+Who’s calling?_my mom
+Where should I put this?_in that table
+What’s your address?_123 street
+How’s your family?_good
+Do you work here?_no
+Who’s your favorite food?_rice
+What’s for dinner?_pasta
+Do you want to play?_no
+Have you met Lia?_no
+Can I see your ID?_no
+What are you reading?_a novel
+Do you agree?_I cannot agree
+Are you a starter or a finisher?_a finisher
+What do you value most: free time, recognition, or money?_money
+What form of transport is best?_car 
+Are you living your life purpose, or are you still searching?_searching
+What's the best item in your fridge, right this moment?_bread
+Are you useful in a crisis?_no
+If you could sit down with your 15-year old self, what would you say?_good luck
+What bores you?_a long conversations
+If you had an extra $100 to spend on yourself every week, what would you do?_save it
+Does everyone deserve forgiveness?_no
+What's in your pocket / bag right now?_wallet
+Do you have any habits you wish you could erase?_scrolling social medias
+Do you think you're currently operating at 100% capacity?_no
+If you could choose your own life obstacles, would you keep the ones you have?_no
+Ever fantasize about being in a rock band?_no
+Has a teacher ever changed your life?_yes
+Have you ever kept a New Year's Resolution?_no
+When was the last time you astonished yourself?_a long time ago
+Have you had a psychic reading, and did it come true?_no
+What's one mistake you keep repeating?_procrastinate
+Have you ever had to make a public apology?_no
+If you were heading out on a road trip right this minute, what would you pack?_phone and money
+Do people deserve to be happy?_yes
+What's the best part of your day so far?_playing games
+Have you ever been genuinely afraid for your physical safety?_yes
+Do you like to be saved — or do the saving?_do the saving
+Do you think everyone can be a leader?_no
+What animal did you last see in the wild?_monkey
+Can you describe your dream home?_a big and comfortable one
+Do birds fly?_true
+Do humans walk?_true
+Are humans mammals?_true
+Are ducks mammals?_false
+Are chickens mammals?_false
+Why we should eat?_to survive
+What is java?_a programming language
+Who is your hero?_my dad
+If you could live anywhere, where would it be?_London
+What is your biggest fear?_getting bad marks
+What is your favorite family vacation?_in Balai
+What would you change about yourself if you could?_my height
+What really makes you angry?_everyone despise on me
+What motivates you to work hard?_to get money
+What is your favorite thing about your career?_money
+What is your proudest accomplishment?_getting awards
+What is your favorite book to read?_Conan
+What did you want to be when you were small?_a vet
+If you could choose to do anything for a day, what would it be?_playing games
+What is your favorite game or sport to watch and play?_Genshin
+Would you rather ride a bike, ride a horse, or drive a car?_drive a car
+What would you sing at Karaoke night?_no
+Which would you rather do: wash dishes, mow the lawn, clean the bathroom, or vacuum the house?_wash dishes
+If you could hire someone to help you, would it be with cleaning, cooking, or yard work?_cooking
+If you could only eat one meal for the rest of your life, what would it be?_rice
+Who is your favorite author?_Aoyama Gosho
+Have you ever had a nickname? What is it?_No
+Do you like or dislike surprises?_Like
+In the evening, would you rather play a game, visit a relative, watch a movie, or read?_play game
+Would you rather win the lottery or work at the perfect job?_work at the perfect job
+Who would you want to be stranded with on a deserted island?_my mom
+If money was no object, what would you do all day?_sleeping
+If you could go back in time, what year would you travel to?_2022
+How would your friends describe you?_punctual
+What are your hobbies?_playing games
+What is the best gift you have been given?_laptop
+Aside from necessities, what one thing could you not go a day without?_phone
+How many pairs of shoes do you own?_four
+If you were a super-hero, what powers would you have?_time pause
+What would you do if you won the lottery?_send money to my parents
+What's your favorite zoo animal?_lion
+If you could go back in time to change one thing, what would it be?_my grades
+How many pillows do you sleep with?_one
+What's the longest you've gone without sleep?_not even one day
+What's the tallest building you've been to the top in?_taipei 101
+Would you rather trade intelligence for looks or looks for intelligence?_looks for intelligence
+How often do you buy clothes?_once a year
+What's your favorite holiday?_in Balai
+What's the most daring thing you've ever done?_skip class
+What was the last book you read?_ABC Murder
+What's your favorite type of foreign food?_chinese food
+Are you a clean or messy person?_clean
+How long does it take you to get ready in the morning?_30 minutes
+What kitchen appliance do you use every day?_spoon
+What's your favorite family recipe?_sambal
+Do you love or hate rollercoasters?_never try
+What's your favorite family tradition?_chinese new year traditions
+What is your favorite childhood memory?_playing in garden
+What's your favorite movie?_Conan movie 20
+What was your favorite subject in school?_biology
+Do you collect anything?_nope
+Is there anything you wished would come back into fashion?_nope
+Are you an introvert or an extrovert?_introvert
+Which of the five senses would you say is your strongest?_hearing
+Have you ever had a surprise party? (that was an actual surprise)_no
+Are you related or distantly related to anyone famous?_no
+What do you do to keep fit?_eat sufficiently
+Who was your favorite teacher in school?_my math teacher
+What three things do you think of the most each day?_eat,game,sleep
+On a scale of 1-10 how funny would you say you are?_1
+Where do you see yourself in 10 years?_working
+What was your first job?_teacher
+How many languages do you speak?_3
+What is your favorite family holiday tradition?_chinese new year
+Who is the most intelligent person you know?_my underclassman
+What is one thing you will never do again?_starve myself
+Who knows you the best?_my sister
+What’s your favorite place on earth?_my bed
+What’s the best thing you’ve read in the last five years?_Conan comics
+What’s the one item of clothing you couldn’t live without?_tshirt
+If you could save one material thing from a fire, what would you save?_laptop
+Would you rather be hot or cold?_hot
+What’s your favorite quote?_Time is money
+Do you like coffee or tea better?_tea
+What’s your favorite way to spend a day off?_sleeping
+What’s your favorite color?_blue
+Are you an early bird or a night owl?_night owl
+How do you like to spend your free time?_games,sleep
+What does your dream life look like?_no need to worry about money
+What goal do you want to accomplish in the next few years?_having a proper job
+Do you think our dreams have hidden meanings?_no
+Is it ever OK to lie?_yes
+What’s the most annoying thing people do in public?_threaten other people
+Are avocados overrated?_no
+What would you do tomorrow if you won a million dollars today?_save it into the bank
+Are you a dog person or a cat person?_cat person
+Who is the most important person in your life and why?_my family
+Who in your life most makes you feel a sense of home?_all of my families
+Do you have a mentor?_yes
+Have you ever broken up with a friend, and why?_yes, because of my ego
+How many close friends is ideal?_it depends
+Do you believe in soulmates?_yes
+Who’s more important to you, friends or family?_family
+Do you wish you had more siblings?_no
+Do you ever wish you were raised differently?_no
+Do you have any friends you would consider family?_yes
+What activities did you love to do with your family growing up?_walking in the park
+Which family member do you confide in most?_my sister
+What do you want people to say to you at your funeral?_may you rest in peace
+Have you ever made a decision that changed your life?_nope
+What was the happiest day of your life?_holiday
+What’s your favorite thing about yourself?_my ambition
+What did teachers used to say about you on your report card—and is it still true?_maybe
+Have you ever failed at something?_yes
+What can always make you feel better after a bad day?_playing games in one full day
+Do you consider yourself competitive?_yes 
+Have you ever made a promise that you didn’t keep?_yes
+Do you believe in second chances?_no
+What was the biggest favor you’ve ever done for someone else?_letting them copy my answer
+Would you prefer a job you hate with a high salary or a job you love with a low salary?_high salary
+If you had to make an emergency phone call, who would it be?_my father
+If you could change one thing about the world, what would it be?_discrimination
+Do you believe in any higher power?_yes
+What are you most proud of yourself for?_my persistence
+Do you read/watch the news?_yes
+Why does life slumber?_because we need to rehearse death
+Why do birds fly?_because its their calling
+Have you ever cheated on anything/anyone?_yes, on the exam
+Do you prefer conversations in person or over text?_in person
+If you had an excess of money, what charity would you donate to and why?_education
+Do you believe in love at first sight?_no
+What makes you feel at peace?_praying and meditation
+What’s the first thing you look for in a partner or friend?_responsibility
+Do you believe in astrology?_no
+Would you rather drive or be the passenger in a car?_passenger
+What is your dream vacation destination?_London and China
+Would you rather be able to travel into the future or the past?_future
+If you had to live in a different city/state/country, where would you want to live?_China
+Would you rather be able to speak to animals or be fluent in every language?_fluent in every language
+Are you a planner or do you go with the flow?_planner
+What is your astrological sign?_aquarius
+Do you have any special skills?_no
+What’s your game plan in a zombie apocalypse?_run
+Do you sing in the shower?_no
+How many hours do you get to the airport before a flight?_3 hours
+What’s the first thing you do in the morning?_take a bath
+What’s the last thing you do at night?_playing games
+How old are you?_59
+Where are you from?_Indonesia
+How are you?_good
+Do you have any siblings?_yes
+What time is it?_ten at night
+Where do you live?_Indonesia
+How long have you been here?_from the moment I was born
+Do you like it here?_yes
+Have you been to Italy before?_no
+What did you do yesterday?_sleeping,eating
+What are you doing tomorrow?_sleeping,eating
+How was your day?_good
+Are you hungry?_no
+Do you want to go out?_no
+Can I help you?_no need
+How much is this?_90 dollars
+What’s your phone number?_123
+Where were you born?_Indonesia
+Who is that?_my cousin
+Where are you going?_to park
+What are you thinking?_nothing
+When did you arrive?_just a moment ago
+Are you married?_no
+Do you have children?_no
+What do you like to do for fun?_playing games
+Do you speak any other languages?_yes
+Can I ask you a question?_yes
+How can I get to station?_try taking that bus
+Is this seat taken?_no
+Are you sure?_yes
+What’s the weather like?_cloudy
+What’s this called in English?_text
+Can you repeat that?_yes
+Do you understand?_yes
+How far is it?_a bit far
+What does this mean?_it means spider
+Can you help me?_yes
+Where’s the bathroom?_in the corner of the room
+What’s the date today?_december 31st
+How do you feel?_happy
+Have you done your homework?_yes
+What are your plans for the weekend?_sleeping
+How many people are in your family?_10
+Do you know Helia?_no
+Do you have a pet?_no
+When are we leaving?_tomorrow
+Is it close?_yes 
+Can you drive?_no
+What are you looking for?_a bag
+Do you need anything?_I need a coffee
+Are you coming with us?_nope
+How much does it weigh?_2 kg
+Have you seen this movie?_nope
+What do you recommend?_their fried rice 
+Where can I find an apple?_in that store
+Who did you come with?_my father
+Are you allergic to peanuts?_no
+What bores you?_a long conversations
+If you had an extra $100 to spend on yourself every week, what would you do?_save it
+Does everyone deserve forgiveness?_no
+What's in your pocket / bag right now?_wallet
+Do you have any habits you wish you could erase?_scrolling social medias
+Do you think you're currently operating at 100% capacity?_no
+If you could choose your own life obstacles, would you keep the ones you have?_no
+Ever fantasize about being in a rock band?_no
+Do birds fly?_true
+Do humans walk?_true
+Have you ever been genuinely afraid for your physical safety?_yes
+Do you like to be saved — or do the saving?_do the saving
+Do you think everyone can be a leader?_no
+Are humans mammals?_true
+Are ducks mammals?_false
+Are chickens mammals?_false
+Why we should eat?_to survive
+What is java?_a programming language
+Who is your hero?_my dad
+If you could live anywhere, where would it be?_London
+What is your biggest fear?_getting bad marks
+What is your favorite family vacation?_in Balai
+What's the best part of your day so far?_playing games
+What would you change about yourself if you could?_my height
+What really makes you angry?_everyone despise on me
+What motivates you to work hard?_to get money
+Has a teacher ever changed your life?_yes
+Have you ever kept a New Year's Resolution?_no
+When was the last time you astonished yourself?_a long time ago
+Have you had a psychic reading, and did it come true?_no
+What's one mistake you keep repeating?_procrastinate
+Have you ever had to make a public apology?_no
+If you were heading out on a road trip right this minute, what would you pack?_phone and money
+Do people deserve to be happy?_yes
+Is it difficult?_not really
+Do you have the time?_no
+What would you like to eat?_fried rice
+Did you like the movie?_yes
+What did he say?_he said that he will come 
+When will it be ready?_5 minutes
+Is it expensive?_yes
+Who’s calling?_my mom
+Where should I put this?_in that table
