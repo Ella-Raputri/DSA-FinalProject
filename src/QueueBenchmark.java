@@ -217,7 +217,7 @@ public class QueueBenchmark {
                 String answer = i.getCorrectAnswer();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     //print the information
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());

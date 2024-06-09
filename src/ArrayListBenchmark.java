@@ -187,7 +187,7 @@ public class ArrayListBenchmark {
 
                 //if the question or correct answer contains the searched string, then
                 //print the Question information out and set the track to true
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());
                     System.out.println("Question: "+ i.getQuestion());

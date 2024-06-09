@@ -251,7 +251,7 @@ public class ArrayListDemo {
         }
         else{
             //prompt user to input a string to be searched
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or question ID: ");
             String str = scanner.nextLine();
 
             //variable to track whether exists a result for the search
@@ -264,7 +264,7 @@ public class ArrayListDemo {
                 
                 //if the question or correct answer contains the searched string, then
                 //print the Question information out and set the track to true
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());
                     System.out.println("Question: "+ i.getQuestion());

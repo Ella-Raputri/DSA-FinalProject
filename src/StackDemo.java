@@ -244,7 +244,7 @@ public class StackDemo {
         }
         else{
             //ask user to input string that they want to search
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or question ID: ");
             String str = scanner.nextLine();
             //variable to track whether exists a search result
             boolean track = false;
@@ -255,7 +255,7 @@ public class StackDemo {
                 String answer = i.getCorrectAnswer();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     //print that Question attributes
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());

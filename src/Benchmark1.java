@@ -191,7 +191,7 @@ public class Benchmark1 {
         long startTime, endTime;
 
         //Ask user for string that want to be searched
-        System.out.print("Search for string: ");
+        System.out.print("Search for string or question ID: ");
         String str = scanner.nextLine();
 
         System.out.println("\nSEARCHING A QUESTION");

@@ -269,7 +269,7 @@ public class HashMapBenchmark {
                 String answer = i.getCorrectAnswer();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     //print information of the Question
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());

@@ -298,7 +298,7 @@ public class HashMapDemo {
         }
         else{
             //ask user to input the string that they want to search
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or question ID: ");
             String str = scanner.nextLine();
 
             //to track whether there exists a search result
@@ -316,7 +316,7 @@ public class HashMapDemo {
                 String answer = i.getCorrectAnswer();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     //print information of the Question
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());

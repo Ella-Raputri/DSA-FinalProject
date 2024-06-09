@@ -227,7 +227,7 @@ public class LinkedListDemo {
         }
         else{
             //ask user to input the string they want to search
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or ID: ");
             String str = scanner.nextLine();
             //to track whether exists a search result
             boolean track = false;
@@ -239,9 +239,10 @@ public class LinkedListDemo {
                 //get the current node question and answer
                 String question = current.data.getQuestion();
                 String answer = current.data.getCorrectAnswer();
+                String id = current.data.getQuestionID();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || id.equals(str)){
                     //print the information of the current node data
                     System.out.println("Question " + current.data.getQuestionNumber());
                     System.out.println("Question ID: "+ current.data.getQuestionID());

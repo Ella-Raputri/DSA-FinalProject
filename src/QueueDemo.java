@@ -261,7 +261,7 @@ public class QueueDemo {
         }
         else{
             //ask user for the string to be searched
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or question ID: ");
             String str = scanner.nextLine();
 
             //variable to track whether there exists a result for the search
@@ -273,7 +273,7 @@ public class QueueDemo {
                 String answer = i.getCorrectAnswer();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || i.getQuestionID().equals(str)){
                     //print the information
                     System.out.println("Question " + i.getQuestionNumber());
                     System.out.println("Question ID: "+ i.getQuestionID());

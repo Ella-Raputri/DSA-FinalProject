@@ -160,9 +160,10 @@ public class LinkedlistBenchmark {
                 //get the current node question and answer
                 String question = current.data.getQuestion();
                 String answer = current.data.getCorrectAnswer();
+                String id = current.data.getQuestionID();
 
                 //if the question or answer contains the searched string
-                if(question.contains(str) || answer.contains(str)){
+                if(question.contains(str) || answer.contains(str) || id.equals(str)){
                     //print the information of the current node data
                     System.out.println("Question " + current.data.getQuestionNumber());
                     System.out.println("Question ID: "+ current.data.getQuestionID());
