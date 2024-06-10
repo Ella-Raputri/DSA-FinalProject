@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -132,23 +131,7 @@ public class TreeRedBlackDemo {
             }
         }
     }
-    
 
-    public boolean isNumeric(String strNum) {
-        //to check whether some string is numeric
-        if (strNum == null) {
-            //if the string is null, then return false
-            return false;
-        }
-        //if not null, then try to parse the string to integer
-        try {
-            int d = Integer.parseInt(strNum);
-        } catch (NumberFormatException nfe) {
-            //if exception happens, then return false
-            return false;
-        }
-        return true; //if not, return true
-    }
 
     public void changeOrder(){
         //if the tree is empty, then print the error message
@@ -164,7 +147,7 @@ public class TreeRedBlackDemo {
             String answer = scanner.nextLine();
             
             //if the new number is not valid, then return
-            if(!isNumeric(answer)){
+            if(!quiz.isNumeric(answer)){
                 System.out.println("Invalid. Please try again.");
                 return;
             }
@@ -227,36 +210,6 @@ public class TreeRedBlackDemo {
         }
     }
 
-    public int partition(LinkedList<TreeNode> arr, int low, int high){
-        // Choosing the pivot
-        int pivot = arr.get(high).data.getQuestionNumber();
-
-        // Index of smaller element and indicates
-        // the right position of pivot found so far
-        int i = (low - 1);
-
-        for (int j = low; j <= high - 1; j++) {
-            // If current element is smaller than the pivot
-            if (arr.get(j).data.getQuestionNumber() < pivot) { 
-                // Increment index of smaller element
-                i++;
-                Collections.swap(arr, i, j);
-            }
-        }
-        Collections.swap(arr, i + 1, high);
-        return (i + 1);
-    }
-    
-    public void quickSort(LinkedList<TreeNode> arr, int low, int high){
-        //perform quick sort by first partition it first
-        if (low < high) {
-            int pi = partition(arr, low, high);
-
-            //then recur on the range before and range after partition
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-    }
 
     public void questionSearch(){
         //if the tree is empty, then print the error message
@@ -266,33 +219,47 @@ public class TreeRedBlackDemo {
         }
         else{
             //ask user to input the string they want to search
-            System.out.print("Search for string: ");
+            System.out.print("Search for string or question ID: ");
             String answer = scanner.nextLine();
+            
+            //search the whether there is a node with the ID of user input
+            TreeNode IDNode = quiz.searchNode(answer);
 
-            //linked list to save the results
-            LinkedList<TreeNode> results = new LinkedList<TreeNode>();
-            //search the tree with the string
-            results = quiz.searchNodeString(quiz.getRoot(), answer, results);
-            //sort the results based on the question number
-            quickSort(results, 0, results.size()-1);
+            //if not, then it is possible that the user input is the substring
+            if (IDNode == null){
+                //linked list to save the results
+                LinkedList<TreeNode> results = new LinkedList<TreeNode>();
+                //search the tree with the string
+                results = quiz.searchNodeString(quiz.getRoot(), answer, results);
+                //sort the results based on the question number
+                quiz.quickSort(results, 0, results.size()-1);
 
-            //if there is no result, then return
-            if (results == null || results.size() == 0){
-                System.out.println("No result found. Please try again.");
-                return;
-            }else{
-                //for every treenode inside the results linked list
-                for (TreeNode result : results){
-                    //print the information of the node data
-                    System.out.println("Question " + result.data.getQuestionNumber());
-                    System.out.println("Question ID: "+ result.data.getQuestionID());
-                    System.out.println("Question: "+ result.data.getQuestion());
-                    System.out.println("Answer: "+ result.data.getCorrectAnswer());
-                    System.out.println();                 
+                //if there is no result, then return
+                if (results == null || results.size() == 0){
+                    System.out.println("No result found. Please try again.");
+                    return;
+                }else{
+                    //for every treenode inside the results linked list
+                    for (TreeNode result : results){
+                        //print the information of the node data
+                        System.out.println("Question " + result.data.getQuestionNumber());
+                        System.out.println("Question ID: "+ result.data.getQuestionID());
+                        System.out.println("Question: "+ result.data.getQuestion());
+                        System.out.println("Answer: "+ result.data.getCorrectAnswer());
+                        System.out.println();                 
+                    }
+                    return;
                 }
-                return;
-            }
 
+            }else{
+                //print the node information with the corresponding ID
+                System.out.println("Question " + IDNode.data.getQuestionNumber());
+                System.out.println("Question ID: "+ IDNode.data.getQuestionID());
+                System.out.println("Question: "+ IDNode.data.getQuestion());
+                System.out.println("Answer: "+ IDNode.data.getCorrectAnswer());
+                System.out.println(); 
+                return;
+            } 
         }
     }
 

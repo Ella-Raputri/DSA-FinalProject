@@ -1,4 +1,5 @@
 //import Java APIs
+import java.util.Collections;
 import java.util.LinkedList;
 /**
  * A red-black tree implementation with <code>int</code> keys.
@@ -14,28 +15,80 @@ public class TreeRedBlack extends TreeBaseBinary implements TreeBinarySearch {
     public TreeNode searchNode(String key) {
         //parse the ID into integer
         //because the node is arranged based on their ID
-        int key_number = Integer.parseInt(key);
+        int key_number = 0;
         TreeNode node = root;
 
-        //check starting from the root node
-        while (node != null) {
-            //if the searched ID is equal to the node, then return the node
-            if (key_number == Integer.parseInt(node.data.getQuestionID())) {
-                return node;
+        if (isNumeric(key)) {
+            key_number = Integer.parseInt(key);
 
-            //if the searched ID is lesser than the one in the node, then the searched node
-            //can be searched from the node left child
-            } else if (key_number < Integer.parseInt(node.data.getQuestionID())) {
-                node = node.left;
+            //check starting from the root node
+            while (node != null) {
+                //if the searched ID is equal to the node, then return the node
+                if (key_number == Integer.parseInt(node.data.getQuestionID())) {
+                    return node;
 
-            //if the searched ID is greater than the one in the node, then the searched node
-            //can be searched from the node right child
-            } else {
-                node = node.right;
+                //if the searched ID is lesser than the one in the node, then the searched node
+                //can be searched from the node left child
+                } else if (key_number < Integer.parseInt(node.data.getQuestionID())) {
+                    node = node.left;
+
+                //if the searched ID is greater than the one in the node, then the searched node
+                //can be searched from the node right child
+                } else {
+                    node = node.right;
+                }
             }
         }
-
+        
         return null;
+    }
+
+    
+    public boolean isNumeric(String strNum) {
+        //to check whether some string is numeric
+        if (strNum == null) {
+            //if the string is null, then return false
+            return false;
+        }
+        //if not null, then try to parse the string to integer
+        try {
+            int d = Integer.parseInt(strNum);
+        } catch (NumberFormatException nfe) {
+            //if exception happens, then return false
+            return false;
+        }
+        return true; //if not, return true
+    }
+
+    public int partition(LinkedList<TreeNode> arr, int low, int high){
+        // Choosing the pivot
+        int pivot = arr.get(high).data.getQuestionNumber();
+
+        // Index of smaller element and indicates
+        // the right position of pivot found so far
+        int i = (low - 1);
+
+        for (int j = low; j <= high - 1; j++) {
+            // If current element is smaller than the pivot
+            if (arr.get(j).data.getQuestionNumber() < pivot) { 
+                // Increment index of smaller element
+                i++;
+                Collections.swap(arr, i, j);
+            }
+        }
+        Collections.swap(arr, i + 1, high);
+        return (i + 1);
+    }
+    
+    public void quickSort(LinkedList<TreeNode> arr, int low, int high){
+        //perform quick sort by first partition it first
+        if (low < high) {
+            int pi = partition(arr, low, high);
+
+            //then recur on the range before and range after partition
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
     }
 
 

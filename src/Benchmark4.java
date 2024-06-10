@@ -13,7 +13,7 @@ public class Benchmark4 {
     public static void inputQuestion() {
         try {
             //read the ExampleQuestions file
-            FileReader fr =new FileReader("src/ExampleQuestions.txt");    
+            FileReader fr =new FileReader("src/ExampleQuestions1.txt");    
             BufferedReader reader = new BufferedReader(fr);
             String eachLine;
             //while reading each line
